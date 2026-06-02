@@ -1,0 +1,208 @@
+{
+  "phase": "PHASE 2 — DATA LAYER",
+  "block": "BLOCK 2.3 — data/faq.json",
+  "version": "2.3.0",
+  "last_updated": "2026-06-02",
+  "faq_sections": [
+    {
+      "section": "SECTION 2.3.1 — Venue Rental FAQs",
+      "items": [
+        {
+          "item": "ITEM 2.3.1.1 — Can the Lodge be rented for private events?",
+          "question": "Can the Lodge be rented for private events?",
+          "answer": "Yes. The Morristown Masonic Center can be positioned as a flexible venue for private events, meetings, community programs, entertainment nights, and selected rentals depending on approval, scheduling, and Lodge guidelines.",
+          "keywords": [
+            "Morristown event venue",
+            "private event venue Morristown",
+            "event space Morristown NJ"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.1.2 — Where is the Lodge located?",
+          "question": "Where is the Lodge located?",
+          "answer": "The Morristown Masonic Center is located at 39 Maple Ave, Morristown, NJ 07960.",
+          "keywords": [
+            "39 Maple Ave Morristown",
+            "Morristown Masonic Center",
+            "Masonic Lodge Morristown NJ"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.1.3 — What types of events can be hosted at the Lodge?",
+          "question": "What types of events can be hosted at the Lodge?",
+          "answer": "Potential event uses include business meetings, networking events, comedy nights, debate nights, educational workshops, chess club, community programs, holiday events, private gatherings, and selected entertainment events.",
+          "keywords": [
+            "meeting space Morristown",
+            "community events Morristown",
+            "Morristown venue rental"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.1.4 — Is the Lodge good for business meetings?",
+          "question": "Is the Lodge good for business meetings?",
+          "answer": "Yes. The Lodge can be promoted as a professional meeting space for business groups, nonprofit organizations, lectures, workshops, networking events, and community presentations.",
+          "keywords": [
+            "business meeting space Morristown",
+            "corporate meeting space Morristown",
+            "professional event venue Morristown"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "SECTION 2.3.2 — Membership FAQs",
+      "items": [
+        {
+          "item": "ITEM 2.3.2.1 — What is Freemasonry?",
+          "question": "What is Freemasonry?",
+          "answer": "Freemasonry is a fraternity focused on brotherhood, moral growth, charity, service, leadership, and self-improvement. The Lodge provides a place for men to build character, serve others, and strengthen lifelong bonds.",
+          "keywords": [
+            "what is Freemasonry",
+            "Freemasonry Morristown",
+            "Masonic Lodge New Jersey"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.2.2 — How do I become a Mason?",
+          "question": "How do I become a Mason?",
+          "answer": "A man interested in Freemasonry can begin by learning about the fraternity, speaking respectfully with members, and expressing sincere interest in joining. A future website page should guide visitors toward the proper Lodge inquiry process.",
+          "keywords": [
+            "become a Mason NJ",
+            "join the Freemasons",
+            "how to become a Mason"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.2.3 — What values does Freemasonry promote?",
+          "question": "What values does Freemasonry promote?",
+          "answer": "Freemasonry promotes brotherhood, integrity, charity, service, education, leadership, humility, and the lifelong improvement of character.",
+          "keywords": [
+            "Masonic values",
+            "brotherhood and self improvement",
+            "Freemason values"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "SECTION 2.3.3 — Event Program FAQs",
+      "items": [
+        {
+          "item": "ITEM 2.3.3.1 — What kinds of public events are being developed?",
+          "question": "What kinds of public events are being developed?",
+          "answer": "Current concepts include Debate Night Live, Community Chess Club, Comedy Night Series, Business Networking Forum, Halloween at the Lodge, Luck of the Lodge, and the XL Entertainment Rap and R&B Series.",
+          "keywords": [
+            "events Morristown NJ",
+            "things to do in Morristown",
+            "Morristown live events"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.3.2 — Why are events important for the Lodge?",
+          "question": "Why are events important for the Lodge?",
+          "answer": "Events can support Lodge sustainability, increase community engagement, improve public visibility, generate revenue, create partnerships, and introduce more people to the values of Freemasonry.",
+          "keywords": [
+            "community engagement Morristown",
+            "Masonic Lodge events",
+            "community programs Morristown"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.3.3 — Are all events designed to make money?",
+          "question": "Are all events designed to make money?",
+          "answer": "No. Events should be organized into three categories: revenue events, community events, and Masonic events. Some events are designed for income, some for public goodwill, and some for member development.",
+          "keywords": [
+            "revenue events",
+            "community events",
+            "Masonic events"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "SECTION 2.3.4 — Debate Night FAQs",
+      "items": [
+        {
+          "item": "ITEM 2.3.4.1 — Is Debate Night political?",
+          "question": "Is Debate Night political?",
+          "answer": "No. Debate Night Live is designed to avoid politics, religious attacks, hate speech, and current political controversies. The goal is respectful, entertaining, thoughtful conversation.",
+          "keywords": [
+            "Debate Night Morristown",
+            "non political debate event",
+            "Morristown forum"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.4.2 — What topics can Debate Night cover?",
+          "question": "What topics can Debate Night cover?",
+          "answer": "Debate Night can cover philosophy, technology, lifestyle, entertainment, humor, food, movies, local culture, and fun hypothetical questions.",
+          "keywords": [
+            "debate topics",
+            "intellectual events Morristown",
+            "community debate night"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.4.3 — Why does Debate Night fit the Lodge?",
+          "question": "Why does Debate Night fit the Lodge?",
+          "answer": "Debate Night fits the Lodge because it encourages respectful discourse, education, self-improvement, leadership, community engagement, and thoughtful conversation.",
+          "keywords": [
+            "Masonic education",
+            "respectful discourse",
+            "Lodge forum"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "SECTION 2.3.5 — Chess Club FAQs",
+      "items": [
+        {
+          "item": "ITEM 2.3.5.1 — Is Chess Club beginner friendly?",
+          "question": "Is Chess Club beginner friendly?",
+          "answer": "Yes. Community Chess Club should be designed as a beginner-friendly program that welcomes students, families, adults, and experienced players.",
+          "keywords": [
+            "Chess Club Morristown",
+            "beginner chess Morristown",
+            "family friendly events Morristown"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.5.2 — Why is chess a good community program?",
+          "question": "Why is chess a good community program?",
+          "answer": "Chess supports education, strategy, patience, sportsmanship, intergenerational connection, and recurring community engagement.",
+          "keywords": [
+            "community chess",
+            "educational events Morristown",
+            "youth chess Morristown"
+          ]
+        }
+      ]
+    },
+    {
+      "section": "SECTION 2.3.6 — Business Networking FAQs",
+      "items": [
+        {
+          "item": "ITEM 2.3.6.1 — Can the Lodge host business networking events?",
+          "question": "Can the Lodge host business networking events?",
+          "answer": "Yes. The Lodge can be positioned as a professional venue for business networking events, entrepreneur meetups, nonprofit gatherings, real estate networking, local business forums, and community leadership events.",
+          "keywords": [
+            "business networking Morristown",
+            "professional events Morristown",
+            "networking venue Morristown"
+          ]
+        },
+        {
+          "item": "ITEM 2.3.6.2 — Who should attend business networking events?",
+          "question": "Who should attend business networking events?",
+          "answer": "Potential attendees include local business owners, entrepreneurs, real estate professionals, nonprofit leaders, civic leaders, community partners, and professionals looking to build local relationships.",
+          "keywords": [
+            "Morristown business networking",
+            "entrepreneur events Morristown",
+            "local business events Morristown"
+          ]
+        }
+      ]
+    }
+  ]
+}

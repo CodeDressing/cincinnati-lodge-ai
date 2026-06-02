@@ -1,0 +1,117 @@
+{
+  "name": "Morristown Masonic Center",
+  "address": "39 Maple Ave, Morristown, NJ 07960",
+  "phone": "",
+  "email": "",
+  "website": "",
+  "project_name": "Project Maple",
+  "mission": "To preserve and strengthen Freemasonry while serving as a center for community engagement, education, fellowship, culture, business networking, and responsible entertainment.",
+  "vision": "To become one of the most recognized community gathering spaces in Morris County while promoting the values of Freemasonry through visibility, service, and personal development.",
+  "core_values": [
+    "Brotherhood",
+    "Integrity",
+    "Education",
+    "Charity",
+    "Leadership",
+    "Self Improvement",
+    "Community Service"
+  ],
+  "strategic_goals": [
+    "Generate revenue for Lodge sustainability",
+    "Increase community engagement",
+    "Promote public awareness of Freemasonry",
+    "Support member retention and growth",
+    "Create pathways for membership interest",
+    "Develop recurring public programs",
+    "Position the Lodge as a destination venue"
+  ],
+  "positioning": [
+    "Community Gathering Space",
+    "Educational Center",
+    "Business Networking Venue",
+    "Event Venue",
+    "Historical Landmark",
+    "Entertainment Destination",
+    "Leadership Development Organization"
+  ],
+  "event_categories": {
+    "revenue_events": {
+      "description": "Events designed primarily to generate revenue for Lodge operations and improvements.",
+      "examples": [
+        "Comedy Shows",
+        "Concerts",
+        "Debate Nights",
+        "Business Networking Events",
+        "Trivia Nights",
+        "Vendor Fairs",
+        "Private Rentals",
+        "Corporate Meetings",
+        "Holiday Events"
+      ]
+    },
+    "community_events": {
+      "description": "Events designed to strengthen community relationships and public goodwill.",
+      "examples": [
+        "Chess Club",
+        "Educational Workshops",
+        "Historical Lectures",
+        "Community Fundraisers",
+        "Veterans Programs",
+        "Holiday Drives",
+        "Youth Programs"
+      ]
+    },
+    "masonic_events": {
+      "description": "Events intended for member education, fellowship, and fraternity development.",
+      "examples": [
+        "Degree Work",
+        "Officer Training",
+        "Educational Presentations",
+        "Family Events",
+        "Fellowship Nights",
+        "Lodge Dinners",
+        "Leadership Development"
+      ]
+    }
+  },
+  "website_objectives": [
+    "Increase venue bookings",
+    "Improve local SEO",
+    "Promote community programs",
+    "Support membership inquiries",
+    "Showcase Lodge history",
+    "Display upcoming events",
+    "Generate recurring website traffic"
+  ],
+  "seo_focus": {
+    "venue": [
+      "Morristown Event Venue",
+      "Private Event Venue Morristown",
+      "Meeting Space Morristown",
+      "Corporate Meeting Space Morristown",
+      "Event Space Morristown NJ"
+    ],
+    "membership": [
+      "Become a Mason NJ",
+      "Join the Freemasons",
+      "Freemasonry Morristown",
+      "Masonic Lodge New Jersey",
+      "Brotherhood and Self Improvement"
+    ],
+    "community": [
+      "Community Events Morristown",
+      "Chess Club Morristown",
+      "Educational Events Morristown",
+      "Historical Events Morristown"
+    ]
+  },
+  "signature_programs": [
+    "Debate Night Live",
+    "Community Chess Club",
+    "Comedy Night Series",
+    "Business Networking Forum",
+    "Holiday Events",
+    "Educational Lecture Series"
+  ],
+  "tagline": "Building Better Men Through Brotherhood, Leadership, Service, and Community."
+}
