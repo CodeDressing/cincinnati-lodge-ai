@@ -1,0 +1,221 @@
+/* ============================================================
+   PROJECT MAPLE — CINCINNATI LODGE AI
+   PHASE 4 — STATIC DESIGN LAYER
+   BLOCK 4.6 — animations.css
+   PURPOSE: Motion, hover polish, entrance animation, luxury UI effects
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION 4.6.1 — GLOBAL PAGE ENTRANCE
+   ============================================================ */
+
+body {
+    animation: pageFadeIn 520ms ease both;
+}
+
+@keyframes pageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+   SECTION 4.6.2 — HERO TEXT ENTRANCE
+   ============================================================ */
+
+.home-hero .eyebrow,
+.page-hero .eyebrow {
+    animation: softRise 700ms ease both;
+}
+
+.home-hero h1,
+.page-hero h1 {
+    animation: softRise 820ms ease both;
+}
+
+.home-hero p,
+.page-hero p,
+.hero-actions {
+    animation: softRise 960ms ease both;
+}
+
+@keyframes softRise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+        filter: blur(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+
+/* ============================================================
+   SECTION 4.6.3 — GOLD GLOW PULSE
+   ============================================================ */
+
+.button-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.button-primary::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.32) 45%,
+            transparent 70%
+        );
+
+    transform: translateX(-120%);
+    transition: transform 700ms ease;
+}
+
+.button-primary:hover::after {
+    transform: translateX(120%);
+}
+
+
+/* ============================================================
+   SECTION 4.6.4 — CARD LIFT MICROINTERACTIONS
+   ============================================================ */
+
+.info-card,
+.event-card,
+.faq-item,
+.assistant-panel,
+.assistant-sidebar,
+.detail-sidebar {
+    will-change: transform;
+}
+
+.info-card:hover,
+.event-card:hover,
+.faq-item:hover {
+    transform: translateY(-6px);
+}
+
+
+/* ============================================================
+   SECTION 4.6.5 — NAVIGATION UNDERGLOW
+   ============================================================ */
+
+.main-nav a {
+    position: relative;
+}
+
+.main-nav a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0.15rem;
+
+    width: 0;
+    height: 1px;
+
+    background: var(--color-gold-500);
+
+    transform: translateX(-50%);
+    transition: width var(--transition-medium);
+}
+
+.main-nav a:hover::after {
+    width: 60%;
+}
+
+
+/* ============================================================
+   SECTION 4.6.6 — SUBTLE BACKGROUND SHIMMER
+   ============================================================ */
+
+.home-hero::after,
+.page-hero::after {
+    content: "";
+    position: absolute;
+    inset: -40%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(201, 162, 39, 0.08) 50%,
+            transparent 70%
+        );
+
+    transform: translateX(-30%) rotate(8deg);
+    animation: slowShimmer 12s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes slowShimmer {
+    from {
+        transform: translateX(-32%) rotate(8deg);
+    }
+
+    to {
+        transform: translateX(12%) rotate(8deg);
+    }
+}
+
+
+/* ============================================================
+   SECTION 4.6.7 — DETAILS OPENING POLISH
+   ============================================================ */
+
+details[open] {
+    border-color: var(--border-gold-soft);
+}
+
+details[open] p {
+    animation: faqReveal 280ms ease both;
+}
+
+@keyframes faqReveal {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ============================================================
+   SECTION 4.6.8 — REDUCED MOTION SUPPORT
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+    }
+}
+
+
+/* ============================================================
+   END BLOCK 4.6 — animations.css
+   ============================================================ */

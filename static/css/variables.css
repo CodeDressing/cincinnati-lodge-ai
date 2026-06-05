@@ -1,0 +1,166 @@
+/* ============================================================
+   PROJECT MAPLE — CINCINNATI LODGE AI
+   PHASE 4 — STATIC DESIGN LAYER
+   BLOCK 4.3 — variables.css
+   PURPOSE: Global design tokens for the entire platform
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION 4.3.1 — COLOR SYSTEM
+   ============================================================ */
+
+:root {
+    --color-navy-950: #070B14;
+    --color-navy-900: #0E1424;
+    --color-navy-850: #121A2E;
+    --color-navy-800: #18213A;
+    --color-navy-700: #1F2D51;
+
+    --color-gold-500: #C9A227;
+    --color-gold-400: #D8B84A;
+    --color-gold-300: #E7CB72;
+
+    --color-cream-100: #F7F2E8;
+    --color-stone-200: #E6E1D6;
+    --color-slate-300: #B8C0D4;
+    --color-slate-500: #7F8AA3;
+
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    --color-success: #39D98A;
+    --color-warning: #FFB020;
+    --color-danger: #FF5C5C;
+}
+
+
+/* ============================================================
+   SECTION 4.3.2 — BACKGROUND SYSTEM
+   ============================================================ */
+
+:root {
+    --background-page: var(--color-navy-950);
+    --background-surface: var(--color-navy-900);
+    --background-card: var(--color-navy-800);
+    --background-card-hover: var(--color-navy-700);
+
+    --background-glass: rgba(14, 20, 36, 0.78);
+    --background-gold-soft: rgba(201, 162, 39, 0.12);
+}
+
+
+/* ============================================================
+   SECTION 4.3.3 — TEXT SYSTEM
+   ============================================================ */
+
+:root {
+    --text-primary: var(--color-cream-100);
+    --text-secondary: var(--color-slate-300);
+    --text-muted: var(--color-slate-500);
+    --text-inverse: var(--color-navy-950);
+    --text-accent: var(--color-gold-500);
+}
+
+
+/* ============================================================
+   SECTION 4.3.4 — BORDER SYSTEM
+   ============================================================ */
+
+:root {
+    --border-soft: rgba(255, 255, 255, 0.08);
+    --border-gold-soft: rgba(201, 162, 39, 0.24);
+    --border-gold-strong: rgba(201, 162, 39, 0.55);
+
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 22px;
+    --radius-xl: 32px;
+    --radius-pill: 999px;
+}
+
+
+/* ============================================================
+   SECTION 4.3.5 — SHADOW SYSTEM
+   ============================================================ */
+
+:root {
+    --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.25);
+    --shadow-medium: 0 20px 50px rgba(0, 0, 0, 0.35);
+    --shadow-large: 0 35px 90px rgba(0, 0, 0, 0.45);
+
+    --shadow-gold-glow: 0 0 40px rgba(201, 162, 39, 0.18);
+}
+
+
+/* ============================================================
+   SECTION 4.3.6 — TYPOGRAPHY SYSTEM
+   ============================================================ */
+
+:root {
+    --font-display: Georgia, "Times New Roman", serif;
+    --font-body: Inter, "Segoe UI", Arial, sans-serif;
+
+    --font-size-xs: 0.78rem;
+    --font-size-sm: 0.9rem;
+    --font-size-base: 1rem;
+    --font-size-md: 1.1rem;
+    --font-size-lg: 1.35rem;
+    --font-size-xl: 1.8rem;
+    --font-size-2xl: 2.4rem;
+    --font-size-3xl: 3.4rem;
+    --font-size-4xl: 5rem;
+
+    --line-height-tight: 1.05;
+    --line-height-heading: 1.15;
+    --line-height-body: 1.7;
+}
+
+
+/* ============================================================
+   SECTION 4.3.7 — SPACING SYSTEM
+   ============================================================ */
+
+:root {
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.5rem;
+    --space-6: 2rem;
+    --space-7: 3rem;
+    --space-8: 4rem;
+    --space-9: 6rem;
+    --space-10: 8rem;
+
+    --page-gutter: clamp(1.25rem, 5vw, 5rem);
+    --content-max-width: 1180px;
+    --wide-max-width: 1440px;
+}
+
+
+/* ============================================================
+   SECTION 4.3.8 — MOTION SYSTEM
+   ============================================================ */
+
+:root {
+    --transition-fast: 160ms ease;
+    --transition-medium: 260ms ease;
+    --transition-slow: 420ms ease;
+}
+
+
+/* ============================================================
+   SECTION 4.3.9 — Z-INDEX SYSTEM
+   ============================================================ */
+
+:root {
+    --z-header: 100;
+    --z-overlay: 200;
+    --z-modal: 300;
+}
+
+
+/* ============================================================
+   END BLOCK 4.3 — variables.css
+   ============================================================ */

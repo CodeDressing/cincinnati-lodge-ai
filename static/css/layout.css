@@ -1,0 +1,363 @@
+/* ============================================================
+   PROJECT MAPLE — CINCINNATI LODGE AI
+   PHASE 4 — STATIC DESIGN LAYER
+   BLOCK 4.4 — layout.css
+   PURPOSE: Global layout, page structure, sections, header, footer
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION 4.4.1 — GLOBAL RESET
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(201, 162, 39, 0.12), transparent 34rem),
+        linear-gradient(180deg, var(--color-navy-950), var(--color-navy-900));
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: var(--line-height-body);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ============================================================
+   SECTION 4.4.2 — PAGE WRAPPER
+   ============================================================ */
+
+.page-content {
+    min-height: 70vh;
+}
+
+.content-section,
+.final-cta,
+.page-hero,
+.home-hero {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+}
+
+.content-section {
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-8);
+    max-width: var(--wide-max-width);
+    margin: 0 auto;
+}
+
+.alt-section {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(201, 162, 39, 0.035)
+        );
+    border-top: 1px solid var(--border-soft);
+    border-bottom: 1px solid var(--border-soft);
+    max-width: none;
+}
+
+
+/* ============================================================
+   SECTION 4.4.3 — SITE HEADER
+   ============================================================ */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-header);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-5);
+
+    padding: 1rem var(--page-gutter);
+
+    background: rgba(7, 11, 20, 0.88);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border-gold-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.brand-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.brand-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.45rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 0.03em;
+}
+
+.brand-subtitle {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================
+   SECTION 4.4.4 — NAVIGATION
+   ============================================================ */
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.main-nav a {
+    padding: 0.55rem 0.85rem;
+    border-radius: var(--radius-pill);
+
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.main-nav a:hover {
+    background: var(--background-gold-soft);
+    color: var(--text-accent);
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   SECTION 4.4.5 — HERO LAYOUTS
+   ============================================================ */
+
+.home-hero,
+.page-hero {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 74vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(7, 11, 20, 0.95),
+            rgba(31, 45, 81, 0.85)
+        );
+}
+
+.home-hero::before,
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 70% 20%, rgba(201, 162, 39, 0.18), transparent 22rem),
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.08), transparent 18rem);
+
+    pointer-events: none;
+}
+
+.home-hero > *,
+.page-hero > * {
+    position: relative;
+    max-width: 920px;
+}
+
+.home-hero h1,
+.page-hero h1 {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: var(--line-height-tight);
+    letter-spacing: -0.055em;
+}
+
+.hero-address,
+.hero-text,
+.page-hero p {
+    color: var(--text-secondary);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 780px;
+}
+
+
+/* ============================================================
+   SECTION 4.4.6 — GRID SYSTEMS
+   ============================================================ */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+}
+
+.detail-layout,
+.assistant-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: var(--space-6);
+    align-items: start;
+}
+
+
+/* ============================================================
+   SECTION 4.4.7 — TYPOGRAPHY LAYOUT
+   ============================================================ */
+
+.section-kicker,
+.eyebrow {
+    margin: 0 0 var(--space-3);
+
+    color: var(--text-accent);
+
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.content-section h2,
+.final-cta h2 {
+    margin: 0 0 var(--space-4);
+
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: var(--line-height-heading);
+    letter-spacing: -0.035em;
+}
+
+.content-section p {
+    max-width: 900px;
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================
+   SECTION 4.4.8 — FINAL CTA
+   ============================================================ */
+
+.final-cta {
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-9);
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201, 162, 39, 0.18),
+            rgba(31, 45, 81, 0.72)
+        );
+    border-top: 1px solid var(--border-gold-soft);
+}
+
+.final-cta > * {
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-cta p {
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================
+   SECTION 4.4.9 — SITE FOOTER
+   ============================================================ */
+
+.site-footer {
+    padding: var(--space-6) var(--page-gutter);
+
+    background: var(--color-navy-950);
+    color: var(--text-secondary);
+
+    border-top: 1px solid var(--border-soft);
+    text-align: center;
+}
+
+.footer-note {
+    color: var(--text-muted);
+    font-size: var(--font-size-sm);
+}
+
+
+/* ============================================================
+   SECTION 4.4.10 — RESPONSIVE LAYOUT
+   ============================================================ */
+
+@media (max-width: 980px) {
+    .site-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .detail-layout,
+    .assistant-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .home-hero,
+    .page-hero {
+        min-height: auto;
+    }
+
+    .main-nav {
+        width: 100%;
+    }
+
+    .main-nav a {
+        padding-left: 0;
+    }
+}
+
+
+/* ============================================================
+   END BLOCK 4.4 — layout.css
+   ============================================================ */

@@ -1,0 +1,414 @@
+/* ============================================================
+   PROJECT MAPLE — CINCINNATI LODGE AI
+   PHASE 4 — STATIC DESIGN LAYER
+   BLOCK 4.5 — components.css
+   PURPOSE: Buttons, cards, forms, FAQs, timelines, pills, event UI
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION 4.5.1 — BUTTON SYSTEM
+   ============================================================ */
+
+.button-primary,
+.button-secondary,
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 48px;
+    padding: 0.85rem 1.25rem;
+
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+
+    font-weight: 800;
+    font-size: var(--font-size-sm);
+    letter-spacing: 0.02em;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.button-primary,
+button {
+    background: linear-gradient(135deg, var(--color-gold-500), var(--color-gold-300));
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-gold-glow);
+}
+
+.button-primary:hover,
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 55px rgba(201, 162, 39, 0.28);
+}
+
+.button-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-primary);
+    border-color: var(--border-gold-soft);
+}
+
+.button-secondary:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-gold-strong);
+    background: var(--background-gold-soft);
+}
+
+.hero-actions {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-5);
+}
+
+
+/* ============================================================
+   SECTION 4.5.2 — INFORMATION CARDS
+   ============================================================ */
+
+.info-card,
+.event-card,
+.assistant-panel,
+.assistant-sidebar,
+.assistant-answer,
+.detail-sidebar,
+.faq-item {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.055),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-soft);
+
+    backdrop-filter: blur(14px);
+}
+
+.info-card {
+    padding: var(--space-5);
+    transition:
+        transform var(--transition-medium),
+        border-color var(--transition-medium),
+        background var(--transition-medium);
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-gold-soft);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(201, 162, 39, 0.105),
+            rgba(255, 255, 255, 0.035)
+        );
+}
+
+.info-card h3 {
+    margin-top: 0;
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+}
+
+.info-card p {
+    margin-bottom: 0;
+}
+
+
+/* ============================================================
+   SECTION 4.5.3 — EVENT CARDS
+   ============================================================ */
+
+.event-card {
+    overflow: hidden;
+    transition:
+        transform var(--transition-medium),
+        border-color var(--transition-medium),
+        box-shadow var(--transition-medium);
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-gold-soft);
+    box-shadow: var(--shadow-medium);
+}
+
+.event-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    background: var(--color-navy-800);
+}
+
+.event-card-body {
+    padding: var(--space-5);
+}
+
+.event-category {
+    margin: 0 0 var(--space-2);
+    color: var(--text-accent);
+    font-size: var(--font-size-xs);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+}
+
+.event-card h3 {
+    margin: 0 0 var(--space-3);
+    font-size: var(--font-size-lg);
+    color: var(--text-primary);
+}
+
+.event-card p {
+    color: var(--text-secondary);
+}
+
+.event-card a {
+    display: inline-flex;
+    margin-top: var(--space-3);
+    color: var(--text-accent);
+    font-weight: 800;
+}
+
+
+/* ============================================================
+   SECTION 4.5.4 — EVENT META LISTS
+   ============================================================ */
+
+.event-meta-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0;
+    display: grid;
+    gap: var(--space-2);
+}
+
+.event-meta-list li {
+    padding: 0.75rem 0.85rem;
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-soft);
+}
+
+.event-meta-list strong {
+    color: var(--text-primary);
+}
+
+.event-meta-list.large li {
+    padding: 1rem;
+}
+
+
+/* ============================================================
+   SECTION 4.5.5 — DETAIL PAGE COMPONENTS
+   ============================================================ */
+
+.detail-image {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-gold-soft);
+    box-shadow: var(--shadow-large);
+    margin-bottom: var(--space-6);
+}
+
+.detail-sidebar {
+    padding: var(--space-5);
+    position: sticky;
+    top: 110px;
+}
+
+.detail-sidebar h3 {
+    margin-top: 0;
+    font-size: var(--font-size-lg);
+}
+
+.sidebar-button {
+    width: 100%;
+    margin-top: var(--space-4);
+}
+
+
+/* ============================================================
+   SECTION 4.5.6 — TIMELINE
+   ============================================================ */
+
+.timeline {
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+}
+
+.timeline-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: var(--space-4);
+    align-items: center;
+
+    padding: var(--space-4);
+
+    background: rgba(255, 255, 255, 0.045);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-lg);
+}
+
+.timeline-time {
+    color: var(--text-accent);
+    font-weight: 900;
+}
+
+.timeline-item p {
+    margin: 0;
+}
+
+
+/* ============================================================
+   SECTION 4.5.7 — PILL LISTS
+   ============================================================ */
+
+.pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+}
+
+.pill-list span {
+    padding: 0.65rem 0.9rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-gold-soft);
+    background: var(--background-gold-soft);
+    color: var(--text-primary);
+    font-size: var(--font-size-sm);
+}
+
+
+/* ============================================================
+   SECTION 4.5.8 — FAQ COMPONENTS
+   ============================================================ */
+
+.faq-list {
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+}
+
+.faq-item {
+    padding: var(--space-4);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    color: var(--text-primary);
+    font-weight: 900;
+}
+
+.faq-item p {
+    margin-bottom: 0;
+}
+
+
+/* ============================================================
+   SECTION 4.5.9 — ASSISTANT COMPONENTS
+   ============================================================ */
+
+.assistant-panel,
+.assistant-sidebar,
+.assistant-answer {
+    padding: var(--space-5);
+}
+
+.assistant-form {
+    display: grid;
+    gap: var(--space-3);
+}
+
+.assistant-form label {
+    font-weight: 800;
+    color: var(--text-primary);
+}
+
+.assistant-form textarea,
+.assistant-form input {
+    width: 100%;
+    padding: 1rem;
+
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-soft);
+
+    background: rgba(0, 0, 0, 0.24);
+    color: var(--text-primary);
+
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+}
+
+.assistant-form textarea:focus,
+.assistant-form input:focus {
+    outline: none;
+    border-color: var(--border-gold-strong);
+    box-shadow: var(--shadow-gold-glow);
+}
+
+.assistant-sidebar ul {
+    margin: var(--space-4) 0 0;
+    padding-left: 1.2rem;
+    color: var(--text-secondary);
+}
+
+.assistant-answer {
+    margin-top: var(--space-5);
+}
+
+
+/* ============================================================
+   SECTION 4.5.10 — SMALL CARDS
+   ============================================================ */
+
+.small-card {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ============================================================
+   SECTION 4.5.11 — RESPONSIVE COMPONENTS
+   ============================================================ */
+
+@media (max-width: 680px) {
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .button-primary,
+    .button-secondary,
+    button {
+        width: 100%;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-sidebar {
+        position: static;
+    }
+}
+
+
+/* ============================================================
+   END BLOCK 4.5 — components.css
+   ============================================================ */
