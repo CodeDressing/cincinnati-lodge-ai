@@ -176,6 +176,8 @@ Morristown Masonic Center at 39 Maple Ave offers community programs, event conce
 <!-- ===================================================== -->
 <!-- SECTION 3.3.7 - FAQ PREVIEW                           -->
 <!-- ===================================================== -->
+<!-- SECTION 3.3.7 - FAQ PREVIEW                           -->
+<!-- ===================================================== -->
 
 <section class="content-section">
 
@@ -187,21 +189,31 @@ Morristown Masonic Center at 39 Maple Ave offers community programs, event conce
 
         {% for section in faqs[:3] %}
 
-            {% for item in section.items[:1] %}
+            {% if "items" in section %}
 
-            <details class="faq-item">
-                <summary>{{ item.question }}</summary>
-                <p>{{ item.answer }}</p>
-            </details>
+                {% for item in section["items"][:1] %}
 
-            {% endfor %}
+                <details class="faq-item">
+
+                    <summary>
+                        {{ item.question }}
+                    </summary>
+
+                    <p>
+                        {{ item.answer }}
+                    </p>
+
+                </details>
+
+                {% endfor %}
+
+            {% endif %}
 
         {% endfor %}
 
     </div>
 
 </section>
-
 <!-- ===================================================== -->
 <!-- SECTION 3.3.8 - FINAL CALL TO ACTION                  -->
 <!-- ===================================================== -->
