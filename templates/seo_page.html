@@ -1,1 +1,207 @@
-<!-- seo_page.html -->
+{% extends "base.html" %}
+
+{% block title %}
+{{ page.title }} | Morristown Masonic Center
+{% endblock %}
+
+{% block meta_description %}
+{{ page.meta_description }}
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================================================== -->
+<!-- PHASE 3 - TEMPLATE LAYER                              -->
+<!-- BLOCK 3.6 - SEO PAGE TEMPLATE                         -->
+<!-- ===================================================== -->
+
+<!-- ===================================================== -->
+<!-- SECTION 3.6.1 - PAGE HERO                             -->
+<!-- ===================================================== -->
+
+<section class="page-hero">
+
+    <p class="eyebrow">
+        {{ page.primary_keyword }}
+    </p>
+
+    <h1>
+        {{ page.headline }}
+    </h1>
+
+    <p>
+        {{ page.meta_description }}
+    </p>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.6.2 - MAIN CONTENT                          -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        SEO Landing Page
+    </p>
+
+    <h2>
+        {{ page.title }}
+    </h2>
+
+    <p>
+        {{ page.content }}
+    </p>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.6.3 - PRIMARY KEYWORD                       -->
+<!-- ===================================================== -->
+
+<section class="content-section alt-section">
+
+    <p class="section-kicker">
+        Primary Search Target
+    </p>
+
+    <h2>
+        {{ page.primary_keyword }}
+    </h2>
+
+    <p>
+        This page is optimized around a primary local search phrase
+        that supports visibility for the Morristown Masonic Center.
+    </p>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.6.4 - SECONDARY KEYWORDS                    -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        Supporting Keywords
+    </p>
+
+    <h2>
+        Related Search Terms
+    </h2>
+
+    <div class="pill-list">
+
+        {% for keyword in page.secondary_keywords %}
+
+        <span>
+            {{ keyword }}
+        </span>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.6.5 - WHY THIS PAGE MATTERS                 -->
+<!-- ===================================================== -->
+
+<section class="content-section alt-section">
+
+    <p class="section-kicker">
+        SEO Strategy
+    </p>
+
+    <h2>
+        Local Visibility and Community Growth
+    </h2>
+
+    <p>
+        These pages help connect local residents, visitors,
+        businesses, event organizers, and prospective members
+        with the programs and opportunities available through
+        the Morristown Masonic Center.
+    </p>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.6.6 - RELATED SEO PAGES                     -->
+<!-- ===================================================== -->
+
+{% if seo_pages %}
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        Explore More
+    </p>
+
+    <h2>
+        Related Pages
+    </h2>
+
+    <div class="card-grid">
+
+        {% for related_page in seo_pages %}
+
+            {% if related_page.slug != page.slug %}
+
+            <article class="info-card">
+
+                <h3>
+                    {{ related_page.title }}
+                </h3>
+
+                <p>
+                    {{ related_page.meta_description }}
+                </p>
+
+                <a href="/{{ related_page.slug }}/">
+                    View Page
+                </a>
+
+            </article>
+
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!-- ===================================================== -->
+<!-- SECTION 3.6.7 - CALL TO ACTION                        -->
+<!-- ===================================================== -->
+
+<section class="final-cta">
+
+    <h2>
+        Discover More at the Morristown Masonic Center
+    </h2>
+
+    <p>
+        Explore events, educational programs, community initiatives,
+        venue opportunities, and membership pathways.
+    </p>
+
+    <div class="hero-actions">
+
+        <a href="/events/" class="button-primary">
+            View Events
+        </a>
+
+        <a href="/assistant/" class="button-secondary">
+            Ask the Assistant
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

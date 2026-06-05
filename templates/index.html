@@ -1,1 +1,225 @@
-<!-- index.html -->
+{% extends "base.html" %}
+
+{% block title %}Morristown Masonic Center | 39 Maple Ave{% endblock %}
+
+{% block meta_description %}
+Morristown Masonic Center at 39 Maple Ave offers community programs, event concepts, educational gatherings, meeting space, and membership pathways rooted in brotherhood and service.
+{% endblock %}
+
+{% block content %}
+
+<!-- ===================================================== -->
+<!-- PHASE 3 - TEMPLATE LAYER                              -->
+<!-- BLOCK 3.3 - HOME PAGE                                 -->
+<!-- SECTION 3.3.1 - HERO SECTION                         -->
+<!-- ===================================================== -->
+
+<section class="home-hero">
+
+    <p class="eyebrow">Project Maple · Cincinnati Lodge AI</p>
+
+    <h1>Morristown Masonic Center</h1>
+
+    <p class="hero-address">39 Maple Ave · Morristown, NJ 07960</p>
+
+    <p class="hero-text">
+        A historic Lodge being developed as a center for brotherhood,
+        leadership, community engagement, education, events, and service.
+    </p>
+
+    <div class="hero-actions">
+        <a href="/events/" class="button-primary">Explore Events</a>
+        <a href="/become-a-mason/" class="button-secondary">Learn About Freemasonry</a>
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.3.2 - MISSION SECTION                       -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">Mission</p>
+
+    <h2>Building Community While Preserving Masonic Values</h2>
+
+    <p>
+        {{ lodge_info.mission }}
+    </p>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.3.3 - STRATEGIC GOALS                       -->
+<!-- ===================================================== -->
+
+<section class="content-section alt-section">
+
+    <p class="section-kicker">Strategic Direction</p>
+
+    <h2>Three Core Goals</h2>
+
+    <div class="card-grid">
+
+        {% for goal in lodge_info.strategic_goals[:3] %}
+
+        <article class="info-card">
+            <h3>Goal {{ loop.index }}</h3>
+            <p>{{ goal }}</p>
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.3.4 - EVENT CATEGORIES                      -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">Event Strategy</p>
+
+    <h2>Revenue, Community, and Masonic Events</h2>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+            <h3>Revenue Events</h3>
+            <p>
+                Ticketed programs, comedy shows, debate nights, business networking,
+                holiday events, and private rentals that support Lodge sustainability.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Community Events</h3>
+            <p>
+                Chess club, workshops, lectures, fundraisers, veterans programs,
+                and public events that strengthen goodwill in Morristown.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Masonic Events</h3>
+            <p>
+                Degree work, fellowship nights, officer training, educational programs,
+                and leadership development for the fraternity.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.3.5 - FEATURED PROGRAMS                     -->
+<!-- ===================================================== -->
+
+<section class="content-section alt-section">
+
+    <p class="section-kicker">Featured Programs</p>
+
+    <h2>Signature Concepts in Development</h2>
+
+    <div class="card-grid">
+
+        {% for event in events[:4] %}
+
+        <article class="event-card">
+
+            <img src="{{ url_for('static', filename='images/' ~ event.image) }}" alt="{{ event.title }}">
+
+            <div class="event-card-body">
+
+                <p class="event-category">{{ event.category }}</p>
+
+                <h3>{{ event.title }}</h3>
+
+                <p>{{ event.short_description }}</p>
+
+                <a href="/events/{{ event.slug }}/">View Program</a>
+
+            </div>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.3.6 - MEMBERSHIP PATHWAY                    -->
+<!-- ===================================================== -->
+
+<section class="content-section membership-section">
+
+    <p class="section-kicker">Become a Mason</p>
+
+    <h2>Brotherhood, Leadership, Service, and Self-Improvement</h2>
+
+    <p>
+        Freemasonry is centered on moral growth, friendship, charity,
+        discipline, humility, leadership, and the lifelong improvement of character.
+        The Lodge should serve both the community and the men who seek to become better through brotherhood.
+    </p>
+
+    <a href="/become-a-mason/" class="button-primary">Learn About Becoming a Mason</a>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.3.7 - FAQ PREVIEW                           -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">Helpful Questions</p>
+
+    <h2>Common Questions</h2>
+
+    <div class="faq-list">
+
+        {% for section in faqs[:3] %}
+
+            {% for item in section.items[:1] %}
+
+            <details class="faq-item">
+                <summary>{{ item.question }}</summary>
+                <p>{{ item.answer }}</p>
+            </details>
+
+            {% endfor %}
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.3.8 - FINAL CALL TO ACTION                  -->
+<!-- ===================================================== -->
+
+<section class="final-cta">
+
+    <h2>Begin Building the Future of the Lodge</h2>
+
+    <p>
+        Project Maple is the foundation for a stronger digital presence,
+        stronger event strategy, stronger SEO, and stronger community visibility.
+    </p>
+
+    <div class="hero-actions">
+        <a href="/events/" class="button-primary">View Events</a>
+        <a href="/assistant/" class="button-secondary">Ask the Assistant</a>
+    </div>
+
+</section>
+
+{% endblock %}

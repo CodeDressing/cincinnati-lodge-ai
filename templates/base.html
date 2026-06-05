@@ -1,1 +1,80 @@
-<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ===================================================== -->
+    <!-- PHASE 3 - TEMPLATE LAYER                              -->
+    <!-- BLOCK 3.2 - BASE TEMPLATE                             -->
+    <!-- SECTION 3.2.1 - DOCUMENT SETTINGS                     -->
+    <!-- ===================================================== -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Morristown Masonic Center{% endblock %}</title>
+
+    <meta name="description" content="{% block meta_description %}Morristown Masonic Center at 39 Maple Ave in Morristown, New Jersey.{% endblock %}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- SECTION 3.2.2 - SITE HEADER                           -->
+    <!-- ===================================================== -->
+
+    <header class="site-header">
+
+        <div class="brand-block">
+            <a href="/" class="brand-name">Morristown Masonic Center</a>
+            <p class="brand-subtitle">39 Maple Ave · Morristown, NJ</p>
+        </div>
+
+        <nav class="main-nav">
+            <a href="/">Home</a>
+            <a href="/events/">Events</a>
+            <a href="/seo/">SEO Pages</a>
+            <a href="/assistant/">Assistant</a>
+        </nav>
+
+    </header>
+
+    <!-- ===================================================== -->
+    <!-- SECTION 3.2.3 - MAIN PAGE CONTENT                     -->
+    <!-- ===================================================== -->
+
+    <main class="page-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <!-- ===================================================== -->
+    <!-- SECTION 3.2.4 - SITE FOOTER                           -->
+    <!-- ===================================================== -->
+
+    <footer class="site-footer">
+
+        <p>
+            Morristown Masonic Center · 39 Maple Ave, Morristown, NJ 07960
+        </p>
+
+        <p class="footer-note">
+            Building better men through brotherhood, leadership, service, and community.
+        </p>
+
+    </footer>
+
+    <!-- ===================================================== -->
+    <!-- SECTION 3.2.5 - JAVASCRIPT                            -->
+    <!-- ===================================================== -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
