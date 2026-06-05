@@ -1,375 +1,170 @@
-/* ============================================================
-   PROJECT MAPLE
-   CINCINNATI LODGE AI
-   ============================================================ */
+# ============================================================
+# PROJECT MAPLE
+# CINCINNATI LODGE AI
+# PHASE 5 — ROUTING LAYER
+# BLOCK 5.1 — app.py
+# VERSION 5.1.1 — DATA SHAPE FIX
+# ============================================================
 
-/* ============================================================
-   SECTION 1 - DESIGN VARIABLES
-   ============================================================ */
+from flask import Flask, render_template, request
+import json
 
-:root {
 
-    --navy-primary: #1F2D51;
-    --navy-dark: #15203A;
+app = Flask(__name__)
 
-    --gold-primary: #C9A227;
-    --gold-light: #D8B84A;
 
-    --white: #FFFFFF;
-    --light-gray: #F4F4F4;
+# ============================================================
+# SECTION 5.1.1 — JSON DATA LOADER
+# ============================================================
 
-    --text-dark: #1A1A1A;
-    --text-light: #FFFFFF;
+def load_json(path):
+    with open(path, "r", encoding="utf-8") as file:
+        return json.load(file)
 
-    --shadow-soft:
-        0 4px 12px rgba(0,0,0,0.15);
 
-    --shadow-large:
-        0 8px 24px rgba(0,0,0,0.20);
+# ============================================================
+# SECTION 5.1.2 — DATA ACCESS FUNCTIONS
+# ============================================================
 
-    --border-radius:
-        10px;
+def get_lodge_info():
+    return load_json("data/lodge_info.json")
 
-    --max-width:
-        1400px;
-}
 
-/* ============================================================
-   SECTION 2 - GLOBAL RESET
-   ============================================================ */
+def get_events():
+    data = load_json("data/events.json")
+    return data.get("events", [])
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-/* ============================================================
-   SECTION 3 - BODY
-   ============================================================ */
+def get_faqs():
+    data = load_json("data/faq.json")
+    return data.get("faq_sections", [])
 
-body {
 
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
+def get_seo_pages():
+    data = load_json("data/seo_pages.json")
+    return data.get("seo_pages", [])
 
-    background-color:
-        var(--light-gray);
 
-    color:
-        var(--text-dark);
+def get_event_by_slug(slug):
+    for event in get_events():
+        if event.get("slug") == slug:
+            return event
+    return None
 
-    line-height:
-        1.6;
-}
 
-/* ============================================================
-   SECTION 4 - LINKS
-   ============================================================ */
+def get_seo_page_by_slug(slug):
+    for page in get_seo_pages():
+        if page.get("slug") == slug:
+            return page
+    return None
 
-a {
 
-    text-decoration:
-        none;
+# ============================================================
+# SECTION 5.1.3 — HOME PAGE
+# ============================================================
 
-    color:
-        inherit;
+@app.route("/")
+def home():
+    return render_template(
+        "index.html",
+        lodge_info=get_lodge_info(),
+        events=get_events(),
+        faqs=get_faqs()
+    )
 
-    transition:
-        0.25s;
-}
 
-a:hover {
+# ============================================================
+# SECTION 5.1.4 — EVENTS
+# ============================================================
 
-    color:
-        var(--gold-primary);
-}
+@app.route("/events/")
+def events_page():
+    return render_template(
+        "events.html",
+        events=get_events()
+    )
 
-/* ============================================================
-   SECTION 5 - CONTAINERS
-   ============================================================ */
 
-.container {
+@app.route("/events/<slug>/")
+def event_detail(slug):
+    event = get_event_by_slug(slug)
 
-    width: 90%;
+    if event is None:
+        return render_template("404.html"), 404
 
-    max-width:
-        var(--max-width);
+    return render_template(
+        "event_detail.html",
+        event=event
+    )
 
-    margin:
-        0 auto;
-}
 
-/* ============================================================
-   SECTION 6 - HEADER
-   ============================================================ */
-
-.site-header {
-
-    background:
-        var(--navy-primary);
-
-    color:
-        var(--text-light);
-
-    padding:
-        1rem 0;
-
-    box-shadow:
-        var(--shadow-soft);
-}
-
-/* ============================================================
-   SECTION 7 - NAVIGATION
-   ============================================================ */
-
-.navbar {
-
-    display:
-        flex;
-
-    justify-content:
-        space-between;
-
-    align-items:
-        center;
-}
-
-.nav-logo {
-
-    font-size:
-        1.5rem;
-
-    font-weight:
-        bold;
-
-    color:
-        var(--gold-primary);
-}
-
-.nav-links {
-
-    display:
-        flex;
-
-    gap:
-        1.5rem;
-}
-
-/* ============================================================
-   SECTION 8 - HERO SECTION
-   ============================================================ */
-
-.hero {
-
-    background:
-        linear-gradient(
-            rgba(31,45,81,.85),
-            rgba(21,32,58,.85)
-        );
-
-    color:
-        white;
-
-    text-align:
-        center;
-
-    padding:
-        6rem 2rem;
-}
-
-.hero h1 {
-
-    font-size:
-        3rem;
-
-    margin-bottom:
-        1rem;
-}
-
-.hero p {
-
-    max-width:
-        800px;
-
-    margin:
-        auto;
-
-    font-size:
-        1.1rem;
-}
-
-/* ============================================================
-   SECTION 9 - BUTTON SYSTEM
-   ============================================================ */
-
-.btn {
-
-    display:
-        inline-block;
-
-    padding:
-        12px 24px;
-
-    border-radius:
-        var(--border-radius);
-
-    font-weight:
-        600;
-
-    transition:
-        0.25s;
-}
-
-.btn-primary {
-
-    background:
-        var(--gold-primary);
-
-    color:
-        white;
-}
-
-.btn-primary:hover {
-
-    background:
-        var(--gold-light);
-}
-
-/* ============================================================
-   SECTION 10 - CARD SYSTEM
-   ============================================================ */
-
-.card {
-
-    background:
-        white;
-
-    border-radius:
-        var(--border-radius);
-
-    box-shadow:
-        var(--shadow-soft);
-
-    padding:
-        1.5rem;
-
-    margin:
-        1rem 0;
-}
-
-/* ============================================================
-   SECTION 11 - EVENTS
-   ============================================================ */
-
-.event-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(300px,1fr));
-
-    gap:
-        1.5rem;
-}
-
-/* ============================================================
-   SECTION 12 - SEO PAGES
-   ============================================================ */
-
-.seo-content {
-
-    padding:
-        3rem 0;
-}
-
-.seo-content h2 {
-
-    color:
-        var(--navy-primary);
-
-    margin-bottom:
-        1rem;
-}
-
-/* ============================================================
-   SECTION 13 - ASSISTANT PAGE
-   ============================================================ */
-
-.assistant-wrapper {
-
-    max-width:
-        900px;
-
-    margin:
-        3rem auto;
-}
-
-.assistant-box {
-
-    background:
-        white;
-
-    padding:
-        2rem;
-
-    border-radius:
-        var(--border-radius);
-
-    box-shadow:
-        var(--shadow-soft);
-}
-
-/* ============================================================
-   SECTION 14 - FOOTER
-   ============================================================ */
-
-.site-footer {
-
-    background:
-        var(--navy-dark);
-
-    color:
-        white;
-
-    text-align:
-        center;
-
-    padding:
-        2rem;
-}
-
-/* ============================================================
-   SECTION 15 - RESPONSIVE DESIGN
-   ============================================================ */
-
-@media (max-width: 768px) {
-
-    .navbar {
-
-        flex-direction:
-            column;
-
-        gap:
-            1rem;
-    }
-
-    .hero h1 {
-
-        font-size:
-            2rem;
-    }
-
-    .hero {
-
-        padding:
-            4rem 1rem;
-    }
-}
-
-/* ============================================================
-   END OF FILE
-   ============================================================ */
+# ============================================================
+# SECTION 5.1.5 — SEO PAGES
+# ============================================================
+
+@app.route("/seo/")
+def seo_index():
+    pages = get_seo_pages()
+
+    return render_template(
+        "seo_page.html",
+        page={
+            "title": "SEO Pages",
+            "meta_description": "SEO landing pages for the Morristown Masonic Center.",
+            "primary_keyword": "Morristown Masonic Center SEO",
+            "headline": "SEO Landing Pages",
+            "content": "These pages support venue, community, event, and membership visibility."
+        },
+        seo_pages=pages
+    )
+
+
+@app.route("/<slug>/")
+def seo_page(slug):
+    page = get_seo_page_by_slug(slug)
+
+    if page is None:
+        return render_template("404.html"), 404
+
+    return render_template(
+        "seo_page.html",
+        page=page,
+        seo_pages=get_seo_pages()
+    )
+
+
+# ============================================================
+# SECTION 5.1.6 — ASSISTANT
+# ============================================================
+
+@app.route("/assistant/", methods=["GET", "POST"])
+def assistant():
+    question = ""
+    answer = None
+
+    if request.method == "POST":
+        question = request.form.get("question", "")
+        answer = "Cincinnati Lodge AI received your question. Full AI logic will be added in a later phase."
+
+    return render_template(
+        "assistant.html",
+        question=question,
+        answer=answer
+    )
+
+
+# ============================================================
+# SECTION 5.1.7 — ERROR HANDLER
+# ============================================================
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("404.html"), 404
+
+
+# ============================================================
+# SECTION 5.1.8 — LOCAL STARTUP
+# ============================================================
+
+if __name__ == "__main__":
+    app.run(debug=True)
