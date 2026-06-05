@@ -1,116 +1,375 @@
-# ============================================================
-# PROJECT MAPLE
-# CINCINNATI LODGE AI
-# ============================================================
+/* ============================================================
+   PROJECT MAPLE
+   CINCINNATI LODGE AI
+   ============================================================ */
 
-# ============================================================
-# SECTION 1 - IMPORTS
-# ============================================================
+/* ============================================================
+   SECTION 1 - DESIGN VARIABLES
+   ============================================================ */
 
-from flask import Flask
-from flask import render_template
-import json
+:root {
 
+    --navy-primary: #1F2D51;
+    --navy-dark: #15203A;
 
-# ============================================================
-# SECTION 2 - APPLICATION CREATION
-# ============================================================
+    --gold-primary: #C9A227;
+    --gold-light: #D8B84A;
 
-app = Flask(__name__)
+    --white: #FFFFFF;
+    --light-gray: #F4F4F4;
 
+    --text-dark: #1A1A1A;
+    --text-light: #FFFFFF;
 
-# ============================================================
-# SECTION 3 - DATA LOADERS
-# ============================================================
+    --shadow-soft:
+        0 4px 12px rgba(0,0,0,0.15);
 
-def load_lodge_info():
+    --shadow-large:
+        0 8px 24px rgba(0,0,0,0.20);
 
-    with open("data/lodge_info.json", "r", encoding="utf-8") as file:
-        return json.load(file)
+    --border-radius:
+        10px;
 
+    --max-width:
+        1400px;
+}
 
-def load_events():
+/* ============================================================
+   SECTION 2 - GLOBAL RESET
+   ============================================================ */
 
-    with open("data/events.json", "r", encoding="utf-8") as file:
-        return json.load(file)
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* ============================================================
+   SECTION 3 - BODY
+   ============================================================ */
 
-def load_faqs():
+body {
 
-    with open("data/faq.json", "r", encoding="utf-8") as file:
-        return json.load(file)
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
+    background-color:
+        var(--light-gray);
 
-def load_seo_pages():
+    color:
+        var(--text-dark);
 
-    with open("data/seo_pages.json", "r", encoding="utf-8") as file:
-        return json.load(file)
+    line-height:
+        1.6;
+}
 
+/* ============================================================
+   SECTION 4 - LINKS
+   ============================================================ */
 
-# ============================================================
-# SECTION 4 - HOME PAGE
-# ============================================================
+a {
 
-@app.route("/")
-def home():
+    text-decoration:
+        none;
 
-    lodge_info = load_lodge_info()
-    events = load_events()
-    faqs = load_faqs()
+    color:
+        inherit;
 
-    return render_template(
-        "index.html",
-        lodge_info=lodge_info,
-        events=events,
-        faqs=faqs
-    )
+    transition:
+        0.25s;
+}
 
+a:hover {
 
-# ============================================================
-# SECTION 5 - EVENTS PAGE
-# ============================================================
+    color:
+        var(--gold-primary);
+}
 
-@app.route("/events/")
-def events_page():
+/* ============================================================
+   SECTION 5 - CONTAINERS
+   ============================================================ */
 
-    return render_template(
-        "events.html",
-        events=load_events()
-    )
+.container {
 
+    width: 90%;
 
-# ============================================================
-# SECTION 6 - ASSISTANT PAGE
-# ============================================================
+    max-width:
+        var(--max-width);
 
-@app.route("/assistant/")
-def assistant():
+    margin:
+        0 auto;
+}
 
-    return render_template(
-        "assistant.html",
-        answer=None,
-        question=""
-    )
+/* ============================================================
+   SECTION 6 - HEADER
+   ============================================================ */
 
+.site-header {
 
-# ============================================================
-# SECTION 7 - ERROR HANDLER
-# ============================================================
+    background:
+        var(--navy-primary);
 
-@app.errorhandler(404)
-def page_not_found(error):
+    color:
+        var(--text-light);
 
-    return render_template(
-        "404.html"
-    ), 404
+    padding:
+        1rem 0;
 
+    box-shadow:
+        var(--shadow-soft);
+}
 
-# ============================================================
-# SECTION 8 - APPLICATION STARTUP
-# ============================================================
+/* ============================================================
+   SECTION 7 - NAVIGATION
+   ============================================================ */
 
-if __name__ == "__main__":
+.navbar {
 
-    app.run(
-        debug=True
-    )
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+}
+
+.nav-logo {
+
+    font-size:
+        1.5rem;
+
+    font-weight:
+        bold;
+
+    color:
+        var(--gold-primary);
+}
+
+.nav-links {
+
+    display:
+        flex;
+
+    gap:
+        1.5rem;
+}
+
+/* ============================================================
+   SECTION 8 - HERO SECTION
+   ============================================================ */
+
+.hero {
+
+    background:
+        linear-gradient(
+            rgba(31,45,81,.85),
+            rgba(21,32,58,.85)
+        );
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    padding:
+        6rem 2rem;
+}
+
+.hero h1 {
+
+    font-size:
+        3rem;
+
+    margin-bottom:
+        1rem;
+}
+
+.hero p {
+
+    max-width:
+        800px;
+
+    margin:
+        auto;
+
+    font-size:
+        1.1rem;
+}
+
+/* ============================================================
+   SECTION 9 - BUTTON SYSTEM
+   ============================================================ */
+
+.btn {
+
+    display:
+        inline-block;
+
+    padding:
+        12px 24px;
+
+    border-radius:
+        var(--border-radius);
+
+    font-weight:
+        600;
+
+    transition:
+        0.25s;
+}
+
+.btn-primary {
+
+    background:
+        var(--gold-primary);
+
+    color:
+        white;
+}
+
+.btn-primary:hover {
+
+    background:
+        var(--gold-light);
+}
+
+/* ============================================================
+   SECTION 10 - CARD SYSTEM
+   ============================================================ */
+
+.card {
+
+    background:
+        white;
+
+    border-radius:
+        var(--border-radius);
+
+    box-shadow:
+        var(--shadow-soft);
+
+    padding:
+        1.5rem;
+
+    margin:
+        1rem 0;
+}
+
+/* ============================================================
+   SECTION 11 - EVENTS
+   ============================================================ */
+
+.event-grid {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+
+    gap:
+        1.5rem;
+}
+
+/* ============================================================
+   SECTION 12 - SEO PAGES
+   ============================================================ */
+
+.seo-content {
+
+    padding:
+        3rem 0;
+}
+
+.seo-content h2 {
+
+    color:
+        var(--navy-primary);
+
+    margin-bottom:
+        1rem;
+}
+
+/* ============================================================
+   SECTION 13 - ASSISTANT PAGE
+   ============================================================ */
+
+.assistant-wrapper {
+
+    max-width:
+        900px;
+
+    margin:
+        3rem auto;
+}
+
+.assistant-box {
+
+    background:
+        white;
+
+    padding:
+        2rem;
+
+    border-radius:
+        var(--border-radius);
+
+    box-shadow:
+        var(--shadow-soft);
+}
+
+/* ============================================================
+   SECTION 14 - FOOTER
+   ============================================================ */
+
+.site-footer {
+
+    background:
+        var(--navy-dark);
+
+    color:
+        white;
+
+    text-align:
+        center;
+
+    padding:
+        2rem;
+}
+
+/* ============================================================
+   SECTION 15 - RESPONSIVE DESIGN
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .navbar {
+
+        flex-direction:
+            column;
+
+        gap:
+            1rem;
+    }
+
+    .hero h1 {
+
+        font-size:
+            2rem;
+    }
+
+    .hero {
+
+        padding:
+            4rem 1rem;
+    }
+}
+
+/* ============================================================
+   END OF FILE
+   ============================================================ */
