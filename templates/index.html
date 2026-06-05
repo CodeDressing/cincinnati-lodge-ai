@@ -1,266 +1,264 @@
-```html
 {% extends "base.html" %}
 
 {% block title %}
-{{ page.title }} | Morristown Masonic Center
+Morristown Masonic Center | Brotherhood • Community • Events
 {% endblock %}
 
 {% block meta_description %}
-{{ page.meta_description }}
-{% endblock %}
-
-{% block og_title %}
-{{ page.title }} | Morristown Masonic Center
-{% endblock %}
-
-{% block og_description %}
-{{ page.meta_description }}
+Morristown Masonic Center at 39 Maple Ave offers community events, venue opportunities, educational programs, fellowship, leadership development, and pathways to membership.
 {% endblock %}
 
 {% block content %}
 
 <!-- ===================================================== -->
-<!-- PHASE 3 - TEMPLATE LAYER                              -->
-<!-- BLOCK 3.6 - SEO PAGE AAA+ UPGRADE                    -->
-<!-- PROJECT MAPLE SEO ENGINE                              -->
+<!-- PROJECT MAPLE 4.0                                     -->
+<!-- BLOCK 3.1 - HOMEPAGE HERO                             -->
 <!-- ===================================================== -->
 
-<section class="page-hero seo-page-hero">
+<section class="page-hero homepage-hero">
 
-    <p class="eyebrow">
-        {{ page.primary_keyword }}
+    <div class="hero-content">
+
+        <p class="hero-kicker">
+            MORRISTOWN MASONIC CENTER
+        </p>
+
+        <h1>
+            Building Better Men.
+            Strengthening Community.
+            Creating Opportunities.
+        </h1>
+
+        <p class="hero-description">
+            Located at 39 Maple Ave in Morristown, New Jersey,
+            the Morristown Masonic Center serves as a center
+            for leadership, fellowship, education, community
+            engagement, events, and venue opportunities.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="/events/" class="button-primary">
+                Explore Events
+            </a>
+
+            <a href="/membership/" class="button-secondary">
+                Learn About Membership
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- BLOCK 3.2 - STRATEGIC PILLARS                         -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        OUR MISSION
     </p>
 
-    <h1>
-        {{ page.headline }}
-    </h1>
+    <h2>
+        Four Pillars of Project Maple
+    </h2>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+
+            <h3>Brotherhood</h3>
+
+            <p>
+                Building lifelong relationships founded on
+                trust, integrity, mentorship, and mutual support.
+            </p>
+
+        </article>
+
+        <article class="info-card">
+
+            <h3>Community</h3>
+
+            <p>
+                Supporting Morristown through service,
+                outreach, educational initiatives,
+                and civic engagement.
+            </p>
+
+        </article>
+
+        <article class="info-card">
+
+            <h3>Education</h3>
+
+            <p>
+                Encouraging personal growth, leadership,
+                lifelong learning, and intellectual development.
+            </p>
+
+        </article>
+
+        <article class="info-card">
+
+            <h3>Opportunity</h3>
+
+            <p>
+                Creating opportunities through networking,
+                events, partnerships, and community collaboration.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- BLOCK 3.3 - EVENT SNAPSHOT                            -->
+<!-- ===================================================== -->
+
+<section class="content-section alt-section">
+
+    <p class="section-kicker">
+        UPCOMING PROGRAMS
+    </p>
+
+    <h2>
+        Events and Community Experiences
+    </h2>
+
+    <p class="section-intro">
+        From educational programs and community initiatives
+        to entertainment concepts and networking events,
+        the Center continues to expand opportunities
+        for Morristown and the surrounding region.
+    </p>
+
+    <div class="card-grid">
+
+        {% for event in events[:3] %}
+
+        <article class="info-card">
+
+            <h3>
+                {{ event.title }}
+            </h3>
+
+            <p>
+                {{ event.short_description }}
+            </p>
+
+            <span class="event-category">
+                {{ event.category }}
+            </span>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- BLOCK 3.4 - VENUE SECTION                             -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        VENUE OPPORTUNITIES
+    </p>
+
+    <h2>
+        A Flexible Space in the Heart of Morristown
+    </h2>
 
     <p>
-        {{ page.meta_description }}
+        The Morristown Masonic Center offers flexible
+        gathering spaces suitable for meetings,
+        educational programs, networking events,
+        community activities, workshops,
+        celebrations, and private functions.
     </p>
 
     <div class="hero-actions">
 
-        <a href="#seo-content" class="button-primary">
+        <a href="/venue/" class="button-primary">
+            Explore Venue Options
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- BLOCK 3.5 - MEMBERSHIP SECTION                        -->
+<!-- ===================================================== -->
+
+<section class="content-section alt-section">
+
+    <p class="section-kicker">
+        MEMBERSHIP
+    </p>
+
+    <h2>
+        Become Part of Something Bigger
+    </h2>
+
+    <p>
+        Freemasonry encourages personal development,
+        leadership, service, friendship, and
+        the pursuit of lifelong improvement.
+    </p>
+
+    <div class="hero-actions">
+
+        <a href="/membership/" class="button-primary">
             Learn More
         </a>
 
-        <a href="/events/" class="button-secondary">
-            View Events
-        </a>
-
     </div>
 
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.6.2 - TRUST STRIP                           -->
-<!-- ===================================================== -->
-
-<section class="content-section">
-
-    <div class="strategy-strip">
-
-        <article>
-            <strong>Historic Lodge</strong>
-            <span>Serving Morristown and the surrounding community.</span>
-        </article>
-
-        <article>
-            <strong>Community Programs</strong>
-            <span>Education, service, outreach, and engagement.</span>
-        </article>
-
-        <article>
-            <strong>Events & Venue</strong>
-            <span>Programs, gatherings, meetings, and rentals.</span>
-        </article>
-
-        <article>
-            <strong>Brotherhood</strong>
-            <span>Leadership, service, and personal growth.</span>
-        </article>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 3.6.3 - MAIN CONTENT                          -->
-<!-- ===================================================== -->
-
-<section class="content-section" id="seo-content">
-
-    <p class="section-kicker">
-        SEO Landing Page
-    </p>
-
-    <h2>
-        {{ page.title }}
-    </h2>
-
-    <p>
-        {{ page.content }}
-    </p>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 3.6.4 - LOCAL ADVANTAGES                      -->
-<!-- ===================================================== -->
-
-<section class="content-section alt-section">
-
-    <p class="section-kicker">
-        Why Morristown
-    </p>
-
-    <h2>
-        A Local Destination With Community Roots
-    </h2>
-
-    <div class="card-grid">
-
-        <article class="info-card">
-            <h3>Central Location</h3>
-            <p>
-                Conveniently located in downtown Morristown with access
-                to local businesses, restaurants, and community resources.
-            </p>
-        </article>
-
-        <article class="info-card">
-            <h3>Historic Character</h3>
-            <p>
-                A unique building with history, tradition,
-                and community significance.
-            </p>
-        </article>
-
-        <article class="info-card">
-            <h3>Flexible Opportunities</h3>
-            <p>
-                Educational programs, events, meetings,
-                networking, outreach, and community engagement.
-            </p>
-        </article>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 3.6.5 - PRIMARY KEYWORD                       -->
+<!-- BLOCK 3.6 - FAQ PREVIEW                               -->
 <!-- ===================================================== -->
 
 <section class="content-section">
 
     <p class="section-kicker">
-        Primary Search Target
+        FREQUENTLY ASKED QUESTIONS
     </p>
 
     <h2>
-        {{ page.primary_keyword }}
+        Common Questions
     </h2>
 
-    <p>
-        This page is strategically built around a primary search phrase
-        to improve local visibility and connect visitors with relevant
-        information about Morristown Masonic Center.
-    </p>
+    <div class="faq-preview-grid">
 
-</section>
+        {% for section in faqs[:2] %}
 
-<!-- ===================================================== -->
-<!-- SECTION 3.6.6 - SECONDARY KEYWORDS                    -->
-<!-- ===================================================== -->
-
-<section class="content-section alt-section">
-
-    <p class="section-kicker">
-        Supporting Search Terms
-    </p>
-
-    <h2>
-        Related Keywords
-    </h2>
-
-    <div class="pill-list seo-pill-list">
-
-        {% for keyword in page.secondary_keywords %}
-
-        <span>
-            {{ keyword }}
-        </span>
-
-        {% endfor %}
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 3.6.7 - WHY THIS PAGE MATTERS                 -->
-<!-- ===================================================== -->
-
-<section class="content-section">
-
-    <p class="section-kicker">
-        SEO Strategy
-    </p>
-
-    <h2>
-        Local Visibility and Community Growth
-    </h2>
-
-    <p>
-        These pages help connect local residents, visitors,
-        organizations, businesses, event organizers,
-        and prospective members with opportunities available
-        through the Morristown Masonic Center.
-    </p>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 3.6.8 - RELATED SEO PAGES                     -->
-<!-- ===================================================== -->
-
-{% if seo_pages %}
-
-<section class="content-section alt-section">
-
-    <p class="section-kicker">
-        Continue Exploring
-    </p>
-
-    <h2>
-        Related Pages
-    </h2>
-
-    <div class="card-grid">
-
-        {% for related_page in seo_pages %}
-
-            {% if related_page.slug != page.slug %}
+            {% for item in section.items[:2] %}
 
             <article class="info-card">
 
                 <h3>
-                    {{ related_page.title }}
+                    {{ item.question }}
                 </h3>
 
                 <p>
-                    {{ related_page.meta_description }}
+                    {{ item.answer[:180] }}...
                 </p>
-
-                <a href="/{{ related_page.slug }}/" class="button-primary">
-                    View Page
-                </a>
 
             </article>
 
-            {% endif %}
+            {% endfor %}
 
         {% endfor %}
 
@@ -268,25 +266,24 @@
 
 </section>
 
-{% endif %}
-
 <!-- ===================================================== -->
-<!-- SECTION 3.6.9 - FINAL CTA                             -->
+<!-- BLOCK 3.7 - FINAL CTA                                 -->
 <!-- ===================================================== -->
 
-<section class="final-cta seo-final-cta">
+<section class="final-cta">
 
     <p class="section-kicker">
-        Discover More
+        START EXPLORING
     </p>
 
     <h2>
-        Explore the Morristown Masonic Center
+        Discover Morristown Masonic Center
     </h2>
 
     <p>
-        Learn about events, educational programs, venue opportunities,
-        community initiatives, and membership pathways.
+        Learn about events, community programs,
+        venue opportunities, leadership development,
+        fellowship, and membership.
     </p>
 
     <div class="hero-actions">
@@ -296,7 +293,7 @@
         </a>
 
         <a href="/assistant/" class="button-secondary">
-            Ask the Assistant
+            Ask The Assistant
         </a>
 
     </div>
@@ -304,4 +301,3 @@
 </section>
 
 {% endblock %}
-```
