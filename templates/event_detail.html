@@ -1,3 +1,4 @@
+```html
 {% extends "base.html" %}
 
 {% block title %}{{ event.title }} | Morristown Masonic Center{% endblock %}
@@ -6,45 +7,111 @@
 {{ event.short_description }}
 {% endblock %}
 
+{% block og_title %}{{ event.title }} | Morristown Masonic Center{% endblock %}
+
+{% block og_description %}
+{{ event.short_description }}
+{% endblock %}
+
 {% block content %}
 
 <!-- ===================================================== -->
 <!-- PHASE 3 - TEMPLATE LAYER                              -->
-<!-- BLOCK 3.5 - EVENT DETAIL PAGE                         -->
+<!-- BLOCK 3.5 - EVENT DETAIL PAGE AAA+ UPGRADE           -->
+<!-- PROJECT MAPLE / MORRISTOWN MASONIC CENTER             -->
+<!-- ===================================================== -->
+
+<!-- ===================================================== -->
 <!-- SECTION 3.5.1 - EVENT HERO                            -->
 <!-- ===================================================== -->
 
 <section class="page-hero event-detail-hero">
 
-    <p class="eyebrow">{{ event.category }}</p>
+    <p class="eyebrow">
+        {{ event.category }}
+    </p>
 
-    <h1>{{ event.title }}</h1>
+    <h1>
+        {{ event.title }}
+    </h1>
 
     <p>
         {{ event.summary }}
     </p>
 
+    <div class="hero-actions">
+
+        <a href="#event-overview" class="button-primary">
+            View Event Details
+        </a>
+
+        <a href="/events/" class="button-secondary">
+            Back to Events
+        </a>
+
+    </div>
+
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.5.2 - EVENT OVERVIEW                        -->
+<!-- SECTION 3.5.2 - EVENT SNAPSHOT BAR                    -->
 <!-- ===================================================== -->
 
-<section class="content-section">
+<section class="content-section event-snapshot-section">
 
-    <div class="detail-layout">
+    <div class="event-snapshot-grid">
+
+        <article class="snapshot-card">
+            <span>Status</span>
+            <strong>{{ event.status }}</strong>
+        </article>
+
+        <article class="snapshot-card">
+            <span>Date</span>
+            <strong>{{ event.date }}</strong>
+        </article>
+
+        <article class="snapshot-card">
+            <span>Doors</span>
+            <strong>{{ event.doors_open }}</strong>
+        </article>
+
+        <article class="snapshot-card">
+            <span>Time</span>
+            <strong>{{ event.time }}</strong>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.5.3 - EVENT OVERVIEW                        -->
+<!-- ===================================================== -->
+
+<section class="content-section" id="event-overview">
+
+    <div class="detail-layout enhanced-detail-layout">
 
         <div class="detail-main">
 
-            <img
-                class="detail-image"
-                src="{{ url_for('static', filename='images/' ~ event.image) }}"
-                alt="{{ event.title }}"
-            >
+            <div class="detail-image-shell">
 
-            <p class="section-kicker">Program Overview</p>
+                <img
+                    class="detail-image"
+                    src="{{ url_for('static', filename='images/' ~ event.image) }}"
+                    alt="{{ event.title }} at Morristown Masonic Center"
+                >
 
-            <h2>{{ event.program_type }}</h2>
+            </div>
+
+            <p class="section-kicker">
+                Program Overview
+            </p>
+
+            <h2>
+                {{ event.program_type }}
+            </h2>
 
             <p>
                 {{ event.details }}
@@ -52,21 +119,56 @@
 
         </div>
 
-        <aside class="detail-sidebar">
+        <aside class="detail-sidebar premium-panel">
 
-            <h3>Event Information</h3>
+            <p class="section-kicker">
+                Event Information
+            </p>
+
+            <h3>
+                Plan Your Visit
+            </h3>
 
             <ul class="event-meta-list large">
-                <li><strong>Status:</strong> {{ event.status }}</li>
-                <li><strong>Date:</strong> {{ event.date }}</li>
-                <li><strong>Doors:</strong> {{ event.doors_open }}</li>
-                <li><strong>Time:</strong> {{ event.time }}</li>
-                <li><strong>Location:</strong> {{ event.location }}</li>
+
+                <li>
+                    <strong>Status:</strong>
+                    <span>{{ event.status }}</span>
+                </li>
+
+                <li>
+                    <strong>Date:</strong>
+                    <span>{{ event.date }}</span>
+                </li>
+
+                <li>
+                    <strong>Doors:</strong>
+                    <span>{{ event.doors_open }}</span>
+                </li>
+
+                <li>
+                    <strong>Time:</strong>
+                    <span>{{ event.time }}</span>
+                </li>
+
+                <li>
+                    <strong>Location:</strong>
+                    <span>{{ event.location }}</span>
+                </li>
+
             </ul>
 
-            <a href="/events/" class="button-secondary sidebar-button">
-                Back to Events
-            </a>
+            <div class="sidebar-actions">
+
+                <a href="/events/" class="button-secondary sidebar-button">
+                    Back to Events
+                </a>
+
+                <a href="/contact/" class="button-primary sidebar-button">
+                    Contact the Lodge
+                </a>
+
+            </div>
 
         </aside>
 
@@ -75,26 +177,39 @@
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.5.3 - EVENT FLOW                            -->
+<!-- SECTION 3.5.4 - EVENT FLOW                            -->
 <!-- ===================================================== -->
 
 {% if event.event_flow %}
 
 <section class="content-section alt-section">
 
-    <p class="section-kicker">Schedule</p>
+    <p class="section-kicker">
+        Schedule
+    </p>
 
-    <h2>Event Flow</h2>
+    <h2>
+        Event Flow
+    </h2>
 
-    <div class="timeline">
+    <p>
+        A clear program flow helps guests understand the experience,
+        arrival timing, major activities, and how the event unfolds.
+    </p>
+
+    <div class="timeline enhanced-timeline">
 
         {% for item in event.event_flow %}
 
         <div class="timeline-item">
 
-            <span class="timeline-time">{{ item.time }}</span>
+            <span class="timeline-time">
+                {{ item.time }}
+            </span>
 
-            <p>{{ item.activity }}</p>
+            <p>
+                {{ item.activity }}
+            </p>
 
         </div>
 
@@ -107,22 +222,33 @@
 {% endif %}
 
 <!-- ===================================================== -->
-<!-- SECTION 3.5.4 - RULES AND GUIDELINES                  -->
+<!-- SECTION 3.5.5 - RULES AND GUIDELINES                  -->
 <!-- ===================================================== -->
 
 {% if event.rules %}
 
 <section class="content-section">
 
-    <p class="section-kicker">Guidelines</p>
+    <p class="section-kicker">
+        Guidelines
+    </p>
 
-    <h2>Event Rules</h2>
+    <h2>
+        Event Rules
+    </h2>
 
-    <div class="pill-list">
+    <p>
+        These guidelines help keep the program organized, welcoming,
+        respectful, and easy for guests and volunteers to follow.
+    </p>
+
+    <div class="pill-list enhanced-pill-list">
 
         {% for rule in event.rules %}
 
-        <span>{{ rule }}</span>
+        <span>
+            {{ rule }}
+        </span>
 
         {% endfor %}
 
@@ -133,23 +259,34 @@
 {% endif %}
 
 <!-- ===================================================== -->
-<!-- SECTION 3.5.5 - REVENUE OPPORTUNITIES                 -->
+<!-- SECTION 3.5.6 - REVENUE OPPORTUNITIES                 -->
 <!-- ===================================================== -->
 
 {% if event.revenue_opportunities %}
 
 <section class="content-section alt-section">
 
-    <p class="section-kicker">Sustainability</p>
+    <p class="section-kicker">
+        Sustainability
+    </p>
 
-    <h2>Revenue and Growth Opportunities</h2>
+    <h2>
+        Revenue and Growth Opportunities
+    </h2>
+
+    <p>
+        Strong events can support the Lodge through responsible revenue,
+        sponsorship opportunities, community partnerships, and future programming.
+    </p>
 
     <div class="card-grid">
 
         {% for opportunity in event.revenue_opportunities %}
 
         <article class="info-card small-card">
-            <p>{{ opportunity }}</p>
+            <p>
+                {{ opportunity }}
+            </p>
         </article>
 
         {% endfor %}
@@ -161,22 +298,33 @@
 {% endif %}
 
 <!-- ===================================================== -->
-<!-- SECTION 3.5.6 - SEO KEYWORDS                          -->
+<!-- SECTION 3.5.7 - SEO KEYWORDS                          -->
 <!-- ===================================================== -->
 
 {% if event.seo_keywords %}
 
 <section class="content-section">
 
-    <p class="section-kicker">SEO Focus</p>
+    <p class="section-kicker">
+        SEO Focus
+    </p>
 
-    <h2>Search Keywords</h2>
+    <h2>
+        Search Keywords
+    </h2>
 
-    <div class="pill-list">
+    <p>
+        These terms help shape future content, landing pages,
+        captions, flyers, and local search visibility for Morristown.
+    </p>
+
+    <div class="pill-list seo-pill-list">
 
         {% for keyword in event.seo_keywords %}
 
-        <span>{{ keyword }}</span>
+        <span>
+            {{ keyword }}
+        </span>
 
         {% endfor %}
 
@@ -187,23 +335,38 @@
 {% endif %}
 
 <!-- ===================================================== -->
-<!-- SECTION 3.5.7 - FINAL CALL TO ACTION                  -->
+<!-- SECTION 3.5.8 - EVENT DEVELOPMENT CTA                 -->
 <!-- ===================================================== -->
 
-<section class="final-cta">
+<section class="final-cta event-detail-cta">
 
-    <h2>Develop This Event Into a Full Program</h2>
+    <p class="section-kicker">
+        Event Development
+    </p>
+
+    <h2>
+        Build This Into a Full Lodge Program
+    </h2>
 
     <p>
-        This event concept can be expanded into flyers, ticket pages,
-        social media campaigns, sponsorship packages, and operational checklists.
+        This event concept can be expanded into a complete campaign with flyers,
+        ticket pages, social media posts, sponsorship packages,
+        volunteer checklists, and operations planning.
     </p>
 
     <div class="hero-actions">
-        <a href="/events/" class="button-primary">View All Events</a>
-        <a href="/assistant/" class="button-secondary">Ask the Assistant</a>
+
+        <a href="/events/" class="button-primary">
+            View All Events
+        </a>
+
+        <a href="/assistant/" class="button-secondary">
+            Ask the Assistant
+        </a>
+
     </div>
 
 </section>
 
 {% endblock %}
+```

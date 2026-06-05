@@ -1,197 +1,40 @@
-<!-- assistant.html -->{% extends "base.html" %}
+```html
+<!-- assistant.html -->
+{% extends "base.html" %}
 
 {% block title %}Cincinnati Lodge AI Assistant | Morristown Masonic Center{% endblock %}
 
 {% block meta_description %}
-Ask the Cincinnati Lodge AI Assistant about events, venue use, community programs, SEO pages, membership pathways, and Lodge strategy.
+Ask the Cincinnati Lodge AI Assistant about events, venue rentals, community programs, membership pathways, SEO strategy, and Project Maple planning.
 {% endblock %}
 
 {% block content %}
 
 <!-- ===================================================== -->
 <!-- PHASE 3 - TEMPLATE LAYER                              -->
-<!-- BLOCK 3.7 - ASSISTANT PAGE                            -->
+<!-- BLOCK 3.7 - ASSISTANT PAGE AAA+ UPGRADE              -->
+<!-- PROJECT MAPLE / MORRISTOWN MASONIC CENTER             -->
 <!-- ===================================================== -->
 
-<!-- ===================================================== -->
-<!-- SECTION 3.7.1 - ASSISTANT HERO                        -->
-<!-- ===================================================== -->
-
-<section class="page-hero">
+<section class="page-hero assistant-hero">
 
     <p class="eyebrow">
         Cincinnati Lodge AI
     </p>
 
     <h1>
-        Lodge Assistant
+        Lodge Strategy Assistant
     </h1>
 
     <p>
-        Ask questions about events, rentals, SEO pages, community programs,
-        membership pathways, and the long-term Project Maple strategy.
-    </p>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 3.7.2 - ASSISTANT FORM                        -->
-<!-- ===================================================== -->
-
-<section class="content-section">
-
-    <div class="assistant-layout">
-
-        <div class="assistant-panel">
-
-            <p class="section-kicker">
-                Ask a Question
-            </p>
-
-            <h2>
-                How can the Lodge assistant help?
-            </h2>
-
-            <form method="POST" class="assistant-form">
-
-                <label for="question">
-                    Your Question
-                </label>
-
-                <textarea
-                    id="question"
-                    name="question"
-                    rows="5"
-                    placeholder="Example: What events should we promote first for Morristown SEO?"
-                >{{ question }}</textarea>
-
-                <button type="submit" class="button-primary">
-                    Ask Assistant
-                </button>
-
-            </form>
-
-        </div>
-
-        <aside class="assistant-sidebar">
-
-            <h3>
-                Try asking about:
-            </h3>
-
-            <ul>
-                <li>Debate Night Live</li>
-                <li>Community Chess Club</li>
-                <li>Venue rentals</li>
-                <li>Morristown SEO pages</li>
-                <li>Becoming a Mason</li>
-                <li>Revenue vs community events</li>
-            </ul>
-
-        </aside>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 3.7.3 - ASSISTANT ANSWER                      -->
-<!-- ===================================================== -->
-
-{% if answer %}
-
-<section class="content-section alt-section">
-
-    <p class="section-kicker">
-        Assistant Response
-    </p>
-
-    <h2>
-        Answer
-    </h2>
-
-    <div class="assistant-answer">
-
-        <p>
-            {{ answer }}
-        </p>
-
-    </div>
-
-</section>
-
-{% endif %}
-
-<!-- ===================================================== -->
-<!-- SECTION 3.7.4 - ASSISTANT PURPOSE                     -->
-<!-- ===================================================== -->
-
-<section class="content-section">
-
-    <p class="section-kicker">
-        Future Expansion
-    </p>
-
-    <h2>
-        This Page Becomes the AI Brain of the Lodge Website
-    </h2>
-
-    <p>
-        In later phases, this assistant can connect to events, FAQs,
-        SEO pages, venue information, rental workflows, membership inquiry
-        guidance, campaign planning, and administrative tools.
-    </p>
-
-    <div class="card-grid">
-
-        <article class="info-card">
-            <h3>Event Guidance</h3>
-            <p>
-                Help visitors understand upcoming events, program types,
-                schedules, ticketing, and community opportunities.
-            </p>
-        </article>
-
-        <article class="info-card">
-            <h3>Venue Questions</h3>
-            <p>
-                Help answer questions about using the Lodge for meetings,
-                programs, networking events, and private gatherings.
-            </p>
-        </article>
-
-        <article class="info-card">
-            <h3>SEO Support</h3>
-            <p>
-                Help generate content ideas, page topics, FAQs,
-                social captions, and campaign copy.
-            </p>
-        </article>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 3.7.5 - FINAL CALL TO ACTION                  -->
-<!-- ===================================================== -->
-
-<section class="final-cta">
-
-    <h2>
-        Continue Building Project Maple
-    </h2>
-
-    <p>
-        The assistant is the beginning of a smarter website that can support
-        Lodge visibility, community engagement, membership interest,
-        and event growth.
+        A smarter planning page for events, venue rentals, SEO growth,
+        community programs, membership interest, and long-term Project Maple development.
     </p>
 
     <div class="hero-actions">
 
-        <a href="/events/" class="button-primary">
-            View Events
+        <a href="#assistant-form" class="button-primary">
+            Ask a Question
         </a>
 
         <a href="/seo/" class="button-secondary">
@@ -202,4 +45,219 @@ Ask the Cincinnati Lodge AI Assistant about events, venue use, community program
 
 </section>
 
+<!-- ===================================================== -->
+<!-- SECTION 3.7.1 - ASSISTANT COMMAND CENTER              -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <div class="assistant-command-grid">
+
+        <article class="assistant-panel premium-panel" id="assistant-form">
+
+            <p class="section-kicker">
+                Ask the Assistant
+            </p>
+
+            <h2>
+                What should we build, promote, or improve next?
+            </h2>
+
+            <p>
+                Use this page as a planning tool for the Lodge website.
+                Ask about event ideas, rental pages, SEO keywords, community programs,
+                membership messaging, content strategy, or next-phase upgrades.
+            </p>
+
+            <form method="POST" class="assistant-form">
+
+                <label for="question">
+                    Your Question
+                </label>
+
+                <textarea
+                    id="question"
+                    name="question"
+                    rows="7"
+                    placeholder="Example: What Morristown SEO page should we build next for venue rentals?"
+                >{{ question }}</textarea>
+
+                <button type="submit" class="button-primary">
+                    Ask Lodge Assistant
+                </button>
+
+            </form>
+
+        </article>
+
+        <aside class="assistant-sidebar premium-panel">
+
+            <p class="section-kicker">
+                Suggested Prompts
+            </p>
+
+            <h3>
+                Try asking about:
+            </h3>
+
+            <div class="prompt-list">
+
+                <span>Debate Night Live</span>
+                <span>Community Chess Club</span>
+                <span>Venue rental SEO</span>
+                <span>Private event pages</span>
+                <span>Becoming a Mason</span>
+                <span>Monthly event strategy</span>
+                <span>Revenue vs community events</span>
+                <span>Morristown local search</span>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.7.2 - ASSISTANT RESPONSE                    -->
+<!-- ===================================================== -->
+
+{% if answer %}
+
+<section class="content-section alt-section">
+
+    <div class="assistant-response-shell">
+
+        <p class="section-kicker">
+            Assistant Response
+        </p>
+
+        <h2>
+            Strategic Answer
+        </h2>
+
+        <div class="assistant-answer premium-panel">
+
+            <p>
+                {{ answer }}
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!-- ===================================================== -->
+<!-- SECTION 3.7.3 - ASSISTANT USE CASES                   -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        Website Intelligence Layer
+    </p>
+
+    <h2>
+        This Page Becomes the AI Brain of Project Maple
+    </h2>
+
+    <p>
+        In future phases, this assistant can support public questions,
+        internal planning, SEO content creation, event strategy,
+        venue guidance, membership education, and administrative workflows.
+    </p>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+            <h3>Event Planning</h3>
+            <p>
+                Generate ideas for monthly programs, ticketed events,
+                community nights, lodge-only gatherings, and seasonal campaigns.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Venue Rental Guidance</h3>
+            <p>
+                Help visitors understand how the Lodge can support meetings,
+                celebrations, networking events, workshops, and private gatherings.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>SEO Content Engine</h3>
+            <p>
+                Create page ideas, FAQs, keyword targets, meta descriptions,
+                blog topics, and location-focused Morristown content.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Membership Pathways</h3>
+            <p>
+                Explain Freemasonry with respectful, clear language focused on
+                brotherhood, personal growth, service, and tradition.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Community Programs</h3>
+            <p>
+                Support programs such as chess club, debate night,
+                educational talks, fundraisers, and local partnerships.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Project Maple Expansion</h3>
+            <p>
+                Guide future upgrades for templates, design systems,
+                content structure, automation, and long-term website growth.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.7.4 - FINAL CTA                             -->
+<!-- ===================================================== -->
+
+<section class="final-cta assistant-final-cta">
+
+    <p class="section-kicker">
+        Continue the Build
+    </p>
+
+    <h2>
+        Turn the Lodge Website Into a Living Strategy Platform
+    </h2>
+
+    <p>
+        Project Maple is more than a website. It is a modern digital foundation
+        for visibility, community engagement, venue growth, event promotion,
+        and future Masonic outreach.
+    </p>
+
+    <div class="hero-actions">
+
+        <a href="/events/" class="button-primary">
+            View Events
+        </a>
+
+        <a href="/venue/" class="button-secondary">
+            Explore Venue Rentals
+        </a>
+
+    </div>
+
+</section>
+
 {% endblock %}
+```

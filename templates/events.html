@@ -1,29 +1,56 @@
+```html
 {% extends "base.html" %}
 
 {% block title %}Events and Programs | Morristown Masonic Center{% endblock %}
 
 {% block meta_description %}
-Explore upcoming and proposed events at the Morristown Masonic Center, including Debate Night, Chess Club, Comedy Night, business networking, holiday events, and community programs.
+Explore upcoming and proposed events at Morristown Masonic Center, including community programs, ticketed events, Masonic events, debate nights, chess club, comedy nights, networking events, holiday events, and venue programming.
+{% endblock %}
+
+{% block og_title %}Events and Programs | Morristown Masonic Center{% endblock %}
+
+{% block og_description %}
+Discover revenue events, community programs, and Masonic events at Morristown Masonic Center in Morristown, NJ.
 {% endblock %}
 
 {% block content %}
 
 <!-- ===================================================== -->
 <!-- PHASE 3 - TEMPLATE LAYER                              -->
-<!-- BLOCK 3.4 - EVENTS LISTING PAGE                       -->
+<!-- BLOCK 3.4 - EVENTS LISTING PAGE AAA+ UPGRADE         -->
+<!-- PROJECT MAPLE / MORRISTOWN MASONIC CENTER             -->
+<!-- ===================================================== -->
+
+<!-- ===================================================== -->
 <!-- SECTION 3.4.1 - PAGE HERO                             -->
 <!-- ===================================================== -->
 
-<section class="page-hero">
+<section class="page-hero events-hero">
 
-    <p class="eyebrow">Events and Programs</p>
+    <p class="eyebrow">
+        Events and Programs
+    </p>
 
-    <h1>Revenue Events, Community Events, and Masonic Events</h1>
+    <h1>
+        Revenue Events, Community Events, and Masonic Events
+    </h1>
 
     <p>
         The Lodge event strategy is organized around sustainable revenue,
-        public goodwill, and fraternity development.
+        public goodwill, community visibility, and fraternity development.
     </p>
+
+    <div class="hero-actions">
+
+        <a href="#event-database" class="button-primary">
+            View Event Concepts
+        </a>
+
+        <a href="/assistant/" class="button-secondary">
+            Ask the Assistant
+        </a>
+
+    </div>
 
 </section>
 
@@ -33,33 +60,49 @@ Explore upcoming and proposed events at the Morristown Masonic Center, including
 
 <section class="content-section">
 
-    <p class="section-kicker">Event Classification System</p>
+    <p class="section-kicker">
+        Event Classification System
+    </p>
 
-    <h2>Three Categories for Long-Term Growth</h2>
+    <h2>
+        Three Categories for Long-Term Growth
+    </h2>
+
+    <p>
+        Every event should have a clear purpose. Some events help fund the Lodge,
+        some build public trust and community presence, and some strengthen
+        brotherhood, education, and member culture.
+    </p>
 
     <div class="card-grid">
 
-        <article class="info-card">
+        <article class="info-card event-category-card">
+            <span class="category-number">01</span>
             <h3>Revenue Events</h3>
             <p>
                 Ticketed programs, entertainment nights, networking events,
-                holiday events, and rentals that help support Lodge operations.
+                holiday events, sponsorship opportunities, and rental-driven
+                programming that helps support Lodge operations.
             </p>
         </article>
 
-        <article class="info-card">
+        <article class="info-card event-category-card">
+            <span class="category-number">02</span>
             <h3>Community Events</h3>
             <p>
                 Public-facing programs that build goodwill, strengthen visibility,
-                and connect the Lodge with Morristown residents and organizations.
+                connect the Lodge with Morristown residents, and show the building
+                as a positive civic gathering place.
             </p>
         </article>
 
-        <article class="info-card">
+        <article class="info-card event-category-card">
+            <span class="category-number">03</span>
             <h3>Masonic Events</h3>
             <p>
                 Member-focused programs that support brotherhood, education,
-                leadership development, fellowship, and Lodge culture.
+                leadership development, ritual culture, fellowship, and long-term
+                Lodge strength.
             </p>
         </article>
 
@@ -68,38 +111,115 @@ Explore upcoming and proposed events at the Morristown Masonic Center, including
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.4.3 - EVENT CARD GRID                       -->
+<!-- SECTION 3.4.3 - EVENT STRATEGY STRIP                  -->
 <!-- ===================================================== -->
 
 <section class="content-section alt-section">
 
-    <p class="section-kicker">Program Database</p>
+    <div class="strategy-strip">
 
-    <h2>Current Event Concepts</h2>
+        <article>
+            <strong>Revenue</strong>
+            <span>Funds operations and future improvements.</span>
+        </article>
 
-    <div class="card-grid">
+        <article>
+            <strong>Community</strong>
+            <span>Builds local trust and Morristown visibility.</span>
+        </article>
+
+        <article>
+            <strong>Brotherhood</strong>
+            <span>Strengthens members, culture, and purpose.</span>
+        </article>
+
+        <article>
+            <strong>SEO</strong>
+            <span>Turns events into searchable local content.</span>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 3.4.4 - EVENT CARD GRID                       -->
+<!-- ===================================================== -->
+
+<section class="content-section" id="event-database">
+
+    <p class="section-kicker">
+        Program Database
+    </p>
+
+    <h2>
+        Current Event Concepts
+    </h2>
+
+    <p>
+        Each event can grow into a full campaign with a detail page,
+        flyer copy, social media content, operational checklist,
+        sponsorship structure, and SEO landing-page support.
+    </p>
+
+    <div class="event-grid">
 
         {% for event in events %}
 
-        <article class="event-card">
+        <article class="event-card premium-event-card">
 
-            <img src="{{ url_for('static', filename='images/' ~ event.image) }}" alt="{{ event.title }}">
+            <a href="/events/{{ event.slug }}/" class="event-image-link" aria-label="View details for {{ event.title }}">
+
+                <img
+                    src="{{ url_for('static', filename='images/' ~ event.image) }}"
+                    alt="{{ event.title }} at Morristown Masonic Center"
+                >
+
+            </a>
 
             <div class="event-card-body">
 
-                <p class="event-category">{{ event.category }}</p>
+                <div class="event-card-topline">
 
-                <h3>{{ event.title }}</h3>
+                    <p class="event-category">
+                        {{ event.category }}
+                    </p>
 
-                <p>{{ event.short_description }}</p>
+                    <span class="event-status-pill">
+                        {{ event.status }}
+                    </span>
+
+                </div>
+
+                <h3>
+                    {{ event.title }}
+                </h3>
+
+                <p>
+                    {{ event.short_description }}
+                </p>
 
                 <ul class="event-meta-list">
-                    <li><strong>Status:</strong> {{ event.status }}</li>
-                    <li><strong>Date:</strong> {{ event.date }}</li>
-                    <li><strong>Time:</strong> {{ event.time }}</li>
+
+                    <li>
+                        <strong>Date:</strong>
+                        <span>{{ event.date }}</span>
+                    </li>
+
+                    <li>
+                        <strong>Time:</strong>
+                        <span>{{ event.time }}</span>
+                    </li>
+
                 </ul>
 
-                <a href="/events/{{ event.slug }}/">View Event Details</a>
+                <div class="event-card-actions">
+
+                    <a href="/events/{{ event.slug }}/" class="button-primary">
+                        View Event Details
+                    </a>
+
+                </div>
 
             </div>
 
@@ -112,20 +232,38 @@ Explore upcoming and proposed events at the Morristown Masonic Center, including
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.4.4 - EVENT DEVELOPMENT CTA                 -->
+<!-- SECTION 3.4.5 - EVENT DEVELOPMENT CTA                 -->
 <!-- ===================================================== -->
 
-<section class="final-cta">
+<section class="final-cta events-final-cta">
 
-    <h2>Build the Lodge Calendar With Purpose</h2>
+    <p class="section-kicker">
+        Build With Purpose
+    </p>
+
+    <h2>
+        Turn the Lodge Calendar Into a Growth Engine
+    </h2>
 
     <p>
         Every event should serve a clear role: revenue generation,
-        community engagement, or Masonic development.
+        community engagement, membership development, or Masonic education.
+        Project Maple can turn each idea into a full digital campaign.
     </p>
 
-    <a href="/assistant/" class="button-primary">Ask the Assistant About Events</a>
+    <div class="hero-actions">
+
+        <a href="/assistant/" class="button-primary">
+            Ask the Assistant About Events
+        </a>
+
+        <a href="/venue/" class="button-secondary">
+            Explore Venue Rentals
+        </a>
+
+    </div>
 
 </section>
 
 {% endblock %}
+```

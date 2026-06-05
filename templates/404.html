@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +6,8 @@
 
     <!-- ===================================================== -->
     <!-- PHASE 3 - TEMPLATE LAYER                              -->
-    <!-- BLOCK 3.1 - 404 PAGE                                 -->
-    <!-- SECTION 3.1.1 - DOCUMENT SETTINGS                    -->
+    <!-- BLOCK 3.1 - 404 PAGE AAA+ UPGRADE                    -->
+    <!-- PROJECT MAPLE / MORRISTOWN MASONIC CENTER             -->
     <!-- ===================================================== -->
 
     <meta charset="UTF-8">
@@ -14,85 +15,328 @@
 
     <title>Page Not Found | Morristown Masonic Center</title>
 
+    <meta name="description" content="The page could not be found. Return to Morristown Masonic Center to explore events, venue rentals, community programs, and Freemasonry in Morristown, NJ.">
+
     <style>
 
         /* ===================================================== */
-        /* SECTION 3.1.2 - PAGE STYLING                          */
+        /* SECTION 3.1.1 - PAGE RESET                            */
         /* ===================================================== */
 
-        body {
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
 
-            background-color: #0f172a;
+        html {
+            scroll-behavior: smooth;
+        }
 
-            color: white;
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
+        body {
             min-height: 100vh;
-        }
-
-        .error-container {
-
-            text-align: center;
-
-            max-width: 700px;
-
-            padding: 40px;
-        }
-
-        h1 {
-
-            font-size: 72px;
-
-            margin-bottom: 10px;
-
-            color: #d4af37;
-        }
-
-        h2 {
-
-            margin-bottom: 25px;
-
-            font-weight: normal;
-        }
-
-        p {
-
-            color: #cbd5e1;
-
-            line-height: 1.7;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(212, 175, 55, 0.18), transparent 32%),
+                radial-gradient(circle at bottom right, rgba(31, 45, 81, 0.8), transparent 42%),
+                linear-gradient(135deg, #050814 0%, #0f172a 45%, #111827 100%);
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
         a {
-
-            display: inline-block;
-
-            margin-top: 30px;
-
-            text-decoration: none;
-
-            background: #d4af37;
-
-            color: #0f172a;
-
-            padding: 14px 30px;
-
-            border-radius: 8px;
-
-            font-weight: bold;
+            color: inherit;
         }
 
-        a:hover {
+        /* ===================================================== */
+        /* SECTION 3.1.2 - BACKGROUND ATMOSPHERE                 */
+        /* ===================================================== */
 
-            background: #f4d03f;
+        .error-page {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 18px;
+            isolation: isolate;
+        }
+
+        .error-page::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: radial-gradient(circle at center, black 0%, transparent 78%);
+            z-index: -3;
+        }
+
+        .error-page::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.58) 85%);
+            z-index: -2;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            filter: blur(70px);
+            top: 8%;
+            right: 8%;
+            z-index: -1;
+        }
+
+        .glow-orb.secondary {
+            width: 320px;
+            height: 320px;
+            background: rgba(96, 165, 250, 0.12);
+            top: auto;
+            right: auto;
+            bottom: 8%;
+            left: 6%;
+        }
+
+        /* ===================================================== */
+        /* SECTION 3.1.3 - MAIN CARD                             */
+        /* ===================================================== */
+
+        .error-card {
+            width: min(980px, 100%);
+            padding: clamp(34px, 7vw, 72px);
+            border: 1px solid rgba(212, 175, 55, 0.32);
+            border-radius: 30px;
+            background:
+                linear-gradient(145deg, rgba(15, 23, 42, 0.86), rgba(3, 7, 18, 0.92));
+            box-shadow:
+                0 35px 90px rgba(0, 0, 0, 0.48),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(18px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error-card::before {
+            content: "";
+            position: absolute;
+            inset: 1px;
+            border-radius: 29px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+            padding: 9px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            background: rgba(212, 175, 55, 0.08);
+            color: #f8e7a1;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow span {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #d4af37;
+            box-shadow: 0 0 18px rgba(212, 175, 55, 0.9);
+        }
+
+        .error-code {
+            font-size: clamp(5.8rem, 18vw, 12rem);
+            line-height: 0.86;
+            letter-spacing: -0.08em;
+            color: #d4af37;
+            text-shadow:
+                0 0 22px rgba(212, 175, 55, 0.42),
+                0 12px 35px rgba(0, 0, 0, 0.7);
+            margin-bottom: 28px;
+        }
+
+        .error-title {
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            line-height: 1.04;
+            letter-spacing: -0.055em;
+            margin-bottom: 22px;
+        }
+
+        .error-title strong {
+            color: #f8e7a1;
+        }
+
+        .error-copy {
+            max-width: 720px;
+            margin: 0 auto;
+            color: #cbd5e1;
+            font-size: clamp(1rem, 2vw, 1.18rem);
+            line-height: 1.85;
+        }
+
+        /* ===================================================== */
+        /* SECTION 3.1.4 - ACTION BUTTONS                        */
+        /* ===================================================== */
+
+        .error-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 38px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 14px 24px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: #07111f;
+            box-shadow: 0 18px 38px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-secondary {
+            border: 1px solid rgba(212, 175, 55, 0.38);
+            color: #f8e7a1;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 24px 50px rgba(212, 175, 55, 0.36);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.68);
+        }
+
+        /* ===================================================== */
+        /* SECTION 3.1.5 - QUICK LINKS                           */
+        /* ===================================================== */
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 46px;
+        }
+
+        .quick-link {
+            padding: 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            background: rgba(255, 255, 255, 0.035);
+            text-decoration: none;
+            text-align: left;
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                border-color 0.25s ease;
+        }
+
+        .quick-link:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.065);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .quick-link h3 {
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #ffffff;
+        }
+
+        .quick-link p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        /* ===================================================== */
+        /* SECTION 3.1.6 - FOOTER NOTE                           */
+        /* ===================================================== */
+
+        .error-footer {
+            margin-top: 38px;
+            color: #94a3b8;
+            font-size: 0.88rem;
+        }
+
+        .error-footer strong {
+            color: #d4af37;
+        }
+
+        /* ===================================================== */
+        /* SECTION 3.1.7 - RESPONSIVE DESIGN                     */
+        /* ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .error-card {
+                border-radius: 24px;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-link {
+                text-align: center;
+            }
+
+        }
+
+        @media (max-width: 520px) {
+
+            .error-page {
+                padding: 18px;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .eyebrow {
+                font-size: 0.68rem;
+                letter-spacing: 0.12em;
+            }
+
         }
 
     </style>
@@ -102,29 +346,78 @@
 <body>
 
     <!-- ===================================================== -->
-    <!-- SECTION 3.1.3 - ERROR CONTENT                         -->
+    <!-- SECTION 3.1.8 - 404 PAGE CONTENT                      -->
     <!-- ===================================================== -->
 
-    <div class="error-container">
+    <main class="error-page">
 
-        <h1>404</h1>
+        <div class="glow-orb"></div>
+        <div class="glow-orb secondary"></div>
 
-        <h2>Page Not Found</h2>
+        <section class="error-card" aria-labelledby="error-title">
 
-        <p>
+            <div class="eyebrow">
+                <span></span>
+                Morristown Masonic Center
+            </div>
 
-            The page you are looking for could not be found.
+            <div class="error-code">404</div>
 
-            Please return to the Morristown Masonic Center homepage
-            or explore one of our upcoming events, community programs,
-            educational opportunities, and venue offerings.
+            <h1 class="error-title" id="error-title">
+                The path has been <strong>lost</strong>.
+            </h1>
 
-        </p>
+            <p class="error-copy">
+                The page you are looking for could not be found.
+                Return to the Morristown Masonic Center homepage,
+                explore upcoming events, inquire about venue rentals,
+                or continue learning about Freemasonry in Morristown, New Jersey.
+            </p>
 
-        <a href="/">Return Home</a>
+            <div class="error-actions" aria-label="404 page actions">
 
-    </div>
+                <a class="btn btn-primary" href="/">
+                    Return Home
+                </a>
+
+                <a class="btn btn-secondary" href="/events">
+                    View Events
+                </a>
+
+                <a class="btn btn-secondary" href="/contact">
+                    Contact Us
+                </a>
+
+            </div>
+
+            <div class="quick-links" aria-label="Helpful links">
+
+                <a class="quick-link" href="/venue">
+                    <h3>Rent the Venue</h3>
+                    <p>Explore event space options for gatherings, meetings, celebrations, and community use.</p>
+                </a>
+
+                <a class="quick-link" href="/events">
+                    <h3>Upcoming Events</h3>
+                    <p>See what is happening at the lodge and discover future community programs.</p>
+                </a>
+
+                <a class="quick-link" href="/membership">
+                    <h3>Become a Mason</h3>
+                    <p>Learn more about brotherhood, personal growth, service, and Masonic tradition.</p>
+                </a>
+
+            </div>
+
+            <p class="error-footer">
+                <strong>39 Maple Ave</strong> · Morristown, NJ
+            </p>
+
+        </section>
+
+    </main>
 
 </body>
 
 </html>
+```
