@@ -229,6 +229,10 @@ Morristown Masonic Center at 39 Maple Ave offers community events, venue opportu
 <!-- ===================================================== -->
 <!-- BLOCK 3.6 - FAQ PREVIEW                               -->
 <!-- ===================================================== -->
+<!-- ===================================================== -->
+<!-- BLOCK 3.6 - FAQ PREVIEW                              -->
+<!-- VERSION 3.6.1 - DATA SAFETY UPGRADE                  -->
+<!-- ===================================================== -->
 
 <section class="content-section">
 
@@ -242,30 +246,53 @@ Morristown Masonic Center at 39 Maple Ave offers community events, venue opportu
 
     <div class="faq-preview-grid">
 
-        {% for section in faqs[:2] %}
+        {% if faqs %}
 
-            {% for item in section.items[:2] %}
+            {% for section in faqs[:2] %}
+
+                {% if section.get("items") %}
+
+                    {% for item in section["items"][:2] %}
+
+                    <article class="info-card">
+
+                        <h3>
+                            {{ item.get("question", "Question") }}
+                        </h3>
+
+                        <p>
+                            {{ item.get("answer", "Answer coming soon.")[:180] }}...
+                        </p>
+
+                    </article>
+
+                    {% endfor %}
+
+                {% endif %}
+
+            {% endfor %}
+
+        {% else %}
 
             <article class="info-card">
 
                 <h3>
-                    {{ item.question }}
+                    FAQ Content Coming Soon
                 </h3>
 
                 <p>
-                    {{ item.answer[:180] }}...
+                    Frequently asked questions about membership,
+                    events, venue rentals, community programs,
+                    and the Morristown Masonic Center will appear here.
                 </p>
 
             </article>
 
-            {% endfor %}
-
-        {% endfor %}
+        {% endif %}
 
     </div>
 
 </section>
-
 <!-- ===================================================== -->
 <!-- BLOCK 3.7 - FINAL CTA                                 -->
 <!-- ===================================================== -->
