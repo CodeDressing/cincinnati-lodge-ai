@@ -1,10 +1,9 @@
-```html
 {% extends "base.html" %}
 
 {% block title %}Events and Programs | Morristown Masonic Center{% endblock %}
 
 {% block meta_description %}
-Explore upcoming and proposed events at Morristown Masonic Center, including community programs, ticketed events, Masonic events, debate nights, chess club, comedy nights, networking events, holiday events, and venue programming.
+Explore events and programs at Morristown Masonic Center, including revenue events, community programs, Masonic events, debate nights, chess club, comedy nights, networking events, holiday events, and venue programming.
 {% endblock %}
 
 {% block og_title %}Events and Programs | Morristown Masonic Center{% endblock %}
@@ -17,7 +16,8 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
 
 <!-- ===================================================== -->
 <!-- PHASE 3 - TEMPLATE LAYER                              -->
-<!-- BLOCK 3.4 - EVENTS LISTING PAGE AAA+ UPGRADE         -->
+<!-- BLOCK 3.4 - EVENTS LISTING PAGE                       -->
+<!-- VERSION 3.4.1 - CLEAN ENTERPRISE UPGRADE              -->
 <!-- PROJECT MAPLE / MORRISTOWN MASONIC CENTER             -->
 <!-- ===================================================== -->
 
@@ -46,8 +46,8 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
             View Event Concepts
         </a>
 
-        <a href="/assistant/" class="button-secondary">
-            Ask the Assistant
+        <a href="/venue/" class="button-secondary">
+            Explore Venue Rentals
         </a>
 
     </div>
@@ -69,16 +69,20 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
     </h2>
 
     <p>
-        Every event should have a clear purpose. Some events help fund the Lodge,
-        some build public trust and community presence, and some strengthen
-        brotherhood, education, and member culture.
+        Every event should have a clear purpose. Some programs support Lodge
+        sustainability, some build public trust and community presence, and
+        others strengthen brotherhood, education, and member culture.
     </p>
 
     <div class="card-grid">
 
         <article class="info-card event-category-card">
             <span class="category-number">01</span>
-            <h3>Revenue Events</h3>
+
+            <h3>
+                Revenue Events
+            </h3>
+
             <p>
                 Ticketed programs, entertainment nights, networking events,
                 holiday events, sponsorship opportunities, and rental-driven
@@ -88,17 +92,25 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
 
         <article class="info-card event-category-card">
             <span class="category-number">02</span>
-            <h3>Community Events</h3>
+
+            <h3>
+                Community Events
+            </h3>
+
             <p>
                 Public-facing programs that build goodwill, strengthen visibility,
-                connect the Lodge with Morristown residents, and show the building
-                as a positive civic gathering place.
+                connect the Lodge with Morristown residents, and present the
+                building as a positive civic gathering place.
             </p>
         </article>
 
         <article class="info-card event-category-card">
             <span class="category-number">03</span>
-            <h3>Masonic Events</h3>
+
+            <h3>
+                Masonic Events
+            </h3>
+
             <p>
                 Member-focused programs that support brotherhood, education,
                 leadership development, ritual culture, fellowship, and long-term
@@ -116,26 +128,38 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
 
 <section class="content-section alt-section">
 
-    <div class="strategy-strip">
+    <p class="section-kicker">
+        Growth Model
+    </p>
 
-        <article>
-            <strong>Revenue</strong>
-            <span>Funds operations and future improvements.</span>
+    <h2>
+        Events Should Serve the Whole Lodge
+    </h2>
+
+    <div class="card-grid">
+
+        <article class="info-card small-card">
+            <p>
+                <strong>Revenue:</strong> Funds operations and future improvements.
+            </p>
         </article>
 
-        <article>
-            <strong>Community</strong>
-            <span>Builds local trust and Morristown visibility.</span>
+        <article class="info-card small-card">
+            <p>
+                <strong>Community:</strong> Builds local trust and Morristown visibility.
+            </p>
         </article>
 
-        <article>
-            <strong>Brotherhood</strong>
-            <span>Strengthens members, culture, and purpose.</span>
+        <article class="info-card small-card">
+            <p>
+                <strong>Brotherhood:</strong> Strengthens members, culture, and purpose.
+            </p>
         </article>
 
-        <article>
-            <strong>SEO</strong>
-            <span>Turns events into searchable local content.</span>
+        <article class="info-card small-card">
+            <p>
+                <strong>SEO:</strong> Turns events into searchable local content.
+            </p>
         </article>
 
     </div>
@@ -162,70 +186,89 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
         sponsorship structure, and SEO landing-page support.
     </p>
 
-    <div class="event-grid">
+    <div class="card-grid event-grid">
 
-        {% for event in events %}
+        {% if events %}
 
-        <article class="event-card premium-event-card">
+            {% for event in events %}
 
-            <a href="/events/{{ event.slug }}/" class="event-image-link" aria-label="View details for {{ event.title }}">
+            <article class="event-card premium-event-card">
 
-                <img
-                    src="{{ url_for('static', filename='images/' ~ event.image) }}"
-                    alt="{{ event.title }} at Morristown Masonic Center"
-                >
+                <a href="/events/{{ event.get('slug', '') }}/" class="event-image-link" aria-label="View details for {{ event.get('title', 'Event') }}">
 
-            </a>
+                    <img
+                        src="{{ url_for('static', filename='images/' ~ event.get('image', 'lodge-exterior.jpg')) }}"
+                        alt="{{ event.get('title', 'Event') }} at Morristown Masonic Center"
+                    >
 
-            <div class="event-card-body">
+                </a>
 
-                <div class="event-card-topline">
+                <div class="event-card-body">
 
-                    <p class="event-category">
-                        {{ event.category }}
+                    <div class="event-card-topline">
+
+                        <p class="event-category">
+                            {{ event.get("category", "Event") }}
+                        </p>
+
+                        <span class="event-status-pill">
+                            {{ event.get("status", "In Development") }}
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        {{ event.get("title", "Event Concept") }}
+                    </h3>
+
+                    <p>
+                        {{ event.get("short_description", "More event details will be added soon.") }}
                     </p>
 
-                    <span class="event-status-pill">
-                        {{ event.status }}
-                    </span>
+                    <ul class="event-meta-list">
+
+                        <li>
+                            <strong>Date:</strong>
+                            <span>{{ event.get("date", "TBD") }}</span>
+                        </li>
+
+                        <li>
+                            <strong>Time:</strong>
+                            <span>{{ event.get("time", "TBD") }}</span>
+                        </li>
+
+                    </ul>
+
+                    <div class="event-card-actions">
+
+                        <a href="/events/{{ event.get('slug', '') }}/" class="button-primary">
+                            View Event Details
+                        </a>
+
+                    </div>
 
                 </div>
 
+            </article>
+
+            {% endfor %}
+
+        {% else %}
+
+            <article class="info-card">
+
                 <h3>
-                    {{ event.title }}
+                    Event Concepts Coming Soon
                 </h3>
 
                 <p>
-                    {{ event.short_description }}
+                    Future Lodge programs, community events, venue showcases,
+                    and Masonic events will appear here as Project Maple grows.
                 </p>
 
-                <ul class="event-meta-list">
+            </article>
 
-                    <li>
-                        <strong>Date:</strong>
-                        <span>{{ event.date }}</span>
-                    </li>
-
-                    <li>
-                        <strong>Time:</strong>
-                        <span>{{ event.time }}</span>
-                    </li>
-
-                </ul>
-
-                <div class="event-card-actions">
-
-                    <a href="/events/{{ event.slug }}/" class="button-primary">
-                        View Event Details
-                    </a>
-
-                </div>
-
-            </div>
-
-        </article>
-
-        {% endfor %}
+        {% endif %}
 
     </div>
 
@@ -266,4 +309,3 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
 </section>
 
 {% endblock %}
-```
