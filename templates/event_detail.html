@@ -1,4 +1,3 @@
-```html
 {% extends "base.html" %}
 
 {% block title %}{{ event.title }} | Morristown Masonic Center{% endblock %}
@@ -23,20 +22,21 @@
 
 <!-- ===================================================== -->
 <!-- SECTION 3.5.1 - EVENT HERO                            -->
+<!-- VERSION 3.5.2 - CONVERSION UPGRADE                    -->
 <!-- ===================================================== -->
 
 <section class="page-hero event-detail-hero">
 
     <p class="eyebrow">
-        {{ event.category }}
+        {{ event.get("category", "Event") }}
     </p>
 
     <h1>
-        {{ event.title }}
+        {{ event.get("title", "Event") }}
     </h1>
 
     <p>
-        {{ event.summary }}
+        {{ event.get("summary", event.get("short_description", "Event details coming soon.")) }}
     </p>
 
     <div class="hero-actions">
@@ -45,16 +45,16 @@
             View Event Details
         </a>
 
-        <a href="/events/" class="button-secondary">
-            Back to Events
+        <a href="#event-flow" class="button-secondary">
+            View Schedule
         </a>
 
     </div>
 
 </section>
-
 <!-- ===================================================== -->
 <!-- SECTION 3.5.2 - EVENT SNAPSHOT BAR                    -->
+<!-- VERSION 3.5.2 - DATA SAFE UPGRADE                     -->
 <!-- ===================================================== -->
 
 <section class="content-section event-snapshot-section">
@@ -63,28 +63,32 @@
 
         <article class="snapshot-card">
             <span>Status</span>
-            <strong>{{ event.status }}</strong>
+            <strong>{{ event.get("status", "Planned") }}</strong>
         </article>
 
         <article class="snapshot-card">
             <span>Date</span>
-            <strong>{{ event.date }}</strong>
+            <strong>{{ event.get("date", "TBD") }}</strong>
         </article>
 
         <article class="snapshot-card">
             <span>Doors</span>
-            <strong>{{ event.doors_open }}</strong>
+            <strong>{{ event.get("doors_open", "TBD") }}</strong>
         </article>
 
         <article class="snapshot-card">
             <span>Time</span>
-            <strong>{{ event.time }}</strong>
+            <strong>{{ event.get("time", "TBD") }}</strong>
+        </article>
+
+        <article class="snapshot-card">
+            <span>Location</span>
+            <strong>{{ event.get("location", "Morristown Masonic Center") }}</strong>
         </article>
 
     </div>
 
 </section>
-
 <!-- ===================================================== -->
 <!-- SECTION 3.5.3 - EVENT OVERVIEW                        -->
 <!-- ===================================================== -->
@@ -336,28 +340,33 @@
 
 <!-- ===================================================== -->
 <!-- SECTION 3.5.8 - EVENT DEVELOPMENT CTA                 -->
+<!-- VERSION 3.5.2 - GROWTH CTA                            -->
 <!-- ===================================================== -->
 
 <section class="final-cta event-detail-cta">
 
     <p class="section-kicker">
-        Event Development
+        Expand the Program
     </p>
 
     <h2>
-        Build This Into a Full Lodge Program
+        Turn This Event Into a Full Campaign
     </h2>
 
     <p>
-        This event concept can be expanded into a complete campaign with flyers,
-        ticket pages, social media posts, sponsorship packages,
-        volunteer checklists, and operations planning.
+        Every event can evolve into a complete program with sponsorships,
+        marketing campaigns, volunteer coordination, venue planning,
+        social media promotion, and long-term community engagement.
     </p>
 
     <div class="hero-actions">
 
         <a href="/events/" class="button-primary">
             View All Events
+        </a>
+
+        <a href="/venue/" class="button-secondary">
+            Explore Venue Opportunities
         </a>
 
         <a href="/assistant/" class="button-secondary">
@@ -369,4 +378,3 @@
 </section>
 
 {% endblock %}
-```
