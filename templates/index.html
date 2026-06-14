@@ -1,274 +1,255 @@
 {% extends "base.html" %}
 
-{% block title %}
-Morristown Masonic Center | Brotherhood • Community • Events
-{% endblock %}
+{% block title %}Events and Programs | Morristown Masonic Center{% endblock %}
 
 {% block meta_description %}
-Morristown Masonic Center at 39 Maple Ave offers community events, venue opportunities, educational programs, fellowship, leadership development, and pathways to membership.
+Explore events and programs at Morristown Masonic Center, including revenue events, community programs, Masonic events, debate nights, chess club, comedy nights, networking events, holiday events, and venue programming.
+{% endblock %}
+
+{% block og_title %}Events and Programs | Morristown Masonic Center{% endblock %}
+
+{% block og_description %}
+Discover revenue events, community programs, and Masonic events at Morristown Masonic Center in Morristown, NJ.
 {% endblock %}
 
 {% block content %}
 
 <!-- ===================================================== -->
-<!-- PROJECT MAPLE 4.0                                     -->
-<!-- BLOCK 3.1 - HOMEPAGE HERO                             -->
+<!-- PHASE 3 - TEMPLATE LAYER                              -->
+<!-- BLOCK 3.4 - EVENTS LISTING PAGE                       -->
+<!-- VERSION 3.4.1 - CLEAN ENTERPRISE UPGRADE              -->
+<!-- PROJECT MAPLE / MORRISTOWN MASONIC CENTER             -->
 <!-- ===================================================== -->
 
-<section class="page-hero homepage-hero">
+<!-- ===================================================== -->
+<!-- SECTION 3.4.1 - PAGE HERO                             -->
+<!-- ===================================================== -->
 
-    <div class="hero-content">
+<section class="page-hero events-hero">
 
-        <p class="hero-kicker">
-            MORRISTOWN MASONIC CENTER
-        </p>
+    <p class="eyebrow">
+        Events and Programs
+    </p>
 
-        <h1>
-            Building Better Men.
-            Strengthening Community.
-            Creating Opportunities.
-        </h1>
+    <h1>
+        Revenue Events, Community Events, and Masonic Events
+    </h1>
 
-        <p class="hero-description">
-            Located at 39 Maple Ave in Morristown, New Jersey,
-            the Morristown Masonic Center serves as a center
-            for leadership, fellowship, education, community
-            engagement, events, and venue opportunities.
-        </p>
+    <p>
+        The Lodge event strategy is organized around sustainable revenue,
+        public goodwill, community visibility, and fraternity development.
+    </p>
 
-        <div class="hero-actions">
+    <div class="hero-actions">
 
-            <a href="/events/" class="button-primary">
-                Explore Events
-            </a>
+        <a href="#event-database" class="button-primary">
+            View Event Concepts
+        </a>
 
-            <a href="/membership/" class="button-secondary">
-                Learn About Membership
-            </a>
-
-        </div>
+        <a href="/venue/" class="button-secondary">
+            Explore Venue Rentals
+        </a>
 
     </div>
 
 </section>
 
 <!-- ===================================================== -->
-<!-- BLOCK 3.2 - STRATEGIC PILLARS                         -->
+<!-- SECTION 3.4.2 - EVENT STRATEGY OVERVIEW               -->
 <!-- ===================================================== -->
 
 <section class="content-section">
 
     <p class="section-kicker">
-        OUR MISSION
+        Event Classification System
     </p>
 
     <h2>
-        Four Pillars of Project Maple
+        Three Categories for Long-Term Growth
     </h2>
 
-    <div class="card-grid">
-
-        <article class="info-card">
-
-            <h3>Brotherhood</h3>
-
-            <p>
-                Building lifelong relationships founded on
-                trust, integrity, mentorship, and mutual support.
-            </p>
-
-        </article>
-
-        <article class="info-card">
-
-            <h3>Community</h3>
-
-            <p>
-                Supporting Morristown through service,
-                outreach, educational initiatives,
-                and civic engagement.
-            </p>
-
-        </article>
-
-        <article class="info-card">
-
-            <h3>Education</h3>
-
-            <p>
-                Encouraging personal growth, leadership,
-                lifelong learning, and intellectual development.
-            </p>
-
-        </article>
-
-        <article class="info-card">
-
-            <h3>Opportunity</h3>
-
-            <p>
-                Creating opportunities through networking,
-                events, partnerships, and community collaboration.
-            </p>
-
-        </article>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- BLOCK 3.3 - EVENT SNAPSHOT                            -->
-<!-- ===================================================== -->
-
-<section class="content-section alt-section">
-
-    <p class="section-kicker">
-        UPCOMING PROGRAMS
-    </p>
-
-    <h2>
-        Events and Community Experiences
-    </h2>
-
-    <p class="section-intro">
-        From educational programs and community initiatives
-        to entertainment concepts and networking events,
-        the Center continues to expand opportunities
-        for Morristown and the surrounding region.
+    <p>
+        Every event should have a clear purpose. Some programs support Lodge
+        sustainability, some build public trust and community presence, and
+        others strengthen brotherhood, education, and member culture.
     </p>
 
     <div class="card-grid">
 
-        {% for event in events[:3] %}
-
-        <article class="info-card">
+        <article class="info-card event-category-card">
+            <span class="category-number">01</span>
 
             <h3>
-                {{ event.title }}
+                Revenue Events
             </h3>
 
             <p>
-                {{ event.short_description }}
+                Ticketed programs, entertainment nights, networking events,
+                holiday events, sponsorship opportunities, and rental-driven
+                programming that helps support Lodge operations.
             </p>
-
-            <span class="event-category">
-                {{ event.category }}
-            </span>
-
         </article>
 
-        {% endfor %}
+        <article class="info-card event-category-card">
+            <span class="category-number">02</span>
+
+            <h3>
+                Community Events
+            </h3>
+
+            <p>
+                Public-facing programs that build goodwill, strengthen visibility,
+                connect the Lodge with Morristown residents, and present the
+                building as a positive civic gathering place.
+            </p>
+        </article>
+
+        <article class="info-card event-category-card">
+            <span class="category-number">03</span>
+
+            <h3>
+                Masonic Events
+            </h3>
+
+            <p>
+                Member-focused programs that support brotherhood, education,
+                leadership development, ritual culture, fellowship, and long-term
+                Lodge strength.
+            </p>
+        </article>
 
     </div>
 
 </section>
 
 <!-- ===================================================== -->
-<!-- BLOCK 3.4 - VENUE SECTION                             -->
-<!-- ===================================================== -->
-
-<section class="content-section">
-
-    <p class="section-kicker">
-        VENUE OPPORTUNITIES
-    </p>
-
-    <h2>
-        A Flexible Space in the Heart of Morristown
-    </h2>
-
-    <p>
-        The Morristown Masonic Center offers flexible
-        gathering spaces suitable for meetings,
-        educational programs, networking events,
-        community activities, workshops,
-        celebrations, and private functions.
-    </p>
-
-    <div class="hero-actions">
-
-        <a href="/venue/" class="button-primary">
-            Explore Venue Options
-        </a>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- BLOCK 3.5 - MEMBERSHIP SECTION                        -->
+<!-- SECTION 3.4.3 - EVENT STRATEGY STRIP                  -->
 <!-- ===================================================== -->
 
 <section class="content-section alt-section">
 
     <p class="section-kicker">
-        MEMBERSHIP
+        Growth Model
     </p>
 
     <h2>
-        Become Part of Something Bigger
+        Events Should Serve the Whole Lodge
     </h2>
 
-    <p>
-        Freemasonry encourages personal development,
-        leadership, service, friendship, and
-        the pursuit of lifelong improvement.
-    </p>
+    <div class="card-grid">
 
-    <div class="hero-actions">
+        <article class="info-card small-card">
+            <p>
+                <strong>Revenue:</strong> Funds operations and future improvements.
+            </p>
+        </article>
 
-        <a href="/membership/" class="button-primary">
-            Learn More
-        </a>
+        <article class="info-card small-card">
+            <p>
+                <strong>Community:</strong> Builds local trust and Morristown visibility.
+            </p>
+        </article>
+
+        <article class="info-card small-card">
+            <p>
+                <strong>Brotherhood:</strong> Strengthens members, culture, and purpose.
+            </p>
+        </article>
+
+        <article class="info-card small-card">
+            <p>
+                <strong>SEO:</strong> Turns events into searchable local content.
+            </p>
+        </article>
 
     </div>
 
 </section>
 
 <!-- ===================================================== -->
-<!-- BLOCK 3.6 - FAQ PREVIEW                               -->
-<!-- ===================================================== -->
-<!-- ===================================================== -->
-<!-- BLOCK 3.6 - FAQ PREVIEW                              -->
-<!-- VERSION 3.6.1 - DATA SAFETY UPGRADE                  -->
+<!-- SECTION 3.4.4 - EVENT CARD GRID                       -->
 <!-- ===================================================== -->
 
-<section class="content-section">
+<section class="content-section" id="event-database">
 
     <p class="section-kicker">
-        FREQUENTLY ASKED QUESTIONS
+        Program Database
     </p>
 
     <h2>
-        Common Questions
+        Current Event Concepts
     </h2>
 
-    <div class="faq-preview-grid">
+    <p>
+        Each event can grow into a full campaign with a detail page,
+        flyer copy, social media content, operational checklist,
+        sponsorship structure, and SEO landing-page support.
+    </p>
 
-        {% if faqs %}
+    <div class="card-grid event-grid">
 
-            {% for section in faqs[:2] %}
+        {% if events %}
 
-                {% if section.get("items") %}
+            {% for event in events %}
 
-                    {% for item in section["items"][:2] %}
+            <article class="event-card premium-event-card">
 
-                    <article class="info-card">
+                <a href="/events/{{ event.get('slug', '') }}/" class="event-image-link" aria-label="View details for {{ event.get('title', 'Event') }}">
 
-                        <h3>
-                            {{ item.get("question", "Question") }}
-                        </h3>
+                    <img
+                        src="{{ url_for('static', filename='images/' ~ event.get('image', 'lodge-exterior.jpg')) }}"
+                        alt="{{ event.get('title', 'Event') }} at Morristown Masonic Center"
+                    >
 
-                        <p>
-                            {{ item.get("answer", "Answer coming soon.")[:180] }}...
+                </a>
+
+                <div class="event-card-body">
+
+                    <div class="event-card-topline">
+
+                        <p class="event-category">
+                            {{ event.get("category", "Event") }}
                         </p>
 
-                    </article>
+                        <span class="event-status-pill">
+                            {{ event.get("status", "In Development") }}
+                        </span>
 
-                    {% endfor %}
+                    </div>
 
-                {% endif %}
+                    <h3>
+                        {{ event.get("title", "Event Concept") }}
+                    </h3>
+
+                    <p>
+                        {{ event.get("short_description", "More event details will be added soon.") }}
+                    </p>
+
+                    <ul class="event-meta-list">
+
+                        <li>
+                            <strong>Date:</strong>
+                            <span>{{ event.get("date", "TBD") }}</span>
+                        </li>
+
+                        <li>
+                            <strong>Time:</strong>
+                            <span>{{ event.get("time", "TBD") }}</span>
+                        </li>
+
+                    </ul>
+
+                    <div class="event-card-actions">
+
+                        <a href="/events/{{ event.get('slug', '') }}/" class="button-primary">
+                            View Event Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
 
             {% endfor %}
 
@@ -277,13 +258,12 @@ Morristown Masonic Center at 39 Maple Ave offers community events, venue opportu
             <article class="info-card">
 
                 <h3>
-                    FAQ Content Coming Soon
+                    Event Concepts Coming Soon
                 </h3>
 
                 <p>
-                    Frequently asked questions about membership,
-                    events, venue rentals, community programs,
-                    and the Morristown Masonic Center will appear here.
+                    Future Lodge programs, community events, venue showcases,
+                    and Masonic events will appear here as Project Maple grows.
                 </p>
 
             </article>
@@ -293,34 +273,35 @@ Morristown Masonic Center at 39 Maple Ave offers community events, venue opportu
     </div>
 
 </section>
+
 <!-- ===================================================== -->
-<!-- BLOCK 3.7 - FINAL CTA                                 -->
+<!-- SECTION 3.4.5 - EVENT DEVELOPMENT CTA                 -->
 <!-- ===================================================== -->
 
-<section class="final-cta">
+<section class="final-cta events-final-cta">
 
     <p class="section-kicker">
-        START EXPLORING
+        Build With Purpose
     </p>
 
     <h2>
-        Discover Morristown Masonic Center
+        Turn the Lodge Calendar Into a Growth Engine
     </h2>
 
     <p>
-        Learn about events, community programs,
-        venue opportunities, leadership development,
-        fellowship, and membership.
+        Every event should serve a clear role: revenue generation,
+        community engagement, membership development, or Masonic education.
+        Project Maple can turn each idea into a full digital campaign.
     </p>
 
     <div class="hero-actions">
 
-        <a href="/events/" class="button-primary">
-            View Events
+        <a href="/assistant/" class="button-primary">
+            Ask the Assistant About Events
         </a>
 
-        <a href="/assistant/" class="button-secondary">
-            Ask The Assistant
+        <a href="/venue/" class="button-secondary">
+            Explore Venue Rentals
         </a>
 
     </div>
