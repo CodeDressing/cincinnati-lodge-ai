@@ -1,98 +1,175 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ page.title }} | Morristown Masonic Center
+{{ page.get("title", "SEO Landing Page") }} | Cincinnati Lodge No. III
 {% endblock %}
 
 {% block meta_description %}
-{{ page.meta_description }}
+{{ page.get("meta_description", "Learn more about Cincinnati Lodge No. III, Morristown Masonic Center, public events, venue rentals, community programs, and Freemasonry in Morristown, New Jersey.") }}
+{% endblock %}
+
+{% block og_title %}
+{{ page.get("title", "Cincinnati Lodge No. III") }} | Morristown Masonic Center
+{% endblock %}
+
+{% block og_description %}
+{{ page.get("meta_description", "Explore Cincinnati Lodge No. III at 39 Maple Ave in Morristown, New Jersey.") }}
+{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "{{ page.get("title", "Cincinnati Lodge No. III") }}",
+    "headline": "{{ page.get("headline", page.get("title", "Cincinnati Lodge No. III")) }}",
+    "description": "{{ page.get("meta_description", "Information about Cincinnati Lodge No. III in Morristown, New Jersey.") }}",
+    "url": "{{ request.url }}",
+    "isPartOf": {
+        "@type": "WebSite",
+        "name": "Cincinnati Lodge No. III",
+        "url": "{{ request.url_root }}"
+    },
+    "about": {
+        "@type": "Organization",
+        "name": "Cincinnati Lodge No. III",
+        "alternateName": "Morristown Masonic Center"
+    }
+}
+</script>
 {% endblock %}
 
 {% block content %}
 
 <!-- ===================================================== -->
-<!-- PHASE 3 - TEMPLATE LAYER                              -->
-<!-- BLOCK 3.6 - SEO PAGE TEMPLATE                         -->
+<!-- PROJECT MAPLE / CINCINNATI LODGE AI                  -->
+<!-- PHASE 6 — SEO ENGINE FOUNDATION                      -->
+<!-- BLOCK 6.3 — SEO PAGE TEMPLATE                        -->
+<!-- VERSION 6.3.0 — MASS SEO LANDING PAGE UPGRADE        -->
 <!-- ===================================================== -->
 
 <!-- ===================================================== -->
-<!-- SECTION 3.6.1 - PAGE HERO                             -->
+<!-- SECTION 6.3.1 — SEO LANDING PAGE HERO                -->
 <!-- ===================================================== -->
 
-<section class="page-hero">
+<section class="page-hero seo-page-hero">
 
     <p class="eyebrow">
-        {{ page.primary_keyword }}
+        {{ page.get("primary_keyword", "Morristown Masonic Center") }}
     </p>
 
     <h1>
-        {{ page.headline }}
+        {{ page.get("headline", page.get("title", "Cincinnati Lodge No. III")) }}
     </h1>
 
     <p>
-        {{ page.meta_description }}
+        {{ page.get("meta_description", "Explore Cincinnati Lodge No. III, Morristown Masonic Center, public events, community programs, venue rentals, and Freemasonry in Morristown, New Jersey.") }}
     </p>
+
+    <div class="hero-actions">
+
+        <a href="#seo-content" class="button-primary">
+            Learn More
+        </a>
+
+        <a href="/assistant/" class="button-secondary">
+            Ask the Lodge Assistant
+        </a>
+
+    </div>
 
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.6.2 - MAIN CONTENT                          -->
+<!-- SECTION 6.3.2 — PRIMARY CONTENT BODY                 -->
 <!-- ===================================================== -->
 
-<section class="content-section">
+<section class="content-section" id="seo-content">
 
     <p class="section-kicker">
-        SEO Landing Page
+        Local Information Page
     </p>
 
     <h2>
-        {{ page.title }}
+        {{ page.get("title", "Cincinnati Lodge No. III") }}
     </h2>
 
     <p>
-        {{ page.content }}
+        {{ page.get("content", "This page is part of the Cincinnati Lodge AI SEO engine and supports local visibility for Morristown Masonic Center, community programs, public events, venue opportunities, and Freemasonry education.") }}
     </p>
 
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.6.3 - PRIMARY KEYWORD                       -->
+<!-- SECTION 6.3.3 — SEARCH INTENT SECTION                -->
 <!-- ===================================================== -->
 
 <section class="content-section alt-section">
 
     <p class="section-kicker">
-        Primary Search Target
+        Search Intent
     </p>
 
     <h2>
-        {{ page.primary_keyword }}
+        Built Around Local Morristown Search
     </h2>
 
     <p>
-        This page is optimized around a primary local search phrase
-        that supports visibility for the Morristown Masonic Center.
+        This page is designed to help people searching for information about
+        {{ page.get("primary_keyword", "Morristown Masonic Center") }}
+        find clear, useful, locally relevant information connected to Cincinnati Lodge No. III,
+        39 Maple Ave, public programming, venue use, community involvement, and Freemasonry.
     </p>
+
+    <div class="card-grid">
+
+        <article class="info-card small-card">
+            <h3>Local Relevance</h3>
+            <p>
+                Connects searchers with Morristown-specific information, nearby community needs,
+                and real-world uses for the lodge building.
+            </p>
+        </article>
+
+        <article class="info-card small-card">
+            <h3>Clear Intent</h3>
+            <p>
+                Supports people looking for events, venue options, membership education,
+                community programs, or lodge information.
+            </p>
+        </article>
+
+        <article class="info-card small-card">
+            <h3>SEO Growth</h3>
+            <p>
+                Strengthens the larger content engine by linking related pages,
+                keywords, FAQs, and future campaign topics.
+            </p>
+        </article>
+
+    </div>
 
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.6.4 - SECONDARY KEYWORDS                    -->
+<!-- SECTION 6.3.4 — KEYWORD CLUSTER                      -->
 <!-- ===================================================== -->
 
 <section class="content-section">
 
     <p class="section-kicker">
-        Supporting Keywords
+        Keyword Cluster
     </p>
 
     <h2>
-        Related Search Terms
+        Related Search Topics
     </h2>
 
-    <div class="pill-list">
+    {% if page.get("secondary_keywords") %}
 
-        {% for keyword in page.secondary_keywords %}
+    <div class="pill-list seo-pill-list">
+
+        {% for keyword in page.get("secondary_keywords", []) %}
 
         <span>
             {{ keyword }}
@@ -102,64 +179,147 @@
 
     </div>
 
+    {% else %}
+
+    <p>
+        Supporting keyword data will be expanded as more questions, events,
+        and local search opportunities are added to the Cincinnati Lodge AI platform.
+    </p>
+
+    {% endif %}
+
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.6.5 - WHY THIS PAGE MATTERS                 -->
+<!-- SECTION 6.3.5 — LODGE CONNECTION                     -->
 <!-- ===================================================== -->
 
 <section class="content-section alt-section">
 
     <p class="section-kicker">
-        SEO Strategy
+        Cincinnati Lodge Connection
     </p>
 
     <h2>
-        Local Visibility and Community Growth
+        Connected to 39 Maple Ave in Morristown
     </h2>
 
     <p>
-        These pages help connect local residents, visitors,
-        businesses, event organizers, and prospective members
-        with the programs and opportunities available through
-        the Morristown Masonic Center.
+        Cincinnati Lodge No. III and Morristown Masonic Center are connected to
+        brotherhood, leadership, service, education, community presence, public programs,
+        and selected venue opportunities in Morristown, New Jersey.
     </p>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+            <h3>Events and Programs</h3>
+            <p>
+                Explore public-facing programs, Lodge events, community ideas,
+                educational nights, networking concepts, and future calendar planning.
+            </p>
+            <a href="/events/">View Events</a>
+        </article>
+
+        <article class="info-card">
+            <h3>Venue Opportunities</h3>
+            <p>
+                Learn how the building may support meetings, workshops,
+                community programs, private gatherings, and selected event uses.
+            </p>
+            <a href="/venue/">Explore Venue Rentals</a>
+        </article>
+
+        <article class="info-card">
+            <h3>Membership Interest</h3>
+            <p>
+                Learn about Freemasonry, brotherhood, service, personal growth,
+                and how interested men can begin learning more.
+            </p>
+            <a href="/membership/">Become a Mason</a>
+        </article>
+
+    </div>
 
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.6.6 - RELATED SEO PAGES                     -->
+<!-- SECTION 6.3.6 — FAQ CONTENT SUPPORT                  -->
+<!-- ===================================================== -->
+
+{% if faqs %}
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        Frequently Asked Questions
+    </p>
+
+    <h2>
+        Helpful Questions About the Lodge
+    </h2>
+
+    <div class="card-grid">
+
+        {% for section in faqs[:3] %}
+
+            {% for item in section.get("questions", [])[:2] %}
+
+            <article class="info-card">
+
+                <h3>
+                    {{ item.get("question", "Question") }}
+                </h3>
+
+                <p>
+                    {{ item.get("answer", "More information will be added soon.") }}
+                </p>
+
+            </article>
+
+            {% endfor %}
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!-- ===================================================== -->
+<!-- SECTION 6.3.7 — RELATED SEO PAGES                    -->
 <!-- ===================================================== -->
 
 {% if seo_pages %}
 
-<section class="content-section">
+<section class="content-section alt-section">
 
     <p class="section-kicker">
         Explore More
     </p>
 
     <h2>
-        Related Pages
+        Related Cincinnati Lodge Pages
     </h2>
 
     <div class="card-grid">
 
-        {% for related_page in seo_pages %}
+        {% for related_page in seo_pages[:9] %}
 
-            {% if related_page.slug != page.slug %}
+            {% if related_page.get("slug") != page.get("slug") %}
 
             <article class="info-card">
 
                 <h3>
-                    {{ related_page.title }}
+                    {{ related_page.get("title", "Related Page") }}
                 </h3>
 
                 <p>
-                    {{ related_page.meta_description }}
+                    {{ related_page.get("meta_description", "Explore another Cincinnati Lodge information page.") }}
                 </p>
 
-                <a href="/{{ related_page.slug }}/">
+                <a href="/{{ related_page.get("slug", "") }}/">
                     View Page
                 </a>
 
@@ -176,24 +336,32 @@
 {% endif %}
 
 <!-- ===================================================== -->
-<!-- SECTION 3.6.7 - CALL TO ACTION                        -->
+<!-- SECTION 6.3.8 — FINAL CONVERSION CTA                 -->
 <!-- ===================================================== -->
 
-<section class="final-cta">
+<section class="final-cta seo-final-cta">
+
+    <p class="section-kicker">
+        Continue Exploring
+    </p>
 
     <h2>
-        Discover More at the Morristown Masonic Center
+        Discover More at Cincinnati Lodge No. III
     </h2>
 
     <p>
-        Explore events, educational programs, community initiatives,
-        venue opportunities, and membership pathways.
+        Explore public events, lodge information, venue opportunities,
+        community programs, membership pathways, and the Cincinnati Lodge AI Assistant.
     </p>
 
     <div class="hero-actions">
 
         <a href="/events/" class="button-primary">
             View Events
+        </a>
+
+        <a href="/venue/" class="button-secondary">
+            Explore Venue Rentals
         </a>
 
         <a href="/assistant/" class="button-secondary">
