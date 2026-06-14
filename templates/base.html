@@ -4,36 +4,72 @@
 <head>
 
     <!-- ===================================================== -->
-    <!-- PHASE 3 - TEMPLATE LAYER                              -->
-    <!-- BLOCK 3.2 - BASE TEMPLATE                            -->
-    <!-- VERSION 3.2.1 - MARKDOWN FENCE CLEANUP                -->
-    <!-- PROJECT MAPLE / MORRISTOWN MASONIC CENTER             -->
+    <!-- PROJECT MAPLE / CINCINNATI LODGE AI                  -->
+    <!-- PHASE 6 — SEO ENGINE FOUNDATION                      -->
+    <!-- BLOCK 6.2 — BASE TEMPLATE                            -->
+    <!-- VERSION 6.2.0 — ENTERPRISE SEO SHELL UPGRADE         -->
     <!-- ===================================================== -->
 
     <!-- ===================================================== -->
-    <!-- SECTION 3.2.1 - DOCUMENT SETTINGS                     -->
+    <!-- SECTION 6.2.1 — DOCUMENT SETTINGS                    -->
     <!-- ===================================================== -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% block title %}Morristown Masonic Center{% endblock %}</title>
+    <title>{% block title %}Cincinnati Lodge No. III | Morristown Masonic Center{% endblock %}</title>
 
-    <meta name="description" content="{% block meta_description %}Morristown Masonic Center at 39 Maple Ave in Morristown, New Jersey. A historic lodge, community gathering place, event venue, and home for brotherhood, service, leadership, and personal growth.{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Cincinnati Lodge No. III at 39 Maple Ave in Morristown, New Jersey. A historic Masonic lodge, community gathering place, event venue, and information hub for Freemasonry, public events, venue rentals, and membership interest.{% endblock %}">
 
+    <meta name="robots" content="{% block robots %}index, follow{% endblock %}">
+    <meta name="author" content="Cincinnati Lodge No. III F.&A.M.">
     <meta name="theme-color" content="#0f172a">
 
-    <!-- ===================================================== -->
-    <!-- SECTION 3.2.2 - SOCIAL / SEO FOUNDATION               -->
-    <!-- ===================================================== -->
-
-    <meta property="og:title" content="{% block og_title %}Morristown Masonic Center{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Explore Morristown Masonic Center at 39 Maple Ave: events, venue rentals, community programs, and Freemasonry in Morristown, NJ.{% endblock %}">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Morristown Masonic Center">
+    <link rel="canonical" href="{% block canonical_url %}{{ request.url }}{% endblock %}">
 
     <!-- ===================================================== -->
-    <!-- SECTION 3.2.3 - CSS                                  -->
+    <!-- SECTION 6.2.2 — OPEN GRAPH / SOCIAL SEO              -->
+    <!-- ===================================================== -->
+
+    <meta property="og:title" content="{% block og_title %}Cincinnati Lodge No. III | Morristown Masonic Center{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Explore Cincinnati Lodge No. III at 39 Maple Ave in Morristown, NJ: Freemasonry, lodge history, venue rentals, public events, community programs, and membership interest.{% endblock %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:site_name" content="Cincinnati Lodge No. III">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="{{ request.url }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Cincinnati Lodge No. III | Morristown Masonic Center{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Historic lodge, event space, community programming, public events, and Freemasonry information in Morristown, New Jersey.{% endblock %}">
+
+    <!-- ===================================================== -->
+    <!-- SECTION 6.2.3 — STRUCTURED DATA FOUNDATION           -->
+    <!-- ===================================================== -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Cincinnati Lodge No. III",
+        "alternateName": "Morristown Masonic Center",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "39 Maple Ave",
+            "addressLocality": "Morristown",
+            "addressRegion": "NJ",
+            "postalCode": "07960",
+            "addressCountry": "US"
+        },
+        "url": "{{ request.url_root }}",
+        "description": "Cincinnati Lodge No. III is a historic Masonic lodge and community gathering place in Morristown, New Jersey."
+    }
+    </script>
+
+    {% block schema %}
+    {% endblock %}
+
+    <!-- ===================================================== -->
+    <!-- SECTION 6.2.4 — CSS                                  -->
     <!-- ===================================================== -->
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -43,7 +79,7 @@
 <body>
 
     <!-- ===================================================== -->
-    <!-- SECTION 3.2.4 - SKIP LINK                             -->
+    <!-- SECTION 6.2.5 — SKIP LINK                            -->
     <!-- ===================================================== -->
 
     <a href="#main-content" class="skip-link">
@@ -51,7 +87,7 @@
     </a>
 
     <!-- ===================================================== -->
-    <!-- SECTION 3.2.5 - SITE HEADER                           -->
+    <!-- SECTION 6.2.6 — SITE HEADER                          -->
     <!-- ===================================================== -->
 
     <header class="site-header">
@@ -60,45 +96,25 @@
 
             <div class="brand-block">
 
-                <a href="/" class="brand-name" aria-label="Morristown Masonic Center home">
-                    Morristown Masonic Center
+                <a href="/" class="brand-name" aria-label="Cincinnati Lodge No. III home">
+                    Cincinnati Lodge No. III
                 </a>
 
                 <p class="brand-subtitle">
-                    39 Maple Ave · Morristown, NJ
+                    39 Maple Ave · Morristown, New Jersey
                 </p>
 
             </div>
 
             <nav class="main-nav" aria-label="Primary navigation">
 
-                <a href="/">
-                    Home
-                </a>
-
-                <a href="/events/">
-                    Events
-                </a>
-
-                <a href="/venue/">
-                    Venue
-                </a>
-
-                <a href="/membership/">
-                    Become a Mason
-                </a>
-
-                <a href="/seo/">
-                    SEO Pages
-                </a>
-
-                <a href="/assistant/">
-                    Assistant
-                </a>
-
-                <a href="/contact/" class="nav-cta">
-                    Contact
-                </a>
+                <a href="/">Home</a>
+                <a href="/events/">Events</a>
+                <a href="/venue/">Venue Rentals</a>
+                <a href="/membership/">Become a Mason</a>
+                <a href="/faq/">FAQ</a>
+                <a href="/assistant/">Assistant</a>
+                <a href="/contact/" class="nav-cta">Contact</a>
 
             </nav>
 
@@ -107,7 +123,7 @@
     </header>
 
     <!-- ===================================================== -->
-    <!-- SECTION 3.2.6 - MAIN PAGE CONTENT                     -->
+    <!-- SECTION 6.2.7 — MAIN PAGE CONTENT                    -->
     <!-- ===================================================== -->
 
     <main class="page-content" id="main-content">
@@ -118,7 +134,34 @@
     </main>
 
     <!-- ===================================================== -->
-    <!-- SECTION 3.2.7 - SITE FOOTER                           -->
+    <!-- SECTION 6.2.8 — SEO INTERNAL LINK FOOTER             -->
+    <!-- ===================================================== -->
+
+    <section class="seo-footer-links" aria-label="Popular Cincinnati Lodge information">
+
+        <div class="seo-footer-inner">
+
+            <h2>
+                Explore Cincinnati Lodge No. III
+            </h2>
+
+            <div class="seo-link-grid">
+
+                <a href="/venue/">Morristown Event Venue</a>
+                <a href="/events/">Public Events in Morristown</a>
+                <a href="/membership/">Become a Mason in New Jersey</a>
+                <a href="/faq/">Frequently Asked Questions</a>
+                <a href="/assistant/">Ask the Lodge Assistant</a>
+                <a href="/contact/">Contact the Lodge</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- SECTION 6.2.9 — SITE FOOTER                          -->
     <!-- ===================================================== -->
 
     <footer class="site-footer">
@@ -128,66 +171,42 @@
             <div class="footer-brand">
 
                 <h2>
-                    Morristown Masonic Center
+                    Cincinnati Lodge No. III
                 </h2>
 
                 <p>
-                    A historic lodge and modern gathering place for brotherhood,
-                    leadership, community service, educational programs,
-                    and meaningful events in Morristown, New Jersey.
+                    A historic Masonic lodge and modern gathering place for brotherhood,
+                    leadership, community service, educational programs, public events,
+                    and meaningful gatherings in Morristown, New Jersey.
                 </p>
 
             </div>
 
             <div class="footer-column">
 
-                <h3>
-                    Explore
-                </h3>
+                <h3>Explore</h3>
 
-                <a href="/">
-                    Home
-                </a>
-
-                <a href="/events/">
-                    Events
-                </a>
-
-                <a href="/venue/">
-                    Venue Rentals
-                </a>
-
-                <a href="/membership/">
-                    Become a Mason
-                </a>
+                <a href="/">Home</a>
+                <a href="/events/">Events</a>
+                <a href="/venue/">Venue Rentals</a>
+                <a href="/membership/">Become a Mason</a>
 
             </div>
 
             <div class="footer-column">
 
-                <h3>
-                    Project Maple
-                </h3>
+                <h3>Information</h3>
 
-                <a href="/seo/">
-                    SEO Pages
-                </a>
-
-                <a href="/assistant/">
-                    Lodge Assistant
-                </a>
-
-                <a href="/contact/">
-                    Contact
-                </a>
+                <a href="/faq/">FAQ</a>
+                <a href="/assistant/">Lodge Assistant</a>
+                <a href="/seo/">SEO Pages</a>
+                <a href="/contact/">Contact</a>
 
             </div>
 
             <div class="footer-column">
 
-                <h3>
-                    Visit
-                </h3>
+                <h3>Visit</h3>
 
                 <p>
                     39 Maple Ave<br>
@@ -201,11 +220,11 @@
         <div class="footer-bottom">
 
             <p>
-                Morristown Masonic Center · 39 Maple Ave, Morristown, NJ 07960
+                Cincinnati Lodge No. III F.&A.M. · 39 Maple Ave, Morristown, NJ 07960
             </p>
 
             <p class="footer-note">
-                Building better men through brotherhood, leadership, service, and community.
+                Brotherhood · Leadership · Service · Community · Personal Growth
             </p>
 
         </div>
@@ -213,7 +232,7 @@
     </footer>
 
     <!-- ===================================================== -->
-    <!-- SECTION 3.2.8 - JAVASCRIPT                            -->
+    <!-- SECTION 6.2.10 — JAVASCRIPT                          -->
     <!-- ===================================================== -->
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
