@@ -1,53 +1,77 @@
 {% extends "base.html" %}
 
-{% block title %}Events and Programs | Morristown Masonic Center{% endblock %}
+{% block title %}Cincinnati Lodge No. III | Morristown Masonic Center{% endblock %}
 
 {% block meta_description %}
-Explore events and programs at Morristown Masonic Center, including revenue events, community programs, Masonic events, debate nights, chess club, comedy nights, networking events, holiday events, and venue programming.
+Cincinnati Lodge No. III at Morristown Masonic Center, 39 Maple Ave in Morristown, NJ. Explore venue rentals, public events, Freemasonry, membership interest, community programs, and the Cincinnati Lodge AI Assistant.
 {% endblock %}
 
-{% block og_title %}Events and Programs | Morristown Masonic Center{% endblock %}
+{% block og_title %}Cincinnati Lodge No. III | Morristown Masonic Center{% endblock %}
 
 {% block og_description %}
-Discover revenue events, community programs, and Masonic events at Morristown Masonic Center in Morristown, NJ.
+Explore Cincinnati Lodge No. III in Morristown, NJ: venue rentals, public events, community programs, Freemasonry, and membership information.
+{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cincinnati Lodge No. III",
+    "alternateName": "Morristown Masonic Center",
+    "url": "{{ request.url_root }}",
+    "description": "Cincinnati Lodge No. III at Morristown Masonic Center is a historic lodge, community gathering place, event venue, and information hub in Morristown, New Jersey."
+}
+</script>
 {% endblock %}
 
 {% block content %}
 
 <!-- ===================================================== -->
-<!-- PHASE 3 - TEMPLATE LAYER                              -->
-<!-- BLOCK 3.4 - EVENTS LISTING PAGE                       -->
-<!-- VERSION 3.4.1 - CLEAN ENTERPRISE UPGRADE              -->
-<!-- PROJECT MAPLE / MORRISTOWN MASONIC CENTER             -->
+<!-- PROJECT MAPLE / CINCINNATI LODGE AI                  -->
+<!-- FILE: templates/index.html                            -->
+<!-- PHASE 7 — HOMEPAGE CONVERSION ENGINE                 -->
+<!-- BLOCK 7.1 — Homepage Rebuild                         -->
+<!-- VERSION 7.1.0                                        -->
+<!-- DATE: 2026-06-14                                     -->
+<!-- PURPOSE: Replace duplicate events page with true      -->
+<!-- homepage focused on venue rentals, events,            -->
+<!-- Freemasonry, assistant usage, SEO funnels, and        -->
+<!-- community conversion.                                 -->
 <!-- ===================================================== -->
 
 <!-- ===================================================== -->
-<!-- SECTION 3.4.1 - PAGE HERO                             -->
+<!-- SECTION 7.1.1 — HOMEPAGE HERO                         -->
 <!-- ===================================================== -->
 
-<section class="page-hero events-hero">
+<section class="home-hero homepage-hero">
 
     <p class="eyebrow">
-        Events and Programs
+        Cincinnati Lodge No. III · Morristown, New Jersey
     </p>
 
     <h1>
-        Revenue Events, Community Events, and Masonic Events
+        A Historic Lodge, Community Space, and Modern Information Hub
     </h1>
 
-    <p>
-        The Lodge event strategy is organized around sustainable revenue,
-        public goodwill, community visibility, and fraternity development.
+    <p class="hero-text">
+        Explore Cincinnati Lodge No. III at Morristown Masonic Center:
+        venue rentals, public events, community programs, Freemasonry,
+        membership interest, and local lodge information at 39 Maple Ave.
     </p>
 
     <div class="hero-actions">
 
-        <a href="#event-database" class="button-primary">
-            View Event Concepts
+        <a href="/venue/" class="button-primary">
+            Explore Venue Rentals
         </a>
 
-        <a href="/venue/" class="button-secondary">
-            Explore Venue Rentals
+        <a href="/assistant/" class="button-secondary">
+            Ask the Lodge Assistant
+        </a>
+
+        <a href="/events/" class="button-secondary">
+            View Events
         </a>
 
     </div>
@@ -55,67 +79,52 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.4.2 - EVENT STRATEGY OVERVIEW               -->
+<!-- SECTION 7.1.2 — QUICK VALUE CARDS                     -->
 <!-- ===================================================== -->
 
 <section class="content-section">
 
     <p class="section-kicker">
-        Event Classification System
+        Start Here
     </p>
 
     <h2>
-        Three Categories for Long-Term Growth
+        What Can You Explore?
     </h2>
 
     <p>
-        Every event should have a clear purpose. Some programs support Lodge
-        sustainability, some build public trust and community presence, and
-        others strengthen brotherhood, education, and member culture.
+        Cincinnati Lodge AI is built to help visitors quickly understand
+        the Lodge, the building, upcoming programs, venue opportunities,
+        and the values of Freemasonry.
     </p>
 
     <div class="card-grid">
 
-        <article class="info-card event-category-card">
-            <span class="category-number">01</span>
-
-            <h3>
-                Revenue Events
-            </h3>
-
+        <article class="info-card">
+            <h3>Venue Rentals</h3>
             <p>
-                Ticketed programs, entertainment nights, networking events,
-                holiday events, sponsorship opportunities, and rental-driven
-                programming that helps support Lodge operations.
+                Learn how Morristown Masonic Center may support meetings,
+                workshops, networking events, community programs, and selected gatherings.
             </p>
+            <a href="/venue/">Explore Venue Rentals</a>
         </article>
 
-        <article class="info-card event-category-card">
-            <span class="category-number">02</span>
-
-            <h3>
-                Community Events
-            </h3>
-
+        <article class="info-card">
+            <h3>Public Events</h3>
             <p>
-                Public-facing programs that build goodwill, strengthen visibility,
-                connect the Lodge with Morristown residents, and present the
-                building as a positive civic gathering place.
+                Discover event concepts including Debate Night Live, Community Chess Club,
+                Comedy Night Series, networking forums, and seasonal programs.
             </p>
+            <a href="/events/">View Events</a>
         </article>
 
-        <article class="info-card event-category-card">
-            <span class="category-number">03</span>
-
-            <h3>
-                Masonic Events
-            </h3>
-
+        <article class="info-card">
+            <h3>Become a Mason</h3>
             <p>
-                Member-focused programs that support brotherhood, education,
-                leadership development, ritual culture, fellowship, and long-term
-                Lodge strength.
+                Learn about brotherhood, service, leadership, education,
+                personal growth, and membership interest in New Jersey Freemasonry.
             </p>
+            <a href="/membership/">Learn About Membership</a>
         </article>
 
     </div>
@@ -123,42 +132,46 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.4.3 - EVENT STRATEGY STRIP                  -->
+<!-- SECTION 7.1.3 — ABOUT THE LODGE                       -->
 <!-- ===================================================== -->
 
 <section class="content-section alt-section">
 
     <p class="section-kicker">
-        Growth Model
+        About Cincinnati Lodge No. III
     </p>
 
     <h2>
-        Events Should Serve the Whole Lodge
+        Brotherhood, Service, Leadership, and Community
     </h2>
+
+    <p>
+        Cincinnati Lodge No. III is connected to the long tradition of
+        Freemasonry in Morristown, New Jersey. The Lodge represents brotherhood,
+        integrity, charity, education, leadership, personal improvement,
+        and meaningful community presence.
+    </p>
 
     <div class="card-grid">
 
         <article class="info-card small-card">
+            <h3>Brotherhood</h3>
             <p>
-                <strong>Revenue:</strong> Funds operations and future improvements.
+                A fraternity rooted in trust, friendship, character, and lifelong bonds.
             </p>
         </article>
 
         <article class="info-card small-card">
+            <h3>Service</h3>
             <p>
-                <strong>Community:</strong> Builds local trust and Morristown visibility.
+                A commitment to charity, responsibility, and supporting the broader community.
             </p>
         </article>
 
         <article class="info-card small-card">
+            <h3>Growth</h3>
             <p>
-                <strong>Brotherhood:</strong> Strengthens members, culture, and purpose.
-            </p>
-        </article>
-
-        <article class="info-card small-card">
-            <p>
-                <strong>SEO:</strong> Turns events into searchable local content.
+                A path toward self-improvement, education, leadership, and moral development.
             </p>
         </article>
 
@@ -167,34 +180,97 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.4.4 - EVENT CARD GRID                       -->
+<!-- SECTION 7.1.4 — VENUE CONVERSION SECTION              -->
 <!-- ===================================================== -->
 
-<section class="content-section" id="event-database">
+<section class="content-section">
 
     <p class="section-kicker">
-        Program Database
+        Morristown Event Venue
     </p>
 
     <h2>
-        Current Event Concepts
+        A Flexible Gathering Space at 39 Maple Ave
     </h2>
 
     <p>
-        Each event can grow into a full campaign with a detail page,
-        flyer copy, social media content, operational checklist,
-        sponsorship structure, and SEO landing-page support.
+        Morristown Masonic Center can support selected meetings, workshops,
+        nonprofit gatherings, business networking events, educational programs,
+        community events, fundraisers, and private gatherings depending on
+        scheduling, approval, and Lodge guidelines.
+    </p>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+            <h3>Business Meetings</h3>
+            <p>
+                A professional setting for planning sessions, presentations,
+                team meetings, local business forums, and leadership programs.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Community Programs</h3>
+            <p>
+                A central Morristown location for educational events,
+                civic discussions, nonprofit programs, and public initiatives.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Private Gatherings</h3>
+            <p>
+                A historic setting that may support selected celebrations,
+                seasonal events, fundraisers, and social programs.
+            </p>
+        </article>
+
+    </div>
+
+    <div class="hero-actions">
+
+        <a href="/venue/" class="button-primary">
+            View Venue Information
+        </a>
+
+        <a href="/contact/" class="button-secondary">
+            Contact the Lodge
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 7.1.5 — FEATURED EVENTS                       -->
+<!-- ===================================================== -->
+
+<section class="content-section alt-section">
+
+    <p class="section-kicker">
+        Event Engine
+    </p>
+
+    <h2>
+        Events and Program Concepts
+    </h2>
+
+    <p>
+        Events help the Lodge build visibility, support community engagement,
+        create responsible revenue opportunities, and bring people into
+        meaningful connection with the building and its mission.
     </p>
 
     <div class="card-grid event-grid">
 
         {% if events %}
 
-            {% for event in events %}
+            {% for event in events[:3] %}
 
             <article class="event-card premium-event-card">
 
-                <a href="/events/{{ event.get('slug', '') }}/" class="event-image-link" aria-label="View details for {{ event.get('title', 'Event') }}">
+                <a href="/events/{{ event.get('slug', '') }}/" class="event-image-link" aria-label="View {{ event.get('title', 'Event') }}">
 
                     <img
                         src="{{ url_for('static', filename='images/' ~ event.get('image', 'lodge-exterior.jpg')) }}"
@@ -205,17 +281,9 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
 
                 <div class="event-card-body">
 
-                    <div class="event-card-topline">
-
-                        <p class="event-category">
-                            {{ event.get("category", "Event") }}
-                        </p>
-
-                        <span class="event-status-pill">
-                            {{ event.get("status", "In Development") }}
-                        </span>
-
-                    </div>
+                    <p class="event-category">
+                        {{ event.get("category", "Event") }}
+                    </p>
 
                     <h3>
                         {{ event.get("title", "Event Concept") }}
@@ -225,27 +293,9 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
                         {{ event.get("short_description", "More event details will be added soon.") }}
                     </p>
 
-                    <ul class="event-meta-list">
-
-                        <li>
-                            <strong>Date:</strong>
-                            <span>{{ event.get("date", "TBD") }}</span>
-                        </li>
-
-                        <li>
-                            <strong>Time:</strong>
-                            <span>{{ event.get("time", "TBD") }}</span>
-                        </li>
-
-                    </ul>
-
-                    <div class="event-card-actions">
-
-                        <a href="/events/{{ event.get('slug', '') }}/" class="button-primary">
-                            View Event Details
-                        </a>
-
-                    </div>
+                    <a href="/events/{{ event.get('slug', '') }}/">
+                        View Event Details
+                    </a>
 
                 </div>
 
@@ -256,48 +306,280 @@ Discover revenue events, community programs, and Masonic events at Morristown Ma
         {% else %}
 
             <article class="info-card">
-
-                <h3>
-                    Event Concepts Coming Soon
-                </h3>
-
+                <h3>Events Coming Soon</h3>
                 <p>
-                    Future Lodge programs, community events, venue showcases,
-                    and Masonic events will appear here as Project Maple grows.
+                    Event concepts, public programs, and community initiatives
+                    will appear here as the Lodge calendar develops.
                 </p>
-
             </article>
 
         {% endif %}
 
     </div>
 
+    <div class="hero-actions">
+
+        <a href="/events/" class="button-primary">
+            View All Events
+        </a>
+
+        <a href="/assistant/" class="button-secondary">
+            Ask About Events
+        </a>
+
+    </div>
+
 </section>
 
 <!-- ===================================================== -->
-<!-- SECTION 3.4.5 - EVENT DEVELOPMENT CTA                 -->
+<!-- SECTION 7.1.6 — MEMBERSHIP FUNNEL                     -->
 <!-- ===================================================== -->
 
-<section class="final-cta events-final-cta">
+<section class="content-section membership-section">
 
     <p class="section-kicker">
-        Build With Purpose
+        Become a Mason
     </p>
 
     <h2>
-        Turn the Lodge Calendar Into a Growth Engine
+        Learn About Freemasonry in New Jersey
     </h2>
 
     <p>
-        Every event should serve a clear role: revenue generation,
-        community engagement, membership development, or Masonic education.
-        Project Maple can turn each idea into a full digital campaign.
+        Freemasonry is centered on brotherhood, character, service,
+        charity, leadership, moral improvement, and lifelong learning.
+        Interested men can begin by learning more about the fraternity
+        and speaking directly with the Lodge.
+    </p>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+            <h3>Brotherhood</h3>
+            <p>
+                Build meaningful relationships with men committed to integrity,
+                responsibility, and personal growth.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Service</h3>
+            <p>
+                Participate in a tradition that values charity, community,
+                responsibility, and helping others.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Education</h3>
+            <p>
+                Explore symbolism, history, moral lessons, leadership,
+                and lifelong development.
+            </p>
+        </article>
+
+    </div>
+
+    <div class="hero-actions">
+
+        <a href="/membership/" class="button-primary">
+            Learn About Becoming a Mason
+        </a>
+
+        <a href="/faq/" class="button-secondary">
+            Read FAQs
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 7.1.7 — ASSISTANT FEATURE                     -->
+<!-- ===================================================== -->
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        Cincinnati Lodge AI Assistant
+    </p>
+
+    <h2>
+        Ask Questions and Discover Information Faster
+    </h2>
+
+    <p>
+        The Lodge Assistant helps visitors explore general information about
+        events, venue use, community programs, Freemasonry, membership interest,
+        and Cincinnati Lodge No. III.
+    </p>
+
+    <div class="card-grid">
+
+        <article class="info-card">
+            <h3>Ask About Events</h3>
+            <p>
+                Learn about event concepts, schedules, public programs,
+                and community opportunities.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Ask About Venue Use</h3>
+            <p>
+                Explore general information about meetings, workshops,
+                community programs, and selected event use.
+            </p>
+        </article>
+
+        <article class="info-card">
+            <h3>Ask About Freemasonry</h3>
+            <p>
+                Get general educational information about brotherhood,
+                service, leadership, and membership interest.
+            </p>
+        </article>
+
+    </div>
+
+    <div class="hero-actions">
+
+        <a href="/assistant/" class="button-primary">
+            Open the Assistant
+        </a>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SECTION 7.1.8 — FAQ PREVIEW                           -->
+<!-- ===================================================== -->
+
+{% if faqs %}
+
+<section class="content-section alt-section">
+
+    <p class="section-kicker">
+        Frequently Asked Questions
+    </p>
+
+    <h2>
+        Helpful Information About the Lodge
+    </h2>
+
+    <div class="card-grid">
+
+        {% for section in faqs[:3] %}
+
+            {% for item in section.get("items", [])[:1] %}
+
+            <article class="info-card">
+                <h3>
+                    {{ item.get("question", "Question") }}
+                </h3>
+
+                <p>
+                    {{ item.get("answer", "More information will be added soon.") }}
+                </p>
+            </article>
+
+            {% endfor %}
+
+        {% endfor %}
+
+    </div>
+
+    <div class="hero-actions">
+
+        <a href="/faq/" class="button-primary">
+            View Full FAQ
+        </a>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!-- ===================================================== -->
+<!-- SECTION 7.1.9 — SEO DISCOVERY GRID                    -->
+<!-- ===================================================== -->
+
+{% if seo_pages %}
+
+<section class="content-section">
+
+    <p class="section-kicker">
+        Explore More
+    </p>
+
+    <h2>
+        Local Information Pages
+    </h2>
+
+    <p>
+        These pages help visitors discover Morristown venue information,
+        Freemasonry education, community programs, event opportunities,
+        and Cincinnati Lodge No. III resources.
+    </p>
+
+    <div class="card-grid">
+
+        {% for page in seo_pages[:6] %}
+
+        <article class="info-card">
+
+            <h3>
+                {{ page.get("title", "Information Page") }}
+            </h3>
+
+            <p>
+                {{ page.get("meta_description", "Explore another Cincinnati Lodge information page.") }}
+            </p>
+
+            <a href="/{{ page.get('slug', '') }}/">
+                View Page
+            </a>
+
+        </article>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+<!-- ===================================================== -->
+<!-- SECTION 7.1.10 — FINAL HOMEPAGE CTA                   -->
+<!-- ===================================================== -->
+
+<section class="final-cta homepage-final-cta">
+
+    <p class="section-kicker">
+        Continue Exploring
+    </p>
+
+    <h2>
+        Start With the Lodge Assistant, Events, or Venue Information
+    </h2>
+
+    <p>
+        Whether you are exploring events, venue rentals, community programming,
+        Freemasonry, or membership interest, Cincinnati Lodge AI can help guide
+        you to the right starting point.
     </p>
 
     <div class="hero-actions">
 
         <a href="/assistant/" class="button-primary">
-            Ask the Assistant About Events
+            Ask the Assistant
+        </a>
+
+        <a href="/events/" class="button-secondary">
+            View Events
         </a>
 
         <a href="/venue/" class="button-secondary">
