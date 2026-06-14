@@ -404,3 +404,45 @@ Not Required
 # DEPLOYMENT REGISTRY
 
 # DATABASE REGISTRY
+# CURRENT PROJECT STRUCTURE
+
+## Root Files
+
+app.py
+README.md
+requirements.txt
+render.yaml
+MASTER_LEDGER.md
+
+## Data Files
+
+data/events.json
+data/faq.json
+data/lodge_info.json
+data/seo_pages.json
+
+## Services
+
+services/ai_service.py
+services/event_service.py
+services/faq_service.py
+services/schema_service.py
+services/seo_service.py
+
+## Templates
+
+templates/base.html
+templates/index.html
+templates/events.html
+templates/event_detail.html
+templates/assistant.html
+templates/seo_page.html
+templates/404.html
+
+## Storage
+
+storage/questions.db
+
+## Static
+
+static/
