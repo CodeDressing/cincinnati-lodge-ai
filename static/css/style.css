@@ -1000,7 +1000,100 @@ details[open] p {
     }
 }
 
+/* ============================================================
+   PROJECT MAPLE / CINCINNATI LODGE AI
+   FILE: static/css/style.css
+   PHASE 7 — HOMEPAGE CONVERSION ENGINE
+   BLOCK 7.2 — HOMEPAGE PREMIUM COMPONENTS
+   VERSION 7.2.0
+   DATE: 2026-06-14
+   PURPOSE:
+   Additional homepage-specific styling for conversion,
+   premium presentation, statistics, feature cards,
+   SEO discovery sections, and future growth modules.
+   ============================================================ */
 
+.homepage-hero {
+    text-align: left;
+}
+
+.homepage-hero h1 {
+    max-width: 1100px;
+}
+
+.homepage-final-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.homepage-final-cta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(201, 162, 39, 0.16),
+            transparent 60%
+        );
+
+    pointer-events: none;
+}
+
+.info-card h3 {
+    transition: color var(--transition-medium);
+}
+
+.info-card:hover h3 {
+    color: var(--text-accent);
+}
+
+.card-grid .info-card {
+    height: 100%;
+}
+
+.content-section h2 {
+    max-width: 900px;
+}
+
+.content-section > p {
+    max-width: 900px;
+}
+
+.home-hero .hero-actions {
+    margin-top: 2rem;
+}
+
+.membership-section .info-card {
+    border-color: rgba(201, 162, 39, 0.14);
+}
+
+.membership-section .info-card:hover {
+    border-color: rgba(201, 162, 39, 0.45);
+}
+
+.event-grid .event-card {
+    height: 100%;
+}
+
+.event-card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-card-body a {
+    margin-top: auto;
+}
+
+.page-hero h1,
+.home-hero h1 {
+    text-wrap: balance;
+}
+
+.content-section {
+    scroll-margin-top: 120px;
+}
 /* ============================================================
    END BLOCK 4.7 — MASTER STYLE SYSTEM
    ============================================================ */
