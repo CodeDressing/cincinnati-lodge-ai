@@ -1,4 +1,10 @@
-# PROJECT MAPLE
+
+Version History
+
+| Version | Status | Description |
+|----------|----------|-------------|
+| 2.0 | Active | Enterprise Architecture Upgrade |
+| 1.0 | Archived | Initial Master Ledger Created |# PROJECT MAPLE
 
 # MASTER LEDGER
 
@@ -446,3 +452,250 @@ storage/questions.db
 ## Static
 
 static/
+---
+
+# ENTERPRISE UPGRADE LOG
+
+## ENTRY 0002
+
+Date:
+2026-06-14
+
+Version:
+2.0.0
+
+Phase:
+PHASE 2 — DATA LAYER
+
+Status:
+Completed
+
+Files Added / Upgraded:
+
+### data/faq.json
+
+Version:
+2.4.0
+
+Purpose:
+Enterprise FAQ database supporting:
+
+* Venue Rental SEO
+* Membership Education
+* Freemasonry Information
+* Event Discovery
+* Assistant Knowledge Base
+* Search Intent Collection
+
+Improvements:
+
+* Expanded venue rental content
+* Added keyword targeting
+* Added section organization
+* Added assistant support content
+* Added future SEO expansion support
+
+---
+
+### data/events.json
+
+Version:
+2.2.1
+
+Purpose:
+Central Event Engine
+
+Current Event Registry:
+
+* Debate Night Live
+* Community Chess Club
+* Comedy Night Series
+* Business Networking Forum
+* Morristown Venue Open House
+* Halloween at the Lodge
+* Luck of the Lodge
+
+Capabilities:
+
+* Event Routing
+* Event Detail Pages
+* Event Flow Management
+* Revenue Tracking
+* SEO Keyword Support
+* Community Programming Support
+
+---
+
+### data/seo_pages.json
+
+Version:
+1.0.0
+
+Purpose:
+SEO Landing Page Database
+
+Current Landing Pages:
+
+* Morristown Event Venue
+* Morristown Meeting Space
+* Become a Mason NJ
+* Freemasonry Morristown NJ
+* Morristown Community Event Space
+
+Purpose:
+
+* Local SEO Growth
+* Landing Page Expansion
+* Search Intent Targeting
+* Future Content Clusters
+
+---
+
+### data/lodge_info.json
+
+Version:
+2.5.0
+
+Purpose:
+Single Source of Truth
+
+Responsibilities:
+
+* Lodge Identity
+* Address Information
+* Mission Statements
+* Venue Positioning
+* Membership Positioning
+* SEO Identity
+* Assistant Knowledge
+
+Future Usage:
+
+* Homepage
+* Assistant
+* SEO Pages
+* Event Pages
+* Structured Data
+* Future AI Systems
+
+---
+
+### templates/base.html
+
+Version:
+6.2.0
+
+Purpose:
+Global Website Shell
+
+Completed Upgrades:
+
+* Canonical URLs
+* Open Graph Support
+* Twitter Metadata
+* Structured Data Foundation
+* Internal Linking Foundation
+* SEO Footer System
+
+---
+
+### templates/seo_page.html
+
+Version:
+6.3.0
+
+Purpose:
+SEO Landing Page Engine
+
+Capabilities:
+
+* Dynamic SEO Content
+* Dynamic Meta Descriptions
+* Structured Data
+* FAQ Integration
+* Internal Linking
+* Conversion CTAs
+
+---
+
+### app.py
+
+Version:
+6.1.0
+
+Purpose:
+Application Router
+
+Completed Upgrades:
+
+* Safe JSON Loading
+* Event Routing
+* SEO Routing
+* Assistant Routing
+* Question Logging
+* API Endpoints
+* Error Handling
+
+---
+
+# CURRENT SYSTEM STATUS
+
+Core Platform:
+Operational
+
+SEO Engine:
+Operational
+
+FAQ Engine:
+Operational
+
+Event Engine:
+Operational
+
+Assistant Engine:
+Operational
+
+Landing Page Engine:
+Operational
+
+Render Deployment:
+Operational
+
+GitHub Repository:
+Operational
+
+---
+
+# CURRENT PRIORITY
+
+PHASE 7.0
+
+Homepage Conversion Engine
+
+Goals:
+
+* Premium Homepage
+* Venue Conversion Funnel
+* Membership Funnel
+* Event Discovery Funnel
+* Assistant Funnel
+* SEO Cluster Integration
+* Internal Link Architecture
+* Community Positioning
+
+---
+
+# NEXT FILE TARGET
+
+templates/index.html
+
+Reason:
+
+The homepage is now the largest remaining conversion opportunity in the entire platform.
+
+Expected Upgrade:
+
+PHASE 7.0 — Homepage Conversion Engine
+
+Status:
+Ready For Development

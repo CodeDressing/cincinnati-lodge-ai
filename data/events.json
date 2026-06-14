@@ -1,3 +1,17 @@
+# ============================================================
+# PROJECT MAPLE / CINCINNATI LODGE AI
+# FILE: app.py
+# PHASE 6 — ROUTING AND SEO ENGINE LAYER
+# BLOCK 6.1 — Flask Application Router
+# VERSION 6.1.0
+# DATE: 2026-06-14
+# PURPOSE:
+# Controls application routes, JSON loading, assistant logging,
+# SEO page rendering, event routing, API health checks, and
+# template context delivery.
+# ============================================================
+
+
 {
   "phase": "PHASE 2 — DATA LAYER",
   "block": "BLOCK 2.2 — data/events.json",
