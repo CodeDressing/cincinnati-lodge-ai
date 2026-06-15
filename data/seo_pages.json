@@ -1,6 +1,16 @@
 {
+  "_ledger": {
+    "project": "Project Maple / Cincinnati Lodge AI",
+    "file_location": "data/seo_pages.json",
+    "phase": "PHASE 7 — SEO ENGINE EXPANSION",
+    "block": "BLOCK 7.3 — SEO Cluster Expansion",
+    "version": "1.1.0",
+    "date": "2026-06-14",
+    "purpose": "Enterprise SEO landing page database for Morristown venue rentals, meetings, community programs, Freemasonry education, membership interest, and local search growth."
+  },
   "seo_pages": [
     {
+      "section": "SECTION 7.3.1 — Core Venue Page",
       "slug": "morristown-event-venue",
       "title": "Morristown Event Venue",
       "headline": "A Flexible Event Venue in Morristown, NJ",
@@ -16,6 +26,7 @@
       "content": "Morristown Masonic Center at 39 Maple Ave offers a historic and flexible setting for selected events, meetings, workshops, community programs, and private gatherings in Morristown, New Jersey."
     },
     {
+      "section": "SECTION 7.3.2 — Meeting Space Page",
       "slug": "morristown-meeting-space",
       "title": "Morristown Meeting Space",
       "headline": "Meeting Space in the Heart of Morristown",
@@ -31,6 +42,7 @@
       "content": "The lodge building can support meeting-style programming such as planning sessions, workshops, lectures, nonprofit gatherings, community discussions, and selected business events."
     },
     {
+      "section": "SECTION 7.3.3 — Membership Page",
       "slug": "become-a-mason-nj",
       "title": "Become a Mason in New Jersey",
       "headline": "Learn About Brotherhood, Service, and Personal Growth",
@@ -46,6 +58,7 @@
       "content": "Freemasonry is centered on brotherhood, integrity, service, charity, leadership, education, and lifelong personal improvement. Cincinnati Lodge No. III provides a pathway for interested men to learn more."
     },
     {
+      "section": "SECTION 7.3.4 — Freemasonry Local Page",
       "slug": "freemasonry-morristown-nj",
       "title": "Freemasonry in Morristown, NJ",
       "headline": "Freemasonry, Brotherhood, and Service in Morristown",
@@ -61,6 +74,7 @@
       "content": "Freemasonry in Morristown is connected to brotherhood, moral development, service, tradition, charity, education, and community involvement through Cincinnati Lodge No. III."
     },
     {
+      "section": "SECTION 7.3.5 — Community Event Space Page",
       "slug": "morristown-community-event-space",
       "title": "Morristown Community Event Space",
       "headline": "A Community Gathering Space at 39 Maple Ave",
@@ -74,6 +88,166 @@
         "Morristown gathering space"
       ],
       "content": "Morristown Masonic Center can support community-focused programs such as educational events, nonprofit gatherings, civic discussions, workshops, charitable initiatives, and local partnerships."
+    },
+    {
+      "section": "SECTION 7.3.6 — Banquet Hall Page",
+      "slug": "morristown-banquet-hall",
+      "title": "Morristown Banquet Hall",
+      "headline": "A Historic Banquet-Style Event Space in Morristown",
+      "primary_keyword": "Morristown Banquet Hall",
+      "meta_description": "Explore banquet-style event possibilities at Morristown Masonic Center for selected gatherings, receptions, community meals, fundraisers, and private events in Morristown, NJ.",
+      "secondary_keywords": [
+        "banquet hall Morristown NJ",
+        "Morristown reception venue",
+        "event hall Morristown",
+        "private banquet space Morristown",
+        "historic banquet hall NJ"
+      ],
+      "content": "Morristown Masonic Center can be positioned as a historic banquet-style setting for selected gatherings, receptions, fundraisers, community meals, and private events depending on scheduling and approval."
+    },
+    {
+      "section": "SECTION 7.3.7 — Networking Venue Page",
+      "slug": "morristown-networking-venue",
+      "title": "Morristown Networking Venue",
+      "headline": "A Professional Networking Venue in Morristown",
+      "primary_keyword": "Morristown Networking Venue",
+      "meta_description": "Discover networking event possibilities at Morristown Masonic Center for business mixers, entrepreneur gatherings, nonprofit leaders, civic groups, and professional events.",
+      "secondary_keywords": [
+        "networking event venue Morristown",
+        "business networking Morristown NJ",
+        "professional event space Morristown",
+        "entrepreneur events Morristown",
+        "business mixer venue Morristown"
+      ],
+      "content": "The Lodge can support professional networking events, business mixers, entrepreneur gatherings, nonprofit leadership events, and local relationship-building programs in Morristown."
+    },
+    {
+      "section": "SECTION 7.3.8 — Workshop Space Page",
+      "slug": "morristown-workshop-space",
+      "title": "Morristown Workshop Space",
+      "headline": "Workshop Space for Classes, Training, and Community Learning",
+      "primary_keyword": "Morristown Workshop Space",
+      "meta_description": "Learn about workshop space at Morristown Masonic Center for classes, training sessions, educational programs, community learning, and instructional events.",
+      "secondary_keywords": [
+        "workshop space Morristown",
+        "classroom venue Morristown",
+        "training space Morristown NJ",
+        "educational event venue Morristown",
+        "seminar space Morristown"
+      ],
+      "content": "Morristown Masonic Center can support workshops, classes, lectures, training programs, community learning events, and educational sessions in a flexible setting."
+    },
+    {
+      "section": "SECTION 7.3.9 — Fundraiser Venue Page",
+      "slug": "morristown-fundraiser-venue",
+      "title": "Morristown Fundraiser Venue",
+      "headline": "A Morristown Venue for Fundraisers and Benefit Events",
+      "primary_keyword": "Morristown Fundraiser Venue",
+      "meta_description": "Explore fundraiser venue possibilities at Morristown Masonic Center for charity events, nonprofit gatherings, benefit programs, and community support initiatives.",
+      "secondary_keywords": [
+        "fundraiser venue Morristown",
+        "charity event space Morristown",
+        "benefit event venue NJ",
+        "nonprofit fundraiser Morristown",
+        "community fundraiser venue"
+      ],
+      "content": "The Lodge can be positioned as a venue for fundraisers, charitable programs, benefit events, nonprofit gatherings, and community support initiatives depending on scheduling and approval."
+    },
+    {
+      "section": "SECTION 7.3.10 — Historic Venue Page",
+      "slug": "historic-event-venue-morristown",
+      "title": "Historic Event Venue in Morristown",
+      "headline": "A Historic Setting for Events and Community Gatherings",
+      "primary_keyword": "Historic Event Venue Morristown",
+      "meta_description": "Discover Morristown Masonic Center as a historic event venue at 39 Maple Ave for selected gatherings, meetings, community programs, and private events.",
+      "secondary_keywords": [
+        "historic venue Morristown",
+        "historic event space Morristown NJ",
+        "historic building rental Morristown",
+        "Morristown historic venue",
+        "unique event venue Morristown"
+      ],
+      "content": "Morristown Masonic Center combines historic character, local identity, and flexible event potential for selected meetings, programs, gatherings, and community events."
+    },
+    {
+      "section": "SECTION 7.3.11 — Private Meeting Space Page",
+      "slug": "private-meeting-space-morristown",
+      "title": "Private Meeting Space in Morristown",
+      "headline": "Private Meeting Space for Groups, Boards, and Planning Sessions",
+      "primary_keyword": "Private Meeting Space Morristown",
+      "meta_description": "Learn about private meeting space possibilities at Morristown Masonic Center for boards, committees, planning groups, professional teams, and nonprofit organizations.",
+      "secondary_keywords": [
+        "private meeting space Morristown",
+        "board meeting room Morristown",
+        "committee meeting space NJ",
+        "small meeting venue Morristown",
+        "professional meeting room Morristown"
+      ],
+      "content": "Morristown Masonic Center can support private meeting-style events including board meetings, planning sessions, committee gatherings, nonprofit discussions, and professional group meetings."
+    },
+    {
+      "section": "SECTION 7.3.12 — Business Event Venue Page",
+      "slug": "business-event-venue-morristown",
+      "title": "Business Event Venue in Morristown",
+      "headline": "Business Event Space for Local Professionals and Organizations",
+      "primary_keyword": "Business Event Venue Morristown",
+      "meta_description": "Explore business event venue opportunities at Morristown Masonic Center for networking, presentations, leadership programs, planning sessions, and professional gatherings.",
+      "secondary_keywords": [
+        "business event venue Morristown",
+        "corporate event space Morristown",
+        "professional event venue Morristown",
+        "business meeting venue Morristown",
+        "local business event space"
+      ],
+      "content": "The Lodge can be positioned for business-focused events such as networking forums, leadership programs, presentations, planning sessions, and professional gatherings."
+    },
+    {
+      "section": "SECTION 7.3.13 — Seminar Venue Page",
+      "slug": "morristown-seminar-venue",
+      "title": "Morristown Seminar Venue",
+      "headline": "A Venue for Seminars, Speaker Events, and Educational Programs",
+      "primary_keyword": "Morristown Seminar Venue",
+      "meta_description": "Learn about seminar venue possibilities at Morristown Masonic Center for speaker events, educational programs, lectures, leadership sessions, and community learning.",
+      "secondary_keywords": [
+        "seminar venue Morristown",
+        "lecture space Morristown",
+        "speaker event venue NJ",
+        "educational seminar Morristown",
+        "training seminar venue"
+      ],
+      "content": "Morristown Masonic Center can support seminars, speaker programs, educational lectures, leadership sessions, and community learning events."
+    },
+    {
+      "section": "SECTION 7.3.14 — Training Facility Page",
+      "slug": "morristown-training-facility",
+      "title": "Morristown Training Facility",
+      "headline": "Training Space for Teams, Organizations, and Community Programs",
+      "primary_keyword": "Morristown Training Facility",
+      "meta_description": "Explore training space possibilities at Morristown Masonic Center for team training, nonprofit training, leadership development, instructional sessions, and workshops.",
+      "secondary_keywords": [
+        "training facility Morristown",
+        "training room Morristown NJ",
+        "team training venue",
+        "leadership training space",
+        "instructional event venue"
+      ],
+      "content": "The Lodge can support training sessions, instructional programs, nonprofit development, leadership workshops, and organized group learning."
+    },
+    {
+      "section": "SECTION 7.3.15 — Corporate Meeting Space Page",
+      "slug": "morristown-corporate-meeting-space",
+      "title": "Morristown Corporate Meeting Space",
+      "headline": "Corporate Meeting Space in a Historic Morristown Setting",
+      "primary_keyword": "Morristown Corporate Meeting Space",
+      "meta_description": "Discover corporate meeting space possibilities at Morristown Masonic Center for local companies, professional teams, planning sessions, presentations, and leadership events.",
+      "secondary_keywords": [
+        "corporate meeting space Morristown",
+        "corporate event venue Morristown",
+        "company meeting space Morristown",
+        "team meeting venue NJ",
+        "business presentation venue"
+      ],
+      "content": "Morristown Masonic Center can support corporate-style meetings, presentations, leadership sessions, professional planning events, and local business gatherings."
     }
   ]
 }
