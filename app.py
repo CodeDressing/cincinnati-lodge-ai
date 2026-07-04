@@ -1,26 +1,33 @@
 # ============================================================
-# PROJECT MAPLE
-# CINCINNATI LODGE AI
-# PHASE 6 — SEO ENGINE FOUNDATION
-# BLOCK 6.1 — app.py
-# VERSION 6.1.0 — ENTERPRISE SEO ROUTING UPGRADE
+# PROJECT MAPLE / CINCINNATI LODGE AI
+# FILE: app.py
+# PHASE 8 — AI ASSISTANT INTELLIGENCE LAYER
+# BLOCK 8.2 — Retrieval-Based Knowledge Assistant
+# VERSION 8.2.0
+# DATE: 2026-06-14
+# PURPOSE:
+# Controls Flask routing, JSON data loading, SEO page rendering,
+# event routing, question logging, API endpoints, and the first
+# retrieval-based assistant engine using FAQ, event, SEO, and
+# lodge information datasets.
 # ============================================================
 
 from flask import Flask, render_template, request, jsonify
 import json
 import os
+import re
 from datetime import datetime
 
 
 # ============================================================
-# SECTION 6.1.1 — APPLICATION BASE
+# SECTION 8.2.1 — APPLICATION BASE
 # ============================================================
 
 app = Flask(__name__)
 
 
 # ============================================================
-# SECTION 6.1.2 — PROJECT PATHS
+# SECTION 8.2.2 — PROJECT PATHS
 # ============================================================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -36,7 +43,7 @@ QUESTION_LOG_PATH = os.path.join(BASE_DIR, "question_log.csv")
 
 
 # ============================================================
-# SECTION 6.1.3 — SAFE JSON LOADER
+# SECTION 8.2.3 — SAFE JSON LOADER
 # ============================================================
 
 def load_json(path):
@@ -51,7 +58,7 @@ def load_json(path):
 
 
 # ============================================================
-# SECTION 6.1.4 — DATA ACCESS LAYER
+# SECTION 8.2.4 — DATA ACCESS LAYER
 # ============================================================
 
 def get_lodge_info():
@@ -74,7 +81,7 @@ def get_seo_pages():
 
 
 # ============================================================
-# SECTION 6.1.5 — LOOKUP HELPERS
+# SECTION 8.2.5 — LOOKUP HELPERS
 # ============================================================
 
 def get_event_by_slug(slug):
@@ -94,7 +101,271 @@ def get_seo_page_by_slug(slug):
 
 
 # ============================================================
-# SECTION 6.1.6 — SEO PAGE BUILDER
+# SECTION 8.2.6 — TEXT NORMALIZATION HELPERS
+# ============================================================
+
+def normalize_text(value):
+    if value is None:
+        return ""
+
+    value = str(value).lower()
+    value = re.sub(r"[^a-z0-9\s]", " ", value)
+    value = re.sub(r"\s+", " ", value).strip()
+
+    return value
+
+
+def tokenize_text(value):
+    stop_words = {
+        "a", "an", "and", "are", "as", "at", "be", "by", "can",
+        "do", "does", "for", "from", "how", "i", "in", "is",
+        "it", "of", "on", "or", "the", "this", "to", "we",
+        "what", "when", "where", "who", "why", "with", "you"
+    }
+
+    normalized = normalize_text(value)
+
+    return [
+        token for token in normalized.split()
+        if token not in stop_words and len(token) > 2
+    ]
+
+
+def score_text_match(question, target_text):
+    question_tokens = set(tokenize_text(question))
+    target_tokens = set(tokenize_text(target_text))
+
+    if not question_tokens or not target_tokens:
+        return 0
+
+    direct_matches = question_tokens.intersection(target_tokens)
+    score = len(direct_matches) * 10
+
+    normalized_question = normalize_text(question)
+    normalized_target = normalize_text(target_text)
+
+    for token in question_tokens:
+        if token in normalized_target:
+            score += 2
+
+    if normalized_question and normalized_question in normalized_target:
+        score += 25
+
+    return score
+
+
+# ============================================================
+# SECTION 8.2.7 — KNOWLEDGE INDEX BUILDER
+# ============================================================
+
+def build_knowledge_index():
+    knowledge_items = []
+
+    for section in get_faqs():
+        section_name = section.get("section", "FAQ Section")
+
+        for item in section.get("items", []):
+            keywords = " ".join(item.get("keywords", []))
+
+            knowledge_items.append({
+                "type": "faq",
+                "source": section_name,
+                "title": item.get("question", "FAQ"),
+                "answer": item.get("answer", ""),
+                "url": "/faq/",
+                "search_text": " ".join([
+                    item.get("question", ""),
+                    item.get("answer", ""),
+                    keywords
+                ])
+            })
+
+    for event in get_events():
+        keywords = " ".join(event.get("seo_keywords", []))
+        topic_examples = " ".join(event.get("topic_examples", []))
+        revenue = " ".join(event.get("revenue_opportunities", []))
+        rules = " ".join(event.get("rules", []))
+
+        knowledge_items.append({
+            "type": "event",
+            "source": "Event Database",
+            "title": event.get("title", "Event"),
+            "answer": event.get("summary", event.get("short_description", "")),
+            "url": f"/events/{event.get('slug', '')}/",
+            "search_text": " ".join([
+                event.get("title", ""),
+                event.get("category", ""),
+                event.get("program_type", ""),
+                event.get("short_description", ""),
+                event.get("summary", ""),
+                event.get("details", ""),
+                keywords,
+                topic_examples,
+                revenue,
+                rules
+            ])
+        })
+
+    for page in get_seo_pages():
+        keywords = " ".join(page.get("secondary_keywords", []))
+
+        knowledge_items.append({
+            "type": "seo_page",
+            "source": "SEO Page Database",
+            "title": page.get("title", "Information Page"),
+            "answer": page.get("meta_description", page.get("content", "")),
+            "url": f"/{page.get('slug', '')}/",
+            "search_text": " ".join([
+                page.get("title", ""),
+                page.get("headline", ""),
+                page.get("primary_keyword", ""),
+                page.get("meta_description", ""),
+                page.get("content", ""),
+                keywords
+            ])
+        })
+
+    lodge_info = get_lodge_info()
+
+    if lodge_info:
+        knowledge_items.append({
+            "type": "lodge_info",
+            "source": "Lodge Information Database",
+            "title": "Cincinnati Lodge No. III",
+            "answer": (
+                "Cincinnati Lodge No. III is connected to Morristown Masonic Center "
+                "at 39 Maple Ave in Morristown, New Jersey. The Lodge supports "
+                "brotherhood, service, leadership, education, community presence, "
+                "venue information, events, and membership interest."
+            ),
+            "url": "/",
+            "search_text": json.dumps(lodge_info)
+        })
+
+    return knowledge_items
+
+
+# ============================================================
+# SECTION 8.2.8 — RETRIEVAL ENGINE
+# ============================================================
+
+def retrieve_relevant_knowledge(question, limit=3):
+    scored_items = []
+
+    for item in build_knowledge_index():
+        score = score_text_match(question, item.get("search_text", ""))
+
+        if score > 0:
+            scored_items.append({
+                "score": score,
+                "item": item
+            })
+
+    scored_items.sort(key=lambda result: result["score"], reverse=True)
+
+    return scored_items[:limit]
+
+
+# ============================================================
+# SECTION 8.2.9 — INTENT CLASSIFICATION ENGINE
+# ============================================================
+
+def classify_question_intent(question):
+    lower_question = normalize_text(question)
+
+    intent_map = {
+        "venue_rental": [
+            "venue", "rent", "rental", "space", "meeting", "banquet",
+            "fundraiser", "workshop", "business", "corporate", "private"
+        ],
+        "events": [
+            "event", "events", "debate", "chess", "comedy", "networking",
+            "halloween", "luck", "program", "programs"
+        ],
+        "membership": [
+            "mason", "masonic", "freemason", "freemasonry", "join",
+            "membership", "brotherhood", "petition"
+        ],
+        "location": [
+            "where", "address", "location", "parking", "morristown",
+            "maple", "directions"
+        ],
+        "seo_strategy": [
+            "seo", "google", "search", "rank", "keyword", "traffic",
+            "landing", "page"
+        ]
+    }
+
+    scores = {}
+
+    for intent, terms in intent_map.items():
+        scores[intent] = sum(1 for term in terms if term in lower_question)
+
+    best_intent = max(scores, key=scores.get)
+
+    if scores[best_intent] == 0:
+        return "general_information"
+
+    return best_intent
+
+
+# ============================================================
+# SECTION 8.2.10 — ASSISTANT RESPONSE COMPOSER
+# ============================================================
+
+def compose_retrieval_answer(question):
+    intent = classify_question_intent(question)
+    matches = retrieve_relevant_knowledge(question, limit=3)
+
+    if not matches:
+        return (
+            "I can help with general information about Cincinnati Lodge No. III, "
+            "Morristown Masonic Center, venue rentals, public events, Freemasonry, "
+            "membership interest, community programs, and lodge information. "
+            "For official scheduling, rental approval, pricing, or membership matters, "
+            "please contact the Lodge directly."
+        )
+
+    top_match = matches[0]["item"]
+
+    answer_parts = [
+        f"Based on the Lodge knowledge base, the closest match is: {top_match.get('title')}."
+    ]
+
+    if top_match.get("answer"):
+        answer_parts.append(top_match.get("answer"))
+
+    if intent == "venue_rental":
+        answer_parts.append(
+            "For venue use, scheduling, approval, pricing, and availability, official confirmation should come directly from the Lodge."
+        )
+
+    if intent == "membership":
+        answer_parts.append(
+            "For membership interest, the assistant can provide general educational information, but official membership steps should be handled directly with Cincinnati Lodge No. III."
+        )
+
+    if intent == "events":
+        answer_parts.append(
+            "You can also explore the Events page for current program concepts and event detail pages."
+        )
+
+    related_links = []
+
+    for result in matches:
+        item = result["item"]
+
+        if item.get("url") and item.get("title"):
+            related_links.append(f"{item.get('title')}: {item.get('url')}")
+
+    if related_links:
+        answer_parts.append("Related pages: " + " | ".join(related_links))
+
+    return " ".join(answer_parts)
+
+
+# ============================================================
+# SECTION 8.2.11 — SEO PAGE BUILDER
 # ============================================================
 
 def build_static_page(title, headline, primary_keyword, meta_description, content):
@@ -112,7 +383,7 @@ def build_static_page(title, headline, primary_keyword, meta_description, conten
 
 
 # ============================================================
-# SECTION 6.1.7 — QUESTION LOGGING ENGINE
+# SECTION 8.2.12 — QUESTION LOGGING ENGINE
 # ============================================================
 
 def log_question(question, source="assistant"):
@@ -121,52 +392,16 @@ def log_question(question, source="assistant"):
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     clean_question = question.replace("\n", " ").replace(",", " ")
+    intent = classify_question_intent(question)
 
-    log_line = f"{timestamp},{source},{clean_question}\n"
+    log_line = f"{timestamp},{source},{intent},{clean_question}\n"
 
     with open(QUESTION_LOG_PATH, "a", encoding="utf-8") as file:
         file.write(log_line)
 
 
 # ============================================================
-# SECTION 6.1.8 — SIMPLE ASSISTANT RESPONSE ENGINE
-# ============================================================
-
-def generate_assistant_answer(question):
-    lower_question = question.lower()
-
-    if "event" in lower_question or "rental" in lower_question or "venue" in lower_question:
-        return (
-            "Cincinnati Lodge No. III can provide general information about public events, "
-            "community programs, and venue-use topics. Official availability, rental details, "
-            "pricing, and scheduling should always be confirmed directly through the lodge."
-        )
-
-    if "mason" in lower_question or "membership" in lower_question or "join" in lower_question:
-        return (
-            "Freemasonry is centered on brotherhood, integrity, service, charity, personal growth, "
-            "and moral improvement. Men interested in learning more about membership can use this "
-            "assistant as a starting point, but official membership conversations should happen "
-            "directly with Cincinnati Lodge No. III."
-        )
-
-    if "history" in lower_question or "lodge" in lower_question:
-        return (
-            "Cincinnati Lodge No. III is connected to the historic Masonic tradition in Morristown, "
-            "New Jersey. The lodge website and assistant are being developed to help explain lodge "
-            "history, public programs, community involvement, and general Masonic information."
-        )
-
-    return (
-        "Thank you for your question. This assistant provides general informational guidance about "
-        "Cincinnati Lodge No. III, Freemasonry, lodge history, public events, community involvement, "
-        "venue-use topics, and membership interest. Official lodge matters should be confirmed "
-        "directly with Cincinnati Lodge No. III."
-    )
-
-
-# ============================================================
-# SECTION 6.1.9 — TEMPLATE CONTEXT BUILDER
+# SECTION 8.2.13 — TEMPLATE CONTEXT BUILDER
 # ============================================================
 
 def build_global_context():
@@ -179,7 +414,7 @@ def build_global_context():
 
 
 # ============================================================
-# SECTION 6.1.10 — HOME PAGE ROUTE
+# SECTION 8.2.14 — HOME PAGE ROUTE
 # ============================================================
 
 @app.route("/")
@@ -193,7 +428,7 @@ def home():
 
 
 # ============================================================
-# SECTION 6.1.11 — EVENTS ROUTES
+# SECTION 8.2.15 — EVENTS ROUTES
 # ============================================================
 
 @app.route("/events/")
@@ -222,7 +457,7 @@ def event_detail(slug):
 
 
 # ============================================================
-# SECTION 6.1.12 — CORE SEO LANDING ROUTES
+# SECTION 8.2.16 — CORE SEO LANDING ROUTES
 # ============================================================
 
 @app.route("/venue/")
@@ -302,7 +537,7 @@ def faq_page():
 
 
 # ============================================================
-# SECTION 6.1.13 — SEO INDEX AND DYNAMIC SEO ROUTES
+# SECTION 8.2.17 — SEO INDEX AND DYNAMIC SEO ROUTES
 # ============================================================
 
 @app.route("/seo/")
@@ -358,7 +593,7 @@ def seo_page(slug):
 
 
 # ============================================================
-# SECTION 6.1.14 — ASSISTANT ROUTE
+# SECTION 8.2.18 — ASSISTANT ROUTE
 # ============================================================
 
 @app.route("/assistant/", methods=["GET", "POST"])
@@ -371,7 +606,7 @@ def assistant():
 
         if question:
             log_question(question, source="assistant")
-            answer = generate_assistant_answer(question)
+            answer = compose_retrieval_answer(question)
         else:
             answer = "Please enter a question so the Lodge Assistant can respond."
 
@@ -386,7 +621,43 @@ def assistant():
 
 
 # ============================================================
-# SECTION 6.1.15 — API HEALTH CHECKS
+# SECTION 8.2.19 — ASSISTANT API ROUTES
+# ============================================================
+
+@app.route("/api/assistant/ask/", methods=["POST"])
+def api_assistant_ask():
+    payload = request.get_json(silent=True) or {}
+    question = payload.get("question", "").strip()
+
+    if not question:
+        return jsonify({
+            "status": "error",
+            "message": "Question is required."
+        }), 400
+
+    log_question(question, source="api_assistant")
+
+    matches = retrieve_relevant_knowledge(question, limit=3)
+
+    return jsonify({
+        "status": "success",
+        "question": question,
+        "intent": classify_question_intent(question),
+        "answer": compose_retrieval_answer(question),
+        "matches": [
+            {
+                "score": match["score"],
+                "type": match["item"].get("type"),
+                "title": match["item"].get("title"),
+                "url": match["item"].get("url")
+            }
+            for match in matches
+        ]
+    })
+
+
+# ============================================================
+# SECTION 8.2.20 — API HEALTH AND DATA ENDPOINTS
 # ============================================================
 
 @app.route("/api/health/")
@@ -394,8 +665,9 @@ def api_health():
     return jsonify({
         "status": "healthy",
         "project": "Cincinnati Lodge AI",
-        "version": "6.1.0",
+        "version": "8.2.0",
         "seo_engine": "active",
+        "assistant_engine": "retrieval_based",
         "timestamp": datetime.now().isoformat()
     })
 
@@ -416,8 +688,26 @@ def api_events():
     })
 
 
+@app.route("/api/knowledge-index/")
+def api_knowledge_index():
+    knowledge_items = build_knowledge_index()
+
+    return jsonify({
+        "count": len(knowledge_items),
+        "items": [
+            {
+                "type": item.get("type"),
+                "source": item.get("source"),
+                "title": item.get("title"),
+                "url": item.get("url")
+            }
+            for item in knowledge_items
+        ]
+    })
+
+
 # ============================================================
-# SECTION 6.1.16 — ERROR HANDLERS
+# SECTION 8.2.21 — ERROR HANDLERS
 # ============================================================
 
 @app.errorhandler(404)
@@ -439,7 +729,7 @@ def internal_server_error(error):
 
 
 # ============================================================
-# SECTION 6.1.17 — LOCAL STARTUP
+# SECTION 8.2.22 — LOCAL STARTUP
 # ============================================================
 
 if __name__ == "__main__":
