@@ -34,23 +34,11 @@ Use the Cincinnati Lodge AI Assistant to explore events, venue rentals, Freemaso
 {% block content %}
 
 <!-- ===================================================== -->
-<!-- PROJECT MAPLE / CINCINNATI LODGE AI                  -->
-<!-- FILE: templates/index.html                            -->
-<!-- PHASE 8 — AI CHATBOT HOMEPAGE                         -->
-<!-- BLOCK 8.1 — AI-FIRST HOMEPAGE REBUILD                 -->
-<!-- VERSION 8.1.0                                         -->
-<!-- DATE: 2026-06-14                                      -->
-<!-- PURPOSE: Make the homepage the primary AI chatbot      -->
-<!-- experience while preserving SEO, event discovery,      -->
-<!-- venue conversion, membership education, and future      -->
-<!-- machine learning expansion pathways.                   -->
+<!-- SECTION 8.1.1 — AI CHATBOT FIRST HERO                 -->
+<!-- VERSION 8.1.1 — DIRECT CHAT ENTRY UPGRADE             -->
 <!-- ===================================================== -->
 
-<!-- ===================================================== -->
-<!-- SECTION 8.1.1 — AI HOMEPAGE HERO                      -->
-<!-- ===================================================== -->
-
-<section class="home-hero ai-home-hero">
+<section class="home-hero ai-home-hero" id="ai-chatbot">
 
     <p class="eyebrow">
         Cincinnati Lodge AI · Morristown, New Jersey
@@ -61,48 +49,9 @@ Use the Cincinnati Lodge AI Assistant to explore events, venue rentals, Freemaso
     </h1>
 
     <p class="hero-text">
-        Use Cincinnati Lodge AI to explore Cincinnati Lodge No. III,
-        Morristown Masonic Center, venue rentals, public events,
-        Freemasonry, membership interest, community programs, and local lodge information.
-    </p>
-
-    <div class="hero-actions">
-
-        <a href="#ai-chatbot" class="button-primary">
-            Start Asking
-        </a>
-
-        <a href="/events/" class="button-secondary">
-            View Events
-        </a>
-
-        <a href="/venue/" class="button-secondary">
-            Venue Rentals
-        </a>
-
-    </div>
-
-</section>
-
-<!-- ===================================================== -->
-<!-- SECTION 8.1.2 — PRIMARY AI CHATBOT PANEL              -->
-<!-- ===================================================== -->
-
-<section class="content-section" id="ai-chatbot">
-
-    <p class="section-kicker">
-        AI Command Center
-    </p>
-
-    <h2>
-        What would you like to know?
-    </h2>
-
-    <p>
-        Ask about events, venue rentals, Freemasonry, membership interest,
-        community programs, Morristown Masonic Center, or Project Maple.
-        Every useful question can later support FAQ expansion, SEO pages,
-        intent classification, and future machine learning workflows.
+        Ask about Cincinnati Lodge No. III, Morristown Masonic Center,
+        venue rentals, public events, Freemasonry, membership interest,
+        community programs, and local lodge information.
     </p>
 
     <div class="assistant-command-grid">
@@ -112,18 +61,19 @@ Use the Cincinnati Lodge AI Assistant to explore events, venue rentals, Freemaso
             <form method="POST" action="/assistant/" class="assistant-form">
 
                 <label for="question">
-                    Ask Cincinnati Lodge AI
+                    What would you like to know?
                 </label>
 
                 <textarea
                     id="question"
                     name="question"
                     rows="8"
-                    placeholder="Example: Can the Lodge be used for a business networking event in Morristown?"
+                    autofocus
+                    placeholder="Example: Can I rent the Lodge for a fundraiser in Morristown?"
                 ></textarea>
 
                 <button type="submit" class="button-primary">
-                    Ask the Assistant
+                    Ask Cincinnati Lodge AI
                 </button>
 
             </form>
@@ -137,7 +87,7 @@ Use the Cincinnati Lodge AI Assistant to explore events, venue rentals, Freemaso
             </p>
 
             <h3>
-                Try asking:
+                Start with:
             </h3>
 
             <div class="prompt-list">
@@ -159,6 +109,10 @@ Use the Cincinnati Lodge AI Assistant to explore events, venue rentals, Freemaso
 
 </section>
 
+<!-- ===================================================== -->
+<!-- SECTION 8.1.2 — AI SYSTEM ROADMAP                     -->
+<!-- VERSION 8.1.1 — MOVED BELOW CHAT                      -->
+<!-- ===================================================== -->
 <!-- ===================================================== -->
 <!-- SECTION 8.1.3 — AI SYSTEM ROADMAP                     -->
 <!-- ===================================================== -->
